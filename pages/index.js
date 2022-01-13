@@ -9,7 +9,7 @@ const ThemeToggle = dynamic(() => import("../components/ThemeToggle"), {
 
 export default function Home() {
   return (
-    <main>
+    <>
       <GJHeader />
       <nav>
         <Link href="/about">
@@ -31,6 +31,6 @@ export default function Home() {
       <h6>from</h6>
       <h5>Texas</h5>
       <ThemeToggle />
-    </main>
+    </>
   );
 }
