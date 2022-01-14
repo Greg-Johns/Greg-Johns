@@ -1,3 +1,3 @@
-const GJHeader = () => <header>Greg Johns</header>;
+const GJHeader = () => <header>GREG JOHNS</header>;
 
 export default GJHeader;

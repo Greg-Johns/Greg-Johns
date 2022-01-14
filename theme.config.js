@@ -1,3 +1,7 @@
+// import Footer from "./components/Footer";
+
+const Footer = () => <h1>foo</h1>;
+
 export default {
   head: ({ title, meta }) => (
     <>
@@ -16,5 +20,6 @@ export default {
   },
   darkMode: false,
   font: false,
-  footer: <footer><p>Greg Johns 2022</p></footer>,
+  footer: Footer,
 }
+

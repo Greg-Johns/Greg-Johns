@@ -1,6 +1,6 @@
----
-date: "2015-11-10"
----
+import HmLink from '../../components/HmLink';
+
+<HmLink />
 
 ## About Time
 <time>Nov. 9th, 2021</time>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,900;1,900&display=swap');
 @font-face {
   font-family: 'Nunito';
   src: local('Nunitio'), url(../public/Nunito_Sans/NunitoSans-ExtraBold.ttf) format('truetype');
@@ -6,15 +7,15 @@
 body,
 body[data-theme="light"] {
   --color-text-primary: #27201a;
-  --color-text-secondary: #076963;
-  --color-bg-primary: #fff;
+  --color-text-secondary: #000;
+  --color-bg-primary: #EAE9E9;
   --color-bg-toggle: #1E90FF; 
 }
 
 body[data-theme="dark"] {
   --color-text-primary: #e3e3e3;
-  --color-text-secondary: #ff6b00;
-  --color-bg-primary: #15232d;
+  --color-text-secondary: #EAE9E9;
+  --color-bg-primary: #333;
   --color-bg-toggle: #a9a9a9; 
 }
 
@@ -34,6 +35,7 @@ body {
 /* Layout stuff */
 main{
   display: grid;
+  margin-bottom: 20px;
   grid-template-columns:
     [full-start] minmax(1em, 1fr)
     [main-start] minmax(0, 40em) [main-end] minmax(1em, 1fr)
@@ -185,7 +187,7 @@ figcaption {
 nav {
   padding: 8px;
   color: #96741D;
-  text-align: center;
+  text-align: right;
   border-bottom: 1px dotted #CFA63E;
   margin-bottom: 12px;
 }
@@ -266,16 +268,12 @@ footer span a svg {
 footer span a:hover svg {
   fill: #96741D;
 }
-
-.listLinks li {
+ul {
+  margin: 6px;
+  padding: 0;
+    }
+li {
   list-style: none;
-}
-.listLinks li:before {
-  content: '*';
-  font-size: 28px;
-  font-weight: bold;
-  margin: 4px;
-  color: #E3DAC3;
 }
 
 .listLinks li a {
@@ -316,7 +314,7 @@ time {
   font-size: 11px;
   color: #CFA63E;
   margin-right: 12px;
-  margin-top: -44px;
+  margin-top: -36px;
 }
 article time {
   float: none;
@@ -329,6 +327,10 @@ time::before {
   color: #CFA63E;
   font-size: 12px;
   content: '-.-.-.-.-.-.-.-.-';
+}
+
+section time::before {
+  content: "";
 }
 time span {
   padding: 16px 0;
@@ -348,13 +350,13 @@ a:visited section {
 a:hover section, a section h3 {
   color: #333;
 }
-a section h3 { 
+section h3 { 
   letter-spacing: 0;
   border-bottom: 1px dashed #999;
   transition: color 0.25s ease;
 }
-a section h3:hover {
-  color: #96741D;
+section h3:hover {
+  color: var(--color-text-primary);
   border-bottom: 1px solid #96741D;
 }
 

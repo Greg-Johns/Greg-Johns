@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-/* import { styled, keyframes } from "@emotion/styled";*/
 import styled from "@emotion/styled";
 import { keyframes } from '@emotion/react'
 
@@ -30,9 +29,13 @@ const ToggleButton = styled.button`
 `;
 
 const ThemeToggle = () => {
-  const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
+  const [activeTheme, setActiveTheme] = useState(null);
   const inactiveTheme = activeTheme === "light" ? "dark" : "light";
   const [moonSize, setMoonSize] = useState(0);
+
+  useEffect(() => {
+    setActiveTheme(document.body.dataset.theme); // This is be executed when `loading` state changes
+  }, []);
 
 const bigMoon = keyframes`
   from {
