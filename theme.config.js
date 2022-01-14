@@ -16,5 +16,5 @@ export default {
   },
   darkMode: false,
   font: false,
-  footer: <footer>The personal site of Greg Johns</footer>,
+  footer: <footer><p>Greg Johns 2022</p></footer>,
 }

@@ -13,7 +13,7 @@ path: "/wandering/"
 
   It's also a new year, a time when people look back and reassess, set resolutions and re-focus priorities. I would imagine that "write more" is a common resolve for some, as it has been with me, but new years resolutions always seem like a self-esteem trap. This year I'll settle for just **trying** to write more.
 
-  <figure class='mdFigure'>
+  <figure className='mdFigure'>
     <img src='./ant_rotated.png' alt="ant" />
     <figcaption>M.C. Escher / Möbius Strip II</figcaption>
   </figure>

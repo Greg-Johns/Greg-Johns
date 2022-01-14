@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunitio'), url(../public/Nunito_Sans/NunitoSans-ExtraBold.ttf) format('truetype');
+}
+
 body,
 body[data-theme="light"] {
   --color-text-primary: #27201a;
@@ -425,3 +430,23 @@ blockquote p {
     font-size: 28px;
   }
 }
+
+/* .circle { */
+/*   position: relative; */
+/*   border-radius: 100%; */
+/*   width: 2rem; */
+/*   height: 2rem; */
+/*   background: linear-gradient(40deg, #FF0080,#FF8C00 70%); */
+/*   margin: auto; */
+/* } */
+/* .crescent { */
+/*   position: absolute; */
+/*   border-radius: 100%; */
+/*   right: 0; */
+/*   width: 2rem; */
+/*   height: 2rem; */
+/*   background: white; */
+/*   transform: scale(0); */
+/*   transform-origin: top right; */
+/*   transition: transform .6s cubic-bezier(0.645, 0.045, 0.355, 1); */
+/* } */
