@@ -1,5 +1,4 @@
-<main>
-  ![TeaParty](../../public/teaparty.jpg)
+ ![TeaParty](../../public/teaparty.jpg)
 
   #### Poster design for Math Department
 
@@ -8,4 +7,3 @@
   Small as it was, I enjoy a good print design job every now and then. Working as a desktop print designer was how I got my professional start as a designer and I love the maths. Also, it was just fun to think about advertising a math tea party. I was happy with the result for the couple hours I spent on it so decided to post it here.
 
   > FUN FACT: The wireframe for the teapot is in fact the [Utah teapot](https://en.wikipedia.org/wiki/Utah_teapot)
-</main>

@@ -123,16 +123,22 @@ h1, h2, h3, h4, h5, h6 {
   color: #CFA63E;
 }
 
-.postHeader {
+h2 {
   position: sticky;
   top: 0;
   padding: 18px 0;
   font-size: 32px;
   letter-spacing: -1px;
   text-align: center;
-  background: #fff;
+  background: var(--color-bg-primary);
   color: #96741D;
   z-index: 1000;
+}
+h2::before {
+  content: "~ "
+}
+h2::after {
+  content: " ~"
 }
 
 figure {
@@ -279,7 +285,7 @@ p {
   font-size: 14px;
   font-weight: normal;
   line-height: 1.5;
-  color: #333;
+  color: var(--color-text-primary);
   letter-spacing: 0.8px;
   margin: 0;
 }
@@ -303,6 +309,7 @@ section:last-of-type {
 time {
   float: right; 
   font-size: 11px;
+  color: #CFA63E;
   margin-right: 12px;
   margin-top: -44px;
 }
@@ -312,7 +319,7 @@ article time {
   text-align: center;
   margin-top: -34px;
 }
-time span::before {
+time::before {
   display: block;
   color: #CFA63E;
   font-size: 12px;
@@ -328,6 +335,7 @@ time span {
 a {
   text-decoration: none;
   color: #333;
+  color: var(--color-text-secondary);
 }
 a:visited section {
   color: #999;

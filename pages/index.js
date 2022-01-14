@@ -22,7 +22,6 @@ export default function Home() {
           <a>Art</a>
         </Link>
       </nav>
-      <p>@greg_johns greg_johns.eth Designer/Deverloper/Writer</p>
       <ul>
         <li>@greg_johns</li>
         <li>greg_johns.eth</li>
