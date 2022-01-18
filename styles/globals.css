@@ -3,6 +3,9 @@
   font-family: 'Nunito';
   src: local('Nunitio'), url(../public/Nunito_Sans/NunitoSans-ExtraBold.ttf) format('truetype');
 }
+:root {
+  --color-gold: #bc9531;
+}
 
 body,
 body[data-theme="light"] {
@@ -76,7 +79,7 @@ main> * {
 
 hr {
   clear: both;
-  border: 1px dashed #cfa63e;
+  border: 1px dashed var(--color-gold);
   display: block;
 }
 /* End layout */
@@ -86,7 +89,7 @@ header::before, header::after {
   font-size: 11px;
   text-align: left;
   content: 'Stuff';
-  color: #CFA63E;
+  color: var(--color-gold);
   font-family: 'Lorea';
   font-style: italic;
   letter-spacing: 1px;
@@ -98,7 +101,7 @@ header::after {
   width: 96%;
   text-align: right;
   content: 'wrote';
-  border-bottom: 2px dotted #CFA63E;
+  border-bottom: 2px dotted var(--color-gold);
 }
 header {
   grid-column: main;
@@ -127,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
   font-weight: normal;
   letter-spacing: 1.4px;
-  color: #CFA63E;
+  color: var(--color-gold);
 }
 
 h2 {
@@ -151,7 +154,7 @@ h2::after {
 figure {
   float: left;
   padding: 8px;
-  border: 1px solid #CFA63E;
+  border: 1px solid var(--color-gold);
   margin: 12px 1em 0 0;
   text-align: right;
 }
@@ -171,7 +174,7 @@ figure {
 figcaption {
   line-height: 1;
   font-size: 10px;
-  color: #CFA63E;
+  color: var(--color-gold);
   font-style: italic;
 }
 .mdFigure figcaption {
@@ -188,7 +191,7 @@ nav {
   padding: 8px;
   color: #96741D;
   text-align: right;
-  border-bottom: 1px dotted #CFA63E;
+  border-bottom: 1px dotted var(--color-gold);
   margin-bottom: 12px;
 }
 nav a {
@@ -230,7 +233,7 @@ footer::before {
   margin-left: 2%;
   width: 96%;
   content: ' ';
-  border-top: 2px dotted #CFA63E;
+  border-top: 2px dotted var(--color-gold);
 }
 footer {
   border-top: 1px solid #96741D;
@@ -310,21 +313,22 @@ section:last-of-type {
 }
 
 time {
-  float: right; 
+  float: none; 
+  display: block;
   font-size: 11px;
-  color: #CFA63E;
+  color: #999;
   margin-right: 12px;
   margin-top: -36px;
-}
-article time {
-  float: none;
-  display: block;
   text-align: center;
+}
+section time {
+  float: right;
+  display: block;
   margin-top: -34px;
 }
 time::before {
   display: block;
-  color: #CFA63E;
+  color: #bc9531;
   font-size: 12px;
   content: '-.-.-.-.-.-.-.-.-';
 }
@@ -335,7 +339,7 @@ section time::before {
 time span {
   padding: 16px 0;
   width: 280px;
-  color: #CFA63E;
+  color: #333;
   border-top: 1px solid #96741D;
 }
 
@@ -366,7 +370,7 @@ article p {
 
 article a {
   font-weight: 600;
-  text-decoration: #CFA63E wavy underline;
+  text-decoration: var(--color-gold) wavy underline;
 }
 article a:hover {
   text-decoration: #96741D dotted underline;
