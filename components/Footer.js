@@ -3,11 +3,8 @@ import ThemeToggle from "./ThemeToggle";
 const Footer = () => (
   <footer>
     <p>
-      Greg Johns | N.E. Texas | 2022
-      <ul>
-        <li>gregjohns.eth</li>
-        <li>@greg_johns</li>
-      </ul>
+      This is the personal website of Greg Johns a designer, developer, technology tinkerer & middle-road maxi from Texas ya’ll.
+      <b>Greg Johns 2022</b>
     </p>
     <ThemeToggle />
   </footer>

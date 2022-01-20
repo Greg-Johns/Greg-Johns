@@ -1,3 +1,4 @@
+import Footer from '../../components/Footer';
 import HmLink from '../../components/HmLink';
 
 <HmLink />
@@ -14,3 +15,5 @@ Verizon liked the idea and patented it. But alas, the *time* was not right, prio
 [TimeWinder](./TimeWinder.pdf)
 
 > This was pitched at the dawn of the smart phone to help set the "mood" of the interface.
+
+<Footer />

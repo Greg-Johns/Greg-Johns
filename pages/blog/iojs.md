@@ -1,10 +1,13 @@
-import HmLink from "../../components/HmLink.js";
+import Footer from '../../components/Footer';
+import HmLink from '../../components/HmLink';
 
 <HmLink />
+#
 
 ## io.js
+<time>Nov. 9th, 2021</time>
 
-![io](https://rawgithub.com/Gajit/logos/master/logos/hex-3d/io.svg)
+get svg img
 
 #### Logo design for io.js
 
@@ -13,3 +16,5 @@ When some of the core [node.js](https://nodejs.org) developers branched the proj
 I don't think io.js ever got to an official logo before being merged back to the node project, but as my time is mainly spent on development, issues now it was fun to jump back to Illustrator and mess around for a while.
 
 ![io.js card](../../public/io_bc.jpg)
+
+<Footer />

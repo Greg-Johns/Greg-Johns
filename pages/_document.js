@@ -12,7 +12,7 @@ class MyDocument extends Document {
         if(window.localStorage.getItem('theme')) {
           return window.localStorage.getItem('theme')
         }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches 
+        return window.matchMedia('(prefers-color-scheme: light)').matches 
           ? 'dark' 
           : 'light'
       }
