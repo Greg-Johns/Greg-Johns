@@ -8,7 +8,6 @@
   --color-gold-light: #E0D5D5;
   --color-gold-dark: #514C48;
 }
-
 body,
 body[data-theme="light"] {
   --color-text-primary: #27201a;
@@ -206,6 +205,9 @@ nav a {
 
 nav a:hover {
   color: #f7f6f4;
+}
+.active {
+  color: var(--color-gold-light);
   background: #8e7777;
 }
 
