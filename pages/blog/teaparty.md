@@ -3,8 +3,8 @@ import HmLink from '../../components/HmLink';
 
 <HmLink />
  
-## Tea Party
-<time>Nov. 9th, 2021</time>
+## The Tea Party
+<time>Mar. 4th, 2018</time>
  
  ![TeaParty](../../public/teaparty.jpg)
 

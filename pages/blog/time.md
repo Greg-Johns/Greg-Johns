@@ -3,8 +3,10 @@ import HmLink from '../../components/HmLink';
 
 <HmLink />
 
-## About Time
-<time>Nov. 9th, 2021</time>
+## It's About Time
+<time>Nov. 10th, 2015</time>
+
+![TimeWinder](../../public/unwinding.jpg)
 
 While working in Verizon's R&D lab's I had some *time* to think about *time*. Not just as it pertains to the users experience but also as a function of the system itself, like a clock interface. This helps you think about all sorts of things as potential interfaces to measures *time*.
 

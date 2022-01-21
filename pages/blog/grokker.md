@@ -4,7 +4,7 @@ import HmLink from '../../components/HmLink';
 <HmLink />
  
 ## Grokker
-<time>Nov. 9th, 2021</time>
+<time>Jul. 3rd, 2014</time>
 
 #### *Question:*
 

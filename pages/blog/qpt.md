@@ -4,7 +4,7 @@ import HmLink from '../../components/HmLink';
 <HmLink />
  
 ## A Quicker Pricing Tool
-<time>Nov. 9th, 2021</time>
+<time>Feb. 6th, 2015</time>
 
 Today I finally got to do something I've been wanting to do for a while.
 
