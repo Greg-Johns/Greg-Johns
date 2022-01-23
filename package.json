@@ -8,7 +8,7 @@
     "start": "next start",
     "build": "next build"
   },
-  "author": "Shu Ding",
+  "author": "Greg Johns",
   "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -19,8 +19,7 @@
     "nextra-theme-docs": "^1.2.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "styled-components": "^5.3.3",
-    "use-dark-mode": "^2.3.1"
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "prettier": "^2.0.5"
