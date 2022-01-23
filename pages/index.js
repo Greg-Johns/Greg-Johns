@@ -14,7 +14,7 @@ export default function Home() {
           <h3>The Tea Party</h3>
           <time>04 Mar. 2018</time>
           <p>
-            A Faculty, Math Students, Information, conversations + Tea Party = ?
+            Math students + information + conversations + tea = Party
           </p>
         </section>
       </Link>

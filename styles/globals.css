@@ -191,6 +191,9 @@ nav {
   color: #96741D;
   text-align: right;
 }
+nav:hover {
+  background-color: var(--color-bg-secondary);
+  }
 nav a {
   padding: 4px 8px;
   margin: 4px;
@@ -205,10 +208,11 @@ nav a {
 
 nav a:hover {
   color: #f7f6f4;
+  background-color: var(--color-gold);
 }
 .active {
   color: var(--color-gold-light);
-  background: #8e7777;
+  background: var(--color-gold-dark);
 }
 
 .homeLink {
