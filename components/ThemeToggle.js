@@ -3,32 +3,6 @@ import styled from "@emotion/styled";
 import { keyframes } from '@emotion/react'
 import sunshine from '../public/sunshine.svg';
 
-const ToggleButton = styled.button`
-  --toggle-width: 30px;
-  --toggle-height: 30px;
-  --toggle-padding: 2px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 28px;
-  height: 28px;
-  border-radius: calc(var(--toggle-width) / 2);
-  cursor: pointer;
-  background: var(--color-bg-toggle);
-  background: #e2e2e2;
-  transition: background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-  &:focus {
-    outline-offset: 5px;
-  }
-  &:focus:not(:focus-visible) {
-    outline: none;
-  }
-  &:hover {
-    box-shadow: 0 0 5px 2px var(--color-bg-toggle);
-  },
-`;
-
 const ThemeToggle = () => {
   const [activeTheme, setActiveTheme] = useState(null);
   const inactiveTheme = activeTheme === "light" ? "dark" : "light";
@@ -52,21 +26,24 @@ const ThemeToggle = () => {
   `;
 
   const Svg = styled.svg`
+    border-radius: 100%;
     &:hover {
       animation: shine 2s linear infinite;
     }
     opacity: ${stat};
   `;
 
+    // opacity: ${stat};
   const Moon = styled.span`
+    transform: translateZ(0);
     position: absolute;
     border-radius: 100%;
     width: 1rem;
     height: 1rem;
-    margin-top: 12.5px;
+    margin-top: 12px;
     margin-left: 1px;
     background: var(--color-gold);
-    box-shadow: inset 4px 0 0 var(--color-bg-primary);
+    box-shadow: 0 0 10px #ccc, inset 4px 0 0 var( --color-bg-primary);
     outline: 4px solid khaki;
     outline: 2px solid var(--color-gold);
   `;
