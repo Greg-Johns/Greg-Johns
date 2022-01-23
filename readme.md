@@ -1,4 +1,4 @@
-## Greg Who???
+## Greg Who?
 
 This is the personal website of Greg Johns, a collection of projects, writings and other random stuff. The site's design & development have changed many times over many long years. I mean a many long years, like since the late 90's since before the word ***blog***, the blog's entries have been written & deleted, the technology has been implemented & removed, The one thing that has remained the same in these twenty something years has been my obsession with handcrafting my own website that almost no one visits.
 
