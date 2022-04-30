@@ -191,9 +191,7 @@ nav {
   color: #96741D;
   text-align: right;
 }
-nav:hover {
-  background-color: var(--color-bg-secondary);
-  }
+
 nav a {
   padding: 4px 8px;
   margin: 4px;
