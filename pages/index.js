@@ -12,7 +12,10 @@ export default function Home() {
       <Link href="blog/web3">
         <section>
           <h3>Web 3</h3>
-          <time>0</time>
+          <time>04 May 2022</time>
+          <p>
+            Web 3, WWW3, W3, ... What is it? Is it a big ponzie scheme? Is it the future? Or is it ...
+          </p>
         </section>
       </Link>
       <Link href="blog/teaparty">
