@@ -9,6 +9,12 @@ export default function Home() {
     <>
       <GJHeader premsg="Stuff" postmsg="wrote" />
 
+      <Link href="blog/web3">
+        <section>
+          <h3>Web 3</h3>
+          <time>0</time>
+        </section>
+      </Link>
       <Link href="blog/teaparty">
         <section>
           <h3>The Tea Party</h3>
