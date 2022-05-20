@@ -3,19 +3,17 @@ import HmLink from '../../components/HmLink';
 
 <HmLink />
  
-## Web 3 too Me
+## Web 3 & Me
 <time>May. 4th, 2022</time>
 
-Web 3, WWW3, W3, ... What is it? Is it a big ponzi scheme? Is it the future? Or is it ...
+I'll admit it, I'm one of those guys who talks too much about blockchains and cryptocurrency to his non-crypto friends. More specifically I talk about Ethereum or what's now being called Web 3. I know, it's annoying but I only bring it up when the conversation starts drying up. As a programmer, programmable value is something I genuinely get exciting about so why not share.  The problem I find is that ***If*** the listener shows any real interest it's usually because they've bought into some coin or worse some cartoon NFT and their just interested in **number go up**. That's to be expected and understandable for sure but what I try to bring to these "get rich" conversations is the much deeper crypto conversation that needs to start happening for wider adoption. I try to talk about how blockchains bypasses a lot of the big issues found in most centralized web 2 solutions and how it opens up the design space for human coordination games.
 
-### World War Web
+What can we build on a trusted, or **Trustless** connection of computers all over the world that can reach consensus on a shared state? For starters we could build a new type of digital scarcity token that people could use for a peer to peer payment system. This is what the annonymous ***Satoshi Nakamoto*** did with the Bitcoin project. A few years later a young, bright minded [Vitalik Buterin](https://vitalik.ca) expanded on bitcoin with the addition of trusted computation or smart contracts. It was this **smart contract** idea that struck me most. Once that idea was established then all these dualistic ideas of decentralization/democracy, trust/game theory, sovereignty/society and many more started flooded my mind. The rabbit hole analogy is a good one, the cryptocurrency, web 3 space is full of deep subjects to fill your time.
 
-  So what's going on?
+I still remember over hyped dreams of the web 1 days so will try not to be so optimistic this time around but for me being a web developer has always felt a little like building the future, your making something new for someone at some time in the future to experience and since the future is shaped in part by our ideas of today then you're selling yourself short if you don't dream big and hope for the best. As John Perry Barlow once said,
 
-For sure, I don't know but as someone who's been through a few crypto cycles, Web 2, the internet bubble and Web 1 of course I would like to find out. I'll try to post some about what I find along the way and am giving myself **bad writers license** now so that won't be a blocker for me and hopefully, besides being writing exercise for myself it might be useful to the stray web traveler somewhere out there.
+> "a good way to invent the future is to predict it. So I predicted Utopia"
 
-#### Nabster, Cryptography & Decentralization
+The web 3 space may not be ready for prime time, industrial grade, global scale applications yet but that's fine. There is a lot more exploring to do in this new wild west. As more experiments happen the ones that best serve the core principles of the ecosystem should find support, ponzie's and scames may never go ever go away completely but hopefully with more adoption will come more understanding which should make it harder to find victims. One step in this direction is the [Optimism Collective](https://app.optimism.io/governance) that's looking to [**retroactivly** fund public goods](https://medium.com/ethereum-optimism/retroactive-public-goods-funding-33c9b7d00f0c) and help sustain the future of Ethereum. On second thought maybe I'll keep some of that optimism as it might well be ___the___ core principle of Ethereum.
 
-As a techie my interest in blockchain's, smart contracts and the web 3's starts from my more science side f mind. I'm not sure the year I heard about bitcoin but it was around the time I had been using ***Git*** for a while that got me looking into Merkle tree's, I remember the Napster music sharing peer to peer revolution and had tinkered with some real-time socket connections in Node so when I read the white paper It made sense.  A lot of sense, shoot I still remember John Perry Barlow's call. I didn't really do anything at the time I just remember thinking it was a great idea and if I wasn't such a lazy, no good whatever then I should buy some. That's not the point. The point is it made a lot of sense so when Ethereum came along with not only the ability to make programable, decentralized "money" value but could also store and run code and therefore anything that can be represented in code, it a trustless environment then consider mind = blown.
-
-
+<Footer />

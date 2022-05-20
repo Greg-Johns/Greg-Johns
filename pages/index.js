@@ -11,10 +11,10 @@ export default function Home() {
 
       <Link href="blog/web3">
         <section>
-          <h3>Web 3</h3>
+          <h3>Web 3 & Me</h3>
           <time>04 May 2022</time>
           <p>
-            Web 3, WWW3, W3, ... What is it? Is it a big ponzie scheme? Is it the future? Or is it ...
+            I'll admit it, I'm one of those guys who talks too much about blockchains. This is my cryto confession...
           </p>
         </section>
       </Link>
