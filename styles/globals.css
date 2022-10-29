@@ -381,7 +381,7 @@ section:hover h3, section:hover time {
 }
 
 article p {
-  margin: 32px 0;
+  margin: 24px 0;
 }
 
 article p a {
@@ -414,7 +414,7 @@ article .artboard img:hover {
 }
 
 code {
-  padding: 10px;
+  padding: 4px 8px;
   border-radius: 4px;
   background-color: #222;
   color: #05d805;
@@ -495,3 +495,4 @@ blockquote p {
   background-color: red;
   border: 3px solid pink;
 }
+
