@@ -1,10 +1,10 @@
 ## About
 
-This is the personal website of Greg Johns. I'm a long time web designer and developer that falls somewhere between to old for the social webs and micro blogging but young enough to still want to keep something of a "personal" social site or blog or whatever, it's my collection of projects, writings and other random stuff. The site's design & development have changed many times over many long years but the one thing that has remained the same in these twenty something years has been my obsession with designing & handcrafting my own site that no one visits.
+This is the personal website of Greg Johns. I work as a senior software engineer for CBRE with a background in art and visual design. I have been building on the web for over 20 years, way before it was cool (if it ever was) back when it was just the web, the read-only, table based web sites of the late 90's. 
 
-Something about myself, I would like to think that I'm a passionate creator, builder and tinkerer of things. Most virtual some real. Some useful some not so much. I'm a software engineer and have been for a long time. I've worked for mom & pop shops to big corp America. First as a user experience designer and later as a software engineer where I now build web applications for CBRE an American commercial real estate services and investment firm. 
+I've kept a personal site of some form up for about as long as I've worked in this space and this is that site. My online collection of favorite projects, writings and other random stuff. I like to maintain a personal site  because it was one of the first things that attracted me to the web oh so long ago and for some amount of self satisfaction that comes writing. Also, it helps give me an outlet for my own personal expressions and to get away from all the conformity that comes with working on large web projects with specific business needs.
 
-Aside from work I have a beautiful wife and daughter, two cats and a dog that keep me busy. I like being outdoors when I'm not with a computer where I'm usually somewhere down the crypto rabbit whole.
+Something about myself, I would like to think that I'm a passionate creator, builder and tinkerer of things. Most virtual some real. Some useful some not so much. I've worked for mom & pop shops to big corp America. First as a user experience designer and later as a software engineer. Aside from work I have a beautiful wife and daughter, two cats and a dog that keep. I like being outdoors when I'm not with a computer where I'm ether working or somewhere down a crypto rabbit hole.
 
 [Greg Johns](https://greg-johns.vercel.app/)
 

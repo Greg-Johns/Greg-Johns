@@ -1,8 +1,8 @@
 import ActiveLink from "./ActiveLink";
-import styled from "@emotion/styled";
-import { useRouter } from "next/router";
+// import styled from "@emotion/styled";
+// import { useRouter } from "next/router";
 
-const MainNav = (props) => {
+const MainNav = () => {
 
   return (
     <nav>

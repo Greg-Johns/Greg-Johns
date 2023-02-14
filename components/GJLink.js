@@ -9,7 +9,7 @@ const GJLink = ({ children, href }) => {
   return (
     <Link href={href}>
       {React.cloneElement(child, {
-        "aria-current": router.pathname === href ? "page" : null
+        "aria-current": router.pathname === href ? "pages" : null
       })}
     </Link>
   );
