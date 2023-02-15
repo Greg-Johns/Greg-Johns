@@ -6,7 +6,7 @@ import me from '../../../public/me.jpg'
 
 export default function About() {
   return (
-    <article>
+    <>
       <nav>
         <Link href="/">
           Wrote
@@ -19,11 +19,16 @@ export default function About() {
         </Link>
       </nav>
 
-      <Image className="meImg" src={me} alt="me" />
+      <p><Image className="meImg" src={me} alt="me" /></p>
 
-      <ReadMe />
 
-    </article>
+      <h3>Stuff about Greg</h3>
+      
+      <ReadMe /> 
+
+      <Link href="https://greg-johns.vercel.app/">
+        Greg Johns
+      </Link>
+    </>
   )
 }
-

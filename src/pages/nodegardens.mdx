@@ -1,5 +1,5 @@
-import { MarkdownLayout } from './MarkdownLayout'
-import Gallery from './Gallery'
+import GalleryLayout from '../app/components/GalleryLayout'
+import Gallery from '../app/components/Gallery'
 
 ## Node Gardens
 <time>Feb. 6th, 2023</time>
@@ -48,4 +48,4 @@ export const meta = {
   author: 'Greg Johns'
 }
 
-export default ({ children }) => <MarkdownLayout meta={meta}>{children}</MarkdownLayout>
+export default ({ children }) => <GalleryLayout meta={meta}>{children}</GalleryLayout>
