@@ -1,0 +1,25 @@
+import { MarkdownLayout } from './MarkdownLayout'
+
+## Time Winder
+<time>Nov. 10th, 2015</time>
+
+
+![TimeWinder](../../unwinding.jpg)
+
+While working at Verizon's R&D lab I had some *time* to think about *time*. Not just as it pertains to the users experience but also as a function of the system itself, like a clock interface. This helps you think about all sorts of things as potential interfaces to measures *time*.
+
+One of the more interesting ideas I had from this time thinking about *time* was a theoretical scheduling application for touch screen phones that I called TimeWinder. The interesting part being in the way interface displaed the time of day and how users interacted with their schedule in a intuitive and fun way.
+
+![TimeWinder Screens](../../timewinder_screens.png)
+
+The screens above show the basic idea where a day is represented in this 'winding timeline'. The starting point of the line is on the top of the screen to represent 12:00 a.m., the beginning of a day and the bottom point represents 12:00 p.m. A users daily schedule would be marked on this timeline. Through the middle of the screen is a 'time horizon' line with a current time marker on it. The time marker can be dragged left to right on the horizon line to scrub through a day's schedule. As the user slide the time marker right or left the time line would wind up or down, when a appoitment hits the time horizon appoitment detail would be revieled and can be acted on.
+
+Verizon liked the idea and patented it. But alas, the *time* was not right, priorities change and the idea was never implemented but I still like the idea and so into my digital junk draw it goes.
+
+[TimeWinder](./TimeWinder.pdf)
+
+export const meta = {
+  author: 'Greg Johns'
+}
+
+export default ({ children }) => <MarkdownLayout meta={meta}>{children}</MarkdownLayout>
