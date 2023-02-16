@@ -1,4 +1,4 @@
-import '../globals.css'
+import './globals.css'
 import Footer from './Footer'
 import HmLink from './HmLink'
 import React from 'react'
