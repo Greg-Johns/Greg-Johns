@@ -70,6 +70,8 @@ p img {
 }
 .meImg {
   height: 53%;
+  margin-top: -24px;
+  z-index: 1;
 }
 
 .carouselText {
@@ -217,6 +219,7 @@ nav {
 
 nav::after {
   display: block;
+  position: relative;
   margin-left: 2%;
   width: 96%;
   content: ' ';
@@ -418,16 +421,16 @@ section:hover h3, section:hover time {
   border-bottom: 1px solid #96741D;
 }
 
-article p {
+p {
   margin: 24px 0;
 }
 
-article p a {
+p a {
   font-weight: 600;
   text-decoration: var(--color-gold) wavy underline;
 }
-article p a:hover {
-  text-decoration: #96741D dotted underline;
+p a:hover {
+  text-decoration: #96741D solid underline;
 }
 
 article .artboard {
