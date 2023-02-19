@@ -24,7 +24,7 @@ export default function Home() {
 
       <Link href="nodegardens">
         <section>
-          <h3>Node Gardens</h3>
+          <h3>Node Farming</h3>
           <time>06 Feb. 2023</time>
         </section>
       </Link>
