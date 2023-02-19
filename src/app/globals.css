@@ -30,7 +30,6 @@ body h1 {
   display: none;
 }
 
-
 body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
@@ -74,14 +73,26 @@ p img {
   z-index: 1;
 }
 
-.carouselText {
-  float: left;
-  width: 300px;
+.pic_box {
+  display: flex;
 }
-.carouselSm {
-  float: left;
-  margin-left: 14px;
-  width: 300px;
+
+/* .pic_box p { */
+/*   margin-left: 20px; */
+/* } */
+
+.pic_box p:first-child {
+  padding: 0 10px;
+}
+
+.pic_box img {
+  /* scale: 1.2; */
+  /* padding: 0 40px; */
+  width: 200px;
+  height: 240px;
+}
+.pic_box img:hover {
+  scale: 1.2;
 }
 
 hr {
@@ -345,7 +356,7 @@ p {
   color: var(--color-text-primary);
   letter-spacing: 0.8px;
   margin: 0;
-  margin: 12px 0;
+  margin-bottom: 12px;
 }
 
 .intro::first-letter {
@@ -421,10 +432,6 @@ section:hover h3, section:hover time {
   border-bottom: 1px solid #96741D;
 }
 
-p {
-  margin: 24px 0;
-}
-
 p a {
   font-weight: 600;
   text-decoration: var(--color-gold) wavy underline;
@@ -477,25 +484,39 @@ blockquote p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0;
-  border-bottom: 1px dashed lightgray;
+  border-bottom: 1px dashed #888;
 }
 
-.stuffList section div h6, .stuffList li div p {
-  margin: 8px;
+.stuffList h6, .stuffList p {
+  margin: 0 0 0 18px;
+}
+
+.stuffList h6 {
+  color: var(--color-gold);
   font-size: 1rem;
 }
+.stuffList p {
+  color: var(--color-text-primary);
+  font-size: .7rem;
+  line-height: .8rem;
+}
 
-.stuffList section img {
+.stuffList img {
   display: inline-block;
   height: 60px;
-  width: 140px;
-  margin-right: 20px;
+  max-width: 140px;
 }
 
 .stuffList section:hover {
-  background-color: rgba(20, 20, 20, 0.1);
-  border-bottom: 1px solid gray;
+  background-color: rgba(20, 20, 20, 0.01);
+  border-bottom: 1px solid var(--color-gold);
+}
+
+.stuffBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 10px 0;
 }
 
 .splash {
@@ -523,6 +544,7 @@ blockquote p {
   display: flex;
   overflow: scroll;
   padding: 0 40px;
+  margin-bottom: 20px;
   --thumbBG: var(--color-gold);
   /* border-bottom: 1px dashed var(--color-gold-light); */
 }
@@ -532,11 +554,14 @@ blockquote p {
 
 .gallery img {
   padding: 40px;
+  scale: 0.9;
   /* border: 20px solid var(--color-bg-primary); */
 }
 
 .gallery img:hover {
   opacity: 1;
+  transform: scale(1.1, 1.1);
+  /* transform: translate(2px, 2px); */
 }
 
 @media only screen and (max-width: 600px) {

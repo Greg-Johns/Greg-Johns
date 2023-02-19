@@ -5,17 +5,24 @@ import { keyframes } from '@emotion/react'
 
 const ThemeToggle = () => {
   const [stat, setStat] = useState(1);
-
   const [theme, setTheme] = useState(
-    typeof window !== "undefined" ? localStorage.theme : "light"
+    typeof window !== 'undefined' ? localStorage.theme : 'light'
   );
 
-  function onThemeToggle () {
-    console.log('theme', theme)
+  function toggleTheme () {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     document.body.dataset.theme = newTheme;
     localStorage.setItem('theme', newTheme);
+    setTheme(newTheme);
+    newTheme === 'dark' ? setStat(0) : setStat(1);
   }
+
+  useEffect(() => {
+    console.log('theme:', theme)
+    setTheme(typeof window !== 'undefined' ? localStorage.theme : 'light');
+    document.body.dataset.theme = theme;
+    /* toggleTheme(); */
+  }, [theme]);
 
   const shine = keyframes`
     from {
@@ -54,7 +61,7 @@ const ThemeToggle = () => {
   `;
 
   return (
-    <Span onClick={() => onThemeToggle()}>
+    <Span onClick={() => toggleTheme()}>
       <Moon />
       <Svg
         aria-label={`Change theme`}
