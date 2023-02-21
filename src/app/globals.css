@@ -66,10 +66,12 @@ main> * {
 p img {
   width: 110%;
   margin-left: -5%;
+  margin-top: 20px;
 }
 .meImg {
   height: 53%;
-  margin-top: -24px;
+  margin-top: -1px;
+  border-top: 1px solid var(--color-gold);
   z-index: 1;
 }
 
@@ -92,7 +94,7 @@ p img {
   height: 240px;
 }
 .pic_box img:hover {
-  scale: 1.2;
+  scale: 1.1;
 }
 
 hr {
@@ -255,6 +257,8 @@ nav a:hover {
 .active {
   /* color: var(--color-gold-light); */
   padding-bottom: 3px;
+  position: relative;
+  z-index: 1001;
   color: var(--color-text-primary);
   border-bottom: 4px solid var(--color-gold);
 }
@@ -309,6 +313,11 @@ article footer p, footer p {
   padding: 0;
   margin: 20px 10%;
 }
+
+article p:first-of-type {
+  margin-top: 20px;
+}
+
 footer b {
   display: block;
   font-size: 11px;
@@ -554,13 +563,11 @@ blockquote p {
 
 .gallery img {
   padding: 40px;
-  scale: 0.9;
   /* border: 20px solid var(--color-bg-primary); */
 }
 
 .gallery img:hover {
   opacity: 1;
-  transform: scale(1.1, 1.1);
   /* transform: translate(2px, 2px); */
 }
 

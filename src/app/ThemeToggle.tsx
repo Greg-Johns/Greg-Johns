@@ -18,10 +18,8 @@ const ThemeToggle = () => {
   }
 
   useEffect(() => {
-    console.log('theme:', theme)
     setTheme(typeof window !== 'undefined' ? localStorage.theme : 'light');
     document.body.dataset.theme = theme;
-    /* toggleTheme(); */
   }, [theme]);
 
   const shine = keyframes`

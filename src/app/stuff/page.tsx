@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import nodegardens from '../../../public/genart/ng/nodegardens.jpg'
+import sites from '../../../public/sites.jpg'
+import drawings from '../../../public/drawings.jpg'
 
 export default function Stuff() {
   return (
@@ -17,35 +19,13 @@ export default function Stuff() {
         </Link>
       </nav>
 
-      <p>Some opening text.</p>
 
-      <h3>Art stuff</h3>
+      <h3>Stuff</h3>
       <p>
-        A collection of hand drawn, computer illustrations & generative art stuff.
+        A collection of hand drawings, computer illustrations, designs & generative art stuff.
       </p>
       <div className='stuffList'>
         <Link href='../../nodegardens'>
-          <section>
-            <Image src={nodegardens} alt='me' />
-            <div className='stuffBlock'>
-              <h6>Node Garden Series</h6>
-              <p>Early generative art experiments done in Processing language.</p>
-            </div>
-          </section>
-          <section>
-            <Image src={nodegardens} alt='me' />
-            <div className='stuffBlock'>
-              <h6>Node Garden Series</h6>
-              <p>Early generative art experiments done in Processing language. This is a longer text stuff stuff.</p>
-            </div>
-          </section>
-          <section>
-            <Image src={nodegardens} alt='me' />
-            <div className='stuffBlock'>
-              <h6>Node Garden Series</h6>
-              <p>Early generative art</p>
-            </div>
-          </section>
           <section>
             <Image src={nodegardens} alt='me' />
             <div className='stuffBlock'>
@@ -54,63 +34,12 @@ export default function Stuff() {
             </div>
           </section>
         </Link>
-      </div>
-
-      <h3>Design stuff</h3>
-      <p>
-        A collection of hand drawn, computer illustrations & generative art stuff.
-      </p>
-      <div className='stuffList'>
-        <Link href='../../nodegardens'>
+        <Link href='../../drawings'>
           <section>
-            <Image src={nodegardens} alt='me' />
+            <Image src={drawings} alt='me' />
             <div className='stuffBlock'>
-              <h6>Node Garden Series</h6>
-              <p>Early generative art experiments done in Processing language.</p>
-            </div>
-          </section>
-          <section>
-            <Image src={nodegardens} alt='me' />
-            <div className='stuffBlock'>
-              <h6>Node Garden Series</h6>
-              <p>Early generative art experiments done in Processing language. This is a longer text stuff stuff.</p>
-            </div>
-          </section>
-          <section>
-            <Image src={nodegardens} alt='me' />
-            <div className='stuffBlock'>
-              <h6>Node Garden Series</h6>
-              <p>Early generative art</p>
-            </div>
-          </section>
-        </Link>
-      </div>
-
-      <h3>Music stuff</h3>
-      <p>
-        A collection of hand drawn, computer illustrations & generative art stuff.
-      </p>
-      <div className='stuffList'>
-        <Link href='../../nodegardens'>
-          <section>
-            <Image src={nodegardens} alt='me' />
-            <div className='stuffBlock'>
-              <h6>Node Garden Series</h6>
-              <p>Early generative art experiments done in Processing language.</p>
-            </div>
-          </section>
-          <section>
-            <Image src={nodegardens} alt='me' />
-            <div className='stuffBlock'>
-              <h6>Node Garden Series</h6>
-              <p>Early generative art experiments done in Processing language. This is a longer text stuff stuff.</p>
-            </div>
-          </section>
-          <section>
-            <Image src={nodegardens} alt='me' />
-            <div className='stuffBlock'>
-              <h6>Node Garden Series</h6>
-              <p>Early generative art</p>
+              <h6>Drawings</h6>
+              <p>Some way back drawings and stuff</p>
             </div>
           </section>
         </Link>
