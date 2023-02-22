@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import React from 'react';
 
-export default function Gallery({ images }: { images: [string] }) {
+export default function Gallery({ dir, images }: { dir: string, images: [string] }) {
 
   return (
     <div className='gallery'>
       {images?.map((image) => (
           <Image
             key={image}
-            src={`/genart/ng/${image}.jpg`}
+            src={`/${dir}/${image}.jpg`}
             alt={image}
             width='500'
             height='500'
