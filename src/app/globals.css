@@ -275,6 +275,7 @@ nav a:hover {
   border-radius: 50%;
   z-index: 1001;
   transition: background 0.5s ease;
+  scale: .8;
 }
 .homeLink svg {
   padding: 11px 0 0 14px;
@@ -579,6 +580,12 @@ blockquote p {
   /* .meImg { */
   /*   height: 40%; */
   /* } */
+  .gj {
+    display: none;
+  }
+  .gallery * {
+    opacity: 1;
+  }
   .gallery {
     padding: 0 6px;
   }
