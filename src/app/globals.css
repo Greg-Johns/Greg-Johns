@@ -376,7 +376,7 @@ li {
 p {
   font-size: 14px;
   font-weight: normal;
-  line-height: 1.5;
+  line-height: 1.2;
   color: var(--color-text-primary);
   letter-spacing: 0.8px;
   margin: 0;
@@ -561,29 +561,48 @@ blockquote p {
   border-radius: 6px;
   border: 3px solid none;
 }
+
 .gallery {
+  margin: 0 40px;
+  /* background-color: black; */
+  display: grid;
   grid-column: span 3;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: scroll;
-  padding: 0 40px;
-  margin-bottom: 20px;
-  --thumbBG: var(--color-gold);
-  /* border-bottom: 1px dashed var(--color-gold-light); */
+  grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+  gap: 1.2rem;
 }
+
 .gallery * {
-  opacity: 0.4;
+  /* padding: 0 10px; */
+  /* opacity: 0.8; */
+  background-color: black;
+  border-radius: 2%;
+  /* transform: scale(0.6); */
+  /* transform: scale(0.8); */
+}
+
+.gallery:hover * {
+  padding: 0;
+}
+
+.gallery_item {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .gallery img {
-  padding: 40px;
-  /* border: 20px solid var(--color-bg-primary); */
+  transition: transform 280ms ease-out;
+  width: 500px;
+  height: 300px;
+  padding: 0;
+  transform: scale(.8);
 }
 
 .gallery img:hover {
   opacity: 1;
-  /* transform: translate(2px, 2px); */
+  transform: scale(1.4);
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
@@ -600,11 +619,8 @@ blockquote p {
   .gallery * {
     opacity: 1;
   }
-  .gallery {
-    padding: 0 6px;
-  }
   .gallery img {
-    padding: 20px;
+    padding: 20px 0;
     width: 340px;
     height: 340px;
   }
