@@ -4,9 +4,9 @@ import styled from "@emotion/styled";
 import { keyframes } from '@emotion/react'
 
 const ThemeToggle = () => {
-  const [stat, setStat] = useState(1);
+  const [stat, setStat] = useState(0);
   const [theme, setTheme] = useState(
-    typeof window !== 'undefined' ? localStorage.theme : 'light'
+    typeof window !== 'undefined' ? localStorage.theme : 'dark'
   );
 
   function toggleTheme () {
@@ -18,7 +18,7 @@ const ThemeToggle = () => {
   }
 
   useEffect(() => {
-    setTheme(typeof window !== 'undefined' ? localStorage.theme : 'light');
+    setTheme(typeof window !== 'undefined' ? localStorage.theme : 'dark');
     document.body.dataset.theme = theme;
   }, [theme]);
 

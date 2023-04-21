@@ -10,20 +10,20 @@
 }
 
 body,
-body[data-theme="light"] {
-  --color-text-primary: #27201a;
-  --color-text-secondary: #444;
-  --color-bg-primary: #EAE9E9;
-  --color-bg-toggle: var(--color-gold); 
-  --color-bg-secondary: var(--color-gold-light);
-}
-
 body[data-theme="dark"] {
   --color-text-primary: #e3e3e3;
   --color-text-secondary: #EAE9E9;
   --color-bg-primary: #333;
   --color-bg-toggle: #999; 
   --color-bg-secondary: var(--color-gold-dark);
+}
+
+body[data-theme="light"] {
+  --color-text-primary: #27201a;
+  --color-text-secondary: #444;
+  --color-bg-primary: #EAE9E9;
+  --color-bg-toggle: var(--color-gold); 
+  --color-bg-secondary: var(--color-gold-light);
 }
 
 body h1 {
@@ -128,7 +128,27 @@ header {
   margin: 0;
   margin-right: 16px;
   padding: 0;
+  animation-duration: 2s;
+  animation-name: spinner;
 }
+.gj img {
+  animation-duration: 2s;
+  animation-name: spinner;
+}
+@keyframes spinner {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+i img {
+      /* transform: scale(.8); */
+      width: 90%;
+      margin-left: 4%;
+      box-shadow: 4px 8px 8px #999;
+    }
 
 .gj:hover {
   background-color: var(--color-bg-primary);
@@ -180,6 +200,8 @@ h3 {
   width: 110%;
   padding: 20px 0;
   margin-left: -5%;
+  margin-top: -100px;
+  margin-bottom: 100px;
   z-index: 1000;
 }
 
@@ -548,61 +570,6 @@ blockquote p {
   justify-content: center;
   width: 100vw;
   height: 100%;
-}
-
-.gallery::-webkit-scrollbar {
-  height: 1px;
-}
-.gallery::-webkit-scrollbar-track {
-  background: none;
-}
-.gallery::-webkit-scrollbar-thumb {
-  background-color: var(--thumbBG);
-  border-radius: 6px;
-  border: 3px solid none;
-}
-
-.gallery {
-  margin: 0 40px;
-  /* background-color: black; */
-  display: grid;
-  grid-column: span 3;
-  grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
-  gap: 1.2rem;
-}
-
-.gallery * {
-  /* padding: 0 10px; */
-  /* opacity: 0.8; */
-  background-color: black;
-  border-radius: 2%;
-  /* transform: scale(0.6); */
-  /* transform: scale(0.8); */
-}
-
-.gallery:hover * {
-  padding: 0;
-}
-
-.gallery_item {
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.gallery img {
-  transition: transform 280ms ease-out;
-  width: 500px;
-  height: 300px;
-  padding: 0;
-  transform: scale(.8);
-}
-
-.gallery img:hover {
-  opacity: 1;
-  transform: scale(1.4);
-  cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {

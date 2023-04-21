@@ -1,0 +1,20 @@
+.lightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .9);
+}
+.lightbox img {
+  width: 500px;
+  height: 500px;
+}
+
+.lightbox img:hover {
+  transform: scale(2);
+}

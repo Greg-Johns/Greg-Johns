@@ -1,0 +1,41 @@
+.gallery::-webkit-scrollbar {
+  height: 1px;
+}
+.gallery::-webkit-scrollbar-track {
+  background: none;
+}
+.gallery::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid none;
+}
+
+.gallery {
+  margin: 0 40px;
+  display: grid;
+  grid-column: span 3;
+  grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+  gap: 1.2rem;
+}
+
+.gallery:hover * {
+  padding: 0;
+}
+
+.gallery_item {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.gallery img {
+  transition: transform 600ms ease-out;
+}
+
+.gallery img:hover {
+  opacity: 1;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
