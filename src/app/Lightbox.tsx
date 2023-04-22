@@ -2,7 +2,12 @@ import React, {useState, FC} from 'react';
 import Image from 'next/image';
 import './lightbox.css'
 
-const LightBox = (children: FC, src: string, alt: string) => {
+interface Props {
+  children: React.FC
+  src: string
+  alt: string
+}
+const LightBox: React.FC<Props> = ({ children, src, alt }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleIsOpen = () => {
