@@ -12,7 +12,7 @@ export default function Gallery(
   /* type Images = { */
   /*   name: string, */
   /* } */
-  const Images = ({ name }) => {
+  const Images = (name: string) => {
     let imgMarkup;
     if (galleryType === 'gallery') {
       imgMarkup = (
