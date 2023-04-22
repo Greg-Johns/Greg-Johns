@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
+import Image from 'next/image';
 import './lightbox.css'
 
-//const LightBox = ({ children, src, alt, wrapper = 'div' }) => {
 const LightBox = ({ children, src, alt }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -14,7 +14,7 @@ const LightBox = ({ children, src, alt }) => {
 			{children}
 			{isOpen ?
 				<div className="lightbox" onClick={toggleIsOpen}>
-					<img src={src} alt={alt} />
+					<Image src={src} alt={alt} />
 				</div>
 				: null}
 		</div>

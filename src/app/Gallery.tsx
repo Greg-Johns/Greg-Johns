@@ -20,14 +20,14 @@ export default function Gallery(
             <Lightbox
               src={`/${dir}/${name}.jpg`}
               alt='foo'
-              children={
-                <Image
-                   src={`/${dir}/${name}.jpg`}
-                   alt={name}
-                   width='250'
-                   height='250'
-                />
-              } />
+            >
+              <Image
+                 src={`/${dir}/${name}.jpg`}
+                 alt={name}
+                 width='250'
+                 height='250'
+              />
+            </Lightbox>
           </div>
       )
     } else {
@@ -47,7 +47,7 @@ export default function Gallery(
 
   return (
     <div className={galleryType}>
-      { images?.map((image: string) => <Images name={image} />) }
+      { images?.map((image: string) => <Images key={image} name={image} />) }
     </div>
   )
 }
