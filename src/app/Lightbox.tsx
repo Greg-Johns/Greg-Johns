@@ -3,7 +3,7 @@ import Image from 'next/image';
 import './lightbox.css'
 
 interface Props {
-  children: React.FC
+  children: any,
   src: string
   alt: string
 }
@@ -16,12 +16,15 @@ const LightBox: React.FC<Props> = ({ children, src, alt }) => {
 
 	return (
 		<div onClick={toggleIsOpen}>
-			{children}
-			{isOpen ?
-				<div className="lightbox" onClick={toggleIsOpen}>
-					<Image src={src} alt={alt} />
-				</div>
-				: null}
+      <>
+        {children}
+        {isOpen ?
+          <div className="lightbox" onClick={toggleIsOpen}>
+            <Image src={src} alt={alt} />
+          </div>
+          : null
+        }
+      </>
 		</div>
 	);
 };
