@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import { Analytics } from '@vercel/analytics/react';
+import { AnalyticsWrapper } from './Analytics';
 import './globals.css'
 import Header from './Header'
 import Footer from './Footer'
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: {
             </div>
           <Footer />
         </main>
-        <Analytics />
+        <AnalyticsWrapper />
       </body>
     </html>
   )
