@@ -7,11 +7,6 @@ export default function Gallery(
   { type, dir, images }: { type: string, dir: string, images: [string] }
 ) {
 
-  const galleryType = (type === undefined ? 'gallery' : type);
-
-  /* type Images = { */
-  /*   name: string, */
-  /* } */
   const Images = ({ name }) => {
     let imgMarkup;
     if (galleryType === 'gallery') {
@@ -45,6 +40,11 @@ export default function Gallery(
     return imgMarkup;
   }
 
+  const galleryType = (type === undefined ? 'gallery' : type);
+
+  /* type Images = { */
+  /*   name: string, */
+  /* } */
   return (
     <div className={galleryType}>
       { images?.map((image: string) => <Images key={image} name={image} />) }

@@ -1,9 +1,12 @@
 .gallery {
   margin: 0 40px;
+  /* margin: 0; */
+  border: 40px solid #000;
   display: grid;
   grid-column: span 3;
   grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
   gap: 1.2rem;
+  background-color: #000;
 }
 
 .gallery:hover * {
@@ -19,10 +22,12 @@
 
 .gallery img {
   transition: transform 600ms ease-out;
+  opacity: .8;
 }
 
 .gallery img:hover {
   transform: scale(1.2);
+  opacity: 1;
   cursor: pointer;
 }
 

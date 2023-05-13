@@ -14,7 +14,10 @@ const LightBox = ({ children, src, alt }) => {
 			{children}
 			{isOpen ?
 				<div className="lightbox" onClick={toggleIsOpen}>
-					<Image src={src} alt={alt} />
+          <div>
+            <Image width='500' height='500' src={src} alt={alt} />
+            <figcaption>{src}</figcaption>
+          </div>
 				</div>
 				: null}
 		</div>
