@@ -618,3 +618,9 @@ blockquote p {
   to { opacity: 0; }
 }
 
+#defaultCanvas0 {
+  margin-bottom: -32px;
+}
+#defaultCanvas1 {
+  display: none;
+}

@@ -445,6 +445,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.18.tgz#8dfb97f0da23c2293e554c5a50d61ef134d7697f"
   integrity sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==
 
+"@types/p5@^1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@types/p5/-/p5-1.6.2.tgz#05b64a2375f7ddd35d7fac63e983358b418605e7"
+  integrity sha512-iy1B7DBMc9e5j0DrWnIjSJh+Ro9UkKxPHspbx/GvIeGFTOIJF0H2lICnIN4go1OZEAQSHBinLd7t+oe8lrrLvA==
+
 "@types/parse-json@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
@@ -2107,6 +2112,11 @@ merge2@^1.3.0, merge2@^1.4.1:
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
   integrity sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==
 
+microdiff@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/microdiff/-/microdiff-1.3.2.tgz#b4fec53aca97371d5409a354913a65be2daec11d"
+  integrity sha512-pKy60S2febliZIbwdfEQKTtL5bLNxOyiRRmD400gueYl9XcHyNGxzHSlJWn9IMHwYXT0yohPYL08+bGozVk8cQ==
+
 micromark-core-commonmark@^1.0.0, micromark-core-commonmark@^1.0.1:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/micromark-core-commonmark/-/micromark-core-commonmark-1.0.6.tgz#edff4c72e5993d93724a3c206970f5a15b0585ad"
@@ -2572,6 +2582,11 @@ p-locate@^5.0.0:
   dependencies:
     p-limit "^3.0.2"
 
+p5@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/p5/-/p5-1.6.0.tgz#eaf4e69e377d6a5e91041ca485743b0fc53d9dfb"
+  integrity sha512-RowF+RxfVUhJm/YKXL5TCFzTqnwAIwK6W1VGs9LAqSf3PCmLz9Igbxzlf0Ry5IMV71L42wipCdH/bDiNsqAstA==
+
 parent-module@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/parent-module/-/parent-module-1.0.1.tgz#691d2709e78c79fae3a156622452d00762caaaa2"
@@ -2697,6 +2712,14 @@ react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-p5-wrapper@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/react-p5-wrapper/-/react-p5-wrapper-4.1.2.tgz#93c2661d1eb2e753441e738521ddae02bd0410af"
+  integrity sha512-UwLokWbC/jL7l0UoYZ9Y5kUwfX9sinFoHbxQOwiajzNqCtguuWAme7dZC6jtlEhO9RmgTa/LEAaNDrgJ/t5ROA==
+  dependencies:
+    microdiff "^1.3.2"
+    p5 "^1.6.0"
 
 react@18.2.0:
   version "18.2.0"

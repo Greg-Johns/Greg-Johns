@@ -25,6 +25,15 @@ export default function Stuff() {
         A collection of hand drawings, computer illustrations, designs & generative art stuff.
       </p>
       <div className='stuffList'>
+        <Link href='../../sketches'>
+          <section>
+            <Image src={nodegardens} alt='me' />
+            <div className='stuffBlock'>
+              <h6>Nothing here</h6>
+              <p>Just a page to get Processing wired up to my blog. More to come.</p>
+            </div>
+          </section>
+        </Link>
         <Link href='../../nodegardens'>
           <section>
             <Image src={nodegardens} alt='me' />
