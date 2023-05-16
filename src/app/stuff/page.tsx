@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link';
 import nodegardens from '../../../public/genart/ng/nodegardens.jpg'
+import p5 from '../../../public/tmb_p5.jpg'
 import sites from '../../../public/sites.jpg'
 import drawings from '../../../public/drawings.jpg'
 
@@ -27,10 +28,10 @@ export default function Stuff() {
       <div className='stuffList'>
         <Link href='../../sketches'>
           <section>
-            <Image src={nodegardens} alt='me' />
+            <Image src={p5} alt='me' />
             <div className='stuffBlock'>
-              <h6>Nothing here</h6>
-              <p>Just a page to get Processing wired up to my blog. More to come.</p>
+              <h6>Nothing here...</h6>
+              <p>Except a page to get p5 setup and working on the site and hopefully more generative experiments to come.</p>
             </div>
           </section>
         </Link>

@@ -194,20 +194,24 @@ h3 {
   font-size: 32px;
   text-align: center;
   background: var(--color-bg-primary);
-  color: var(--color-gold);
+  /* font-family: 'Nunito Sans', sans-serif; */
+  /* font-style: normal; */
+  color: var(--color-text-secondary);
+  letter-spacing: -0.01em;
   width: 110%;
   padding: 20px 0;
   margin-left: -5%;
   margin-top: -100px;
   margin-bottom: 100px;
   z-index: 1000;
+  /* text-transform: uppercase; */
 }
 
 h2::before, h4::before {
   content: "~ "
 }
 h2::after, h4::after {
-  content: "~ "
+  content: " ~"
 }
 
 h4 {
@@ -270,7 +274,7 @@ nav::after {
   margin-left: 2%;
   width: 96%;
   content: ' ';
-  margin-bottom: -3px;
+  margin-bottom: -2px;
   border-bottom: 2px dashed var(--color-gold);
   z-index: 1000;
 }
@@ -279,14 +283,14 @@ nav a {
   padding: 10px;
   margin-bottom: -6px;
   display: inline-block;
-  color: #CFA63E;
+  color: #999;
   font-weight: bold;
   letter-spacing: 1px;
   text-decoration: none;
 }
 
 nav a:hover {
-  color: var(--color-text-secondary);
+  color: var(--color-gold);
 }
 .active {
   /* color: var(--color-gold-light); */
@@ -329,7 +333,7 @@ footer::before {
   width: 96%;
   content: ' ';
   display: block;
-  margin-top: -3px;
+  margin-top: -2px;
   border-top: 2px dashed var(--color-gold);
 }
 footer {
@@ -380,7 +384,7 @@ li {
 p {
   font-size: 14px;
   font-weight: normal;
-  line-height: 1.2;
+  line-height: 1.32;
   color: var(--color-text-primary);
   letter-spacing: 0.8px;
   margin: 0;
@@ -410,7 +414,7 @@ time {
   font-size: 11px;
   color: #999;
   margin-right: 12px;
-  margin-top: -36px;
+  margin-top: -48px;
   text-align: center;
 }
 section time {

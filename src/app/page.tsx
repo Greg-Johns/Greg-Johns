@@ -21,11 +21,12 @@ export default function Home() {
 
       <h4>Index</h4>
 
-      <Link href="/sketches">
-        <section>
-          <h3>p5 test</h3>
-        </section>
-      </Link>
+      {/* <Link href="/sketches"> */}
+      {/*   <section> */}
+      {/*     <h3>Processing p5</h3> */}
+      {/*     <time>06 Feb. 2023</time> */}
+      {/*   </section> */}
+      {/* </Link> */}
       <Link href="nodegardens">
         <section>
           <h3>Generative Art Gardens</h3>

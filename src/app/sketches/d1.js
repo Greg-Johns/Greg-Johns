@@ -48,7 +48,7 @@ let Sketch = function(p) {
   }
 
   p.draw = function() {
-    p.background(50);
+    p.background(51);
     for(let i = 0;i<particles.length;i++) {
       particles[i].createParticle();
       particles[i].moveParticle();
