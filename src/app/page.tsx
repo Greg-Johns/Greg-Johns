@@ -35,25 +35,25 @@ export default function Home() {
       </Link>
       <Link href="nodegardens">
         <section>
-          <h3>Generative Art Gardens</h3>
+          <h3>Generative art gardens</h3>
           <time>06 Feb. 2023</time>
         </section>
       </Link>
       <Link href="web3">
         <section>
-          <h3>Web 3 & Me</h3>
+          <h3>Web 3 & me</h3>
           <time>04 May 2022</time>
         </section>
       </Link>
       <Link href="teaparty">
         <section>
-          <h3>The Tea Party</h3>
+          <h3>A tea party</h3>
           <time>04 Mar. 2018</time>
         </section>
       </Link>
       <Link href="qpt">
         <section>
-          <h3>A Quicker Pricing Tool</h3>
+          <h3>A quicker pricing tool</h3>
           <time>06 Feb. 2015</time>
         </section>
       </Link>
