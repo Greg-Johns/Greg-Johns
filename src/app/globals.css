@@ -509,12 +509,19 @@ blockquote {
 blockquote p {
   margin: 0;
 }
+blockquote ul {
+  width: 100%;
+  margin: 0;
+}
 blockquote ul li {
+  width: 100%;
+  text-align: right;
   font-size: .8em;
   font-style: italic;
-  list-style-type: disc;
   color: var(--color-text-primary);
-  margin-left: 10px;
+}
+blockquote ul li::before {
+  content: "~ "
 }
 
 .stuffList section {
