@@ -27,6 +27,12 @@ export default function Home() {
       {/*     <time>06 Feb. 2023</time> */}
       {/*   </section> */}
       {/* </Link> */}
+      <Link href="art_nft">
+        <section>
+          <h3>Art & NFTs</h3>
+          <time>24 May 2023</time>
+        </section>
+      </Link>
       <Link href="stateofplay">
         <section>
           <h3>The state of play (on Ethereum today)</h3>
