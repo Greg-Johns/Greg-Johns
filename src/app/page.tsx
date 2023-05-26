@@ -29,7 +29,7 @@ export default function Home() {
       {/* </Link> */}
       <Link href="art_nft">
         <section>
-          <h3>Art & NFTs</h3>
+          <h3>On art & NFTs</h3>
           <time>24 May 2023</time>
         </section>
       </Link>

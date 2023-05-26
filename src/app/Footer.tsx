@@ -5,7 +5,9 @@ export default function Footer() {
   return (
     <footer>
       <p>
-        The personal website of one Greg Johns:  designer | developer | technology tinkerer & middle-road maxi from Texas ya’ll.
+        An online journal of finily crafted, digital stuff by Greg Johns
+        <br />
+        A technical tinkerer from Texas ya'll.
         <b>
           <Link href="https://twitter.com/greg_johns">@Greg_Johns</Link>
         </b>
