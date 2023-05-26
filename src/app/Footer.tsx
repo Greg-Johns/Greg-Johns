@@ -7,7 +7,7 @@ export default function Footer() {
       <p>
         An online journal of finily crafted, digital stuff by Greg Johns
         <br />
-        A technical tinkerer from Texas ya'll.
+        A technical tinkerer from Texas ya&apos;ll
         <b>
           <Link href="https://twitter.com/greg_johns">@Greg_Johns</Link>
         </b>
