@@ -1,0 +1,35 @@
+import MarkdownLayout from '../app/MarkdownLayout'
+
+## Dawn of the DAWs
+<time>May 31th, 2023</time>
+
+![MetaGame](../../metagame.jpg)
+
+#### Prologue:
+While writing my first #EthWriters essay, The State of Play, I came across the term "Decentralized Autonomous Worlds" when describing the game "Dark Forest", a MMO space-conquest game where players discover and conquer planets in an infinite, procedurally-generated, cryptographically-specified universe. DOWs don't necessarily need to be a "game" but for the sake of making a complex subject easier to understand that's where this article will focus. Also, games are usually more ‘low stake’ and easier to ***play*** with new tech. This is also where most development in DAWs is happening. If blockchains are the wild west DAWs are the somewhere out on the edge.
+
+#### WTF is a DAW
+A DAW, short for Decentralized Autonomous World, can be described as a permission-less and persistent system that runs independently of its creators. An open ecosystem that anyone can build on without the need for a centralized authority. While the concept is still being iterated on, a handful of game developers have started to lay the groundwork. By putting most if not all logic on-chain DAWs are pushing blockchains to their current scaling limits while also pushing the design space of BC's out of just financial applications.
+
+DAWs make use of the blockchain’s unique properties to achieve some similar unique properties themself. Such as being always "on" and running independently of their creators. They use the blockchain as the source of truth for the data and live primarily on-chain, taking full advantage of blochchains permissionless interoperability while unlocking fundamentally new game mechanics in dapp development.
+
+#### It's a worlds world out there
+A DAWs "worlds" logic is implemented via smart contracts with near-open interfaces so others can come and build their own world within the DAW. This new inner world can integrate and extend the original DAW or live independently. These interoperable, composable worlds take a lot of the good ideas from those of the  ***metaverse*** but build on the technical road map in many ways.
+
+#### Challenges with immutability
+While the immutable property of DAWs is a key factor for longevity and interoperability this does present 'upgrading' issues. Some solutions can include ways to allow these systems to evolve through DAO governance, forking or simply launching a new version that could borrow state from the previous version.
+
+#### Pushing the boundaries of decentralization
+Along with some of the good properties DAWs inherit from BCs come some of their challenges as well. Sybil attacks and collusion to name a couple along with the big one ***privacy***.  NFT access and reputation systems can alleviate some issues around bots and Sybil attacks but how to keep certain game logic or players' actions obscure when needed? Here ZKProofs, commit-reveal, and other clever mechanisms are key in producing a "fog of war" type gameplay or something as simple as a poker game where players can't see what card the other players hold.
+
+#### Conclusions
+Aside from being one of the more ambitious ideas in the crypto space the playful exploration and rapid iteration of projects building in this space give DAWs potential for new discoveries in blockchain dapp designs as well as games in general. In many ways, DAWs are modeled similarly to our own 'real' world. they can be chaotic and subjective with no central authority. DAWs are a world where independent sovereign agents can make their own rules. An infinite digital inner space just waiting to be discovered. Exploration and the sense of wonder is one of the key things that make us human. To inspire those would-be wanders into these new inter-worlds I'll close with a quote from another famous explorer of our outer worlds.
+
+> To explore strange new worlds; to seek out new life and new civilizations; to boldly go where no man has gone before!
+> - Captain James T. Kirk
+
+export const meta = {
+  author: 'Greg Johns'
+}
+
+export default ({ children }) => <MarkdownLayout meta={meta}>{children}</MarkdownLayout>
