@@ -11,17 +11,7 @@ const P5Wrapper = dynamic(import('./P5Wrapper'), {
 const P5Page = () => {
   return (
     <>
-      <nav>
-        <Link href='/'>
-          Wrote
-        </Link>
-        <Link href='/about'>
-          About
-        </Link>
-        <Link href='/stuff'>
-          Stuff
-        </Link>
-      </nav>
+      <nav />
 
       <P5Wrapper id="p5-wrapper" />
     </>
