@@ -1,13 +1,17 @@
 .gallery {
   margin: 0 40px;
+  /* margin: 0; */
+  border: 40px solid #000;
   display: grid;
   grid-column: span 3;
   grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
   gap: 1.2rem;
+  background-color: #000;
 }
 
 .gallery:hover * {
   padding: 0;
+  overflow: hidden;
 }
 
 .gallery_item {
@@ -18,11 +22,15 @@
 }
 
 .gallery img {
-  transition: transform 600ms ease-out;
+  transition: transform 400ms ease-out;
+  opacity: .8;
+  width: 200px;
+  height: 200px;
 }
 
 .gallery img:hover {
-  transform: scale(1.2);
+  transform: scale(1.8);
+  opacity: 1;
   cursor: pointer;
 }
 

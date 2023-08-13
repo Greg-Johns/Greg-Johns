@@ -16,15 +16,15 @@ const LightBox: React.FC<Props> = ({ children, src, alt }) => {
 
 	return (
 		<div onClick={toggleIsOpen}>
-      <>
-        {children}
-        {isOpen ?
-          <div className="lightbox" onClick={toggleIsOpen}>
-            <Image src={src} alt={alt} />
+			{children}
+			{isOpen ?
+				<div className="lightbox" onClick={toggleIsOpen}>
+          <div>
+            <Image width='500' height='500' src={src} alt={alt} />
+            <figcaption>{src}</figcaption>
           </div>
-          : null
-        }
-      </>
+				</div>
+				: null}
 		</div>
 	);
 };
