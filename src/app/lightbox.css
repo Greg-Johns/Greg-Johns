@@ -10,6 +10,13 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, .9);
 }
+
+@media only screen and (max-width: 600px) {
+  .lightbox {
+    width: 120vw;
+  }
+}
+
 .lightbox img {
   width: 500px;
   height: 500px;
@@ -19,7 +26,6 @@
 .lightbox img:hover {
   transform: scale(1);
 }
-
 
 .lightbox figcaption {
   font-size: 12px;
