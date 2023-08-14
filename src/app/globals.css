@@ -247,8 +247,8 @@ figure {
 
 figcaption {
   line-height: 1;
-  font-size: 10px;
-  color: var(--color-gold);
+  font-size: 11px;
+  color: #777 !important;
   font-style: italic;
 }
 .mdFigure figcaption {

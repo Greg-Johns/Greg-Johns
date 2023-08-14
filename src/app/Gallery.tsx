@@ -1,13 +1,17 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { FC } from 'react';
 import Lightbox from './Lightbox';
 import './gallery.css'
+
+interface PicName {
+  name: string,
+}
 
 export default function Gallery(
   { type, dir, images }: { type: string, dir: string, images: [string] }
 ) {
 
-  const Images = ({ name }) => {
+  const Images: FC<PicName> = ({ name }) => {
     let imgMarkup;
     if (galleryType === 'gallery') {
       imgMarkup = (

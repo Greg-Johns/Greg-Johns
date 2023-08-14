@@ -23,7 +23,7 @@ const LightBox: React.FC<Props> = ({ children, src, alt }) => {
           <div>
             <Image width='500' height='500' src={src} alt={alt} />
             <figcaption>
-              {src.substring(src.lastIndexOf('/') + 1)}
+              {src.substring(src.lastIndexOf('/') + 1).split('.')[0]}
             </figcaption>
           </div>
 				</div>
