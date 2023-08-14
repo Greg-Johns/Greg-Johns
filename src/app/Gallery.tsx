@@ -48,12 +48,9 @@ export default function Gallery(
   return (
     <div className={galleryType}>
       {images?.map((image) => (
-        <Image
+        <Images
           key={image}
-          src={`/${dir}/${image}.jpg`}
-          alt={image}
-          width='500'
-          height='500'
+          name={image}
       />))}
     </div>
   )

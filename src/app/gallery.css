@@ -15,7 +15,6 @@
 }
 
 .gallery_item {
-  overflow: hidden;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -23,15 +22,18 @@
 
 .gallery img {
   transition: transform 400ms ease-out;
-  opacity: .8;
-  width: 200px;
-  height: 200px;
+  opacity: 1;
 }
 
 .gallery img:hover {
-  transform: scale(1.8);
+  transform: scale(1.2);
   opacity: 1;
   cursor: pointer;
+}
+
+figcaption {
+  margin: 10px;
+  text-align: right;
 }
 
 /* Gallery Row */

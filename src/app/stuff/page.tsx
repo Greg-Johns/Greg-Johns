@@ -27,7 +27,7 @@ export default function Stuff() {
 
       <h3>The Gardening Series</h3>
       <p>
-        A series of Proccessing sketches done years ago in ode to Jared's Node Garden ideas.
+        A series of Proccessing sketches done years ago in ode to Jared&apos;s Node Garden ideas.
       </p>
       <div className='stuffList'>
         <Link href='../../sketches'>
@@ -48,30 +48,12 @@ export default function Stuff() {
             </div>
           </section>
         </Link>
-        <Link href='../../crystals'>
-          <section>
-            <Image src={crystal} alt='me' />
-            <div className='stuffBlock'>
-              <h6>Crystal Series</h6>
-              <p>Early generative art experiments done in Processing language.</p>
-            </div>
-          </section>
-        </Link>
-        <Link href='../../sowingseeds'>
+        <Link href='../../gardens'>
           <section>
             <Image src={spiral} alt='me' />
             <div className='stuffBlock'>
-              <h6>Waves & Spirals Series</h6>
-              <p>Early generative art experiments done in Processing language.</p>
-            </div>
-          </section>
-        </Link>
-        <Link href='../../columns'>
-          <section>
-            <Image src={column} alt='me' />
-            <div className='stuffBlock'>
-              <h6>Column Series</h6>
-              <p>Early generative art experiments done in Processing language.</p>
+              <h6>More Generative Gardens</h6>
+              <p>more early generative art sketches.</p>
             </div>
           </section>
         </Link>
@@ -79,7 +61,7 @@ export default function Stuff() {
 
       <h3>Sketches & Drawings</h3>
       <p>
-        A collection of hand drawing and quick sketches I've scribled out and not thrown away.
+        A collection of hand drawing and quick sketches I&apos;ve scribled out and not thrown away.
       </p>
       <div className='stuffList'>
         <Link href='../../drawings'>

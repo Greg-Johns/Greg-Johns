@@ -11,6 +11,7 @@ const LightBox: React.FC<Props> = ({ children, src, alt }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleIsOpen = () => {
+    console.log(src)
 		setIsOpen(!isOpen);
 	};
 
@@ -21,7 +22,9 @@ const LightBox: React.FC<Props> = ({ children, src, alt }) => {
 				<div className="lightbox" onClick={toggleIsOpen}>
           <div>
             <Image width='500' height='500' src={src} alt={alt} />
-            <figcaption>{src}</figcaption>
+            <figcaption>
+              {src.substring(src.lastIndexOf('/') + 1)}
+            </figcaption>
           </div>
 				</div>
 				: null}
