@@ -53,7 +53,7 @@ export default function Stuff() {
             <Image src={spiral} alt='me' />
             <div className='stuffBlock'>
               <h6>More Generative Gardens</h6>
-              <p>more early generative art sketches.</p>
+              <p>More early generative art sketches.</p>
             </div>
           </section>
         </Link>
