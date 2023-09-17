@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import p5 from 'p5';
 import sketch from './d1.js';
+import sketch2 from './d2.js';
 
 interface foo {
   id: string
@@ -8,7 +9,7 @@ interface foo {
 
 const P5Wrapper = (props: foo) => {
   useEffect(() => {
-    let myp5 = new p5(sketch);
+    let myp5 = new p5(sketch2);
   }, [])
 
   return (

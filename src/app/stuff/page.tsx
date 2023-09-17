@@ -30,15 +30,15 @@ export default function Stuff() {
         A series of Proccessing sketches done years ago in ode to Jared&apos;s Node Garden ideas.
       </p>
       <div className='stuffList'>
-        <Link href='../../sketches'>
-          <section>
-            <Image src={p5} alt='me' />
-            <div className='stuffBlock'>
-              <h6>Nothing here...</h6>
-              <p>Except a page to get p5 setup and working on the site and hopefully more generative experiments to come.</p>
-            </div>
-          </section>
-        </Link>
+        {/* <Link href='../../sketches'> */}
+        {/*   <section> */}
+        {/*     <Image src={p5} alt='me' /> */}
+        {/*     <div className='stuffBlock'> */}
+        {/*       <h6>Nothing here...</h6> */}
+        {/*       <p>Except a page to get p5 setup and working on the site and hopefully more generative experiments to come.</p> */}
+        {/*     </div> */}
+        {/*   </section> */}
+        {/* </Link> */}
         <Link href='../../nodegardens'>
           <section>
             <Image src={nodegarden} alt='me' />

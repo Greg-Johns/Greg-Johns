@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import '../globals.css'
-/* import Header from '../p5Header' */
+import Header from '../p5Header'
 /* import Footer from '../Footer' */
 //import error from './error'
 //import ErrorBoundary from 'react'
@@ -13,9 +13,9 @@ export default function RootLayout({ children }: {
       <head />
       <body>
         <main className='mainGrid'>
-          <header>...</header>
+          <Header />
             <div className='scroll-shadows'>
-            {children}
+              {children}
             </div>
           <footer>...</footer>
         </main>
