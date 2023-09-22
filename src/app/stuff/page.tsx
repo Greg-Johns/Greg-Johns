@@ -48,6 +48,15 @@ export default function Stuff() {
             </div>
           </section>
         </Link>
+        <Link href='../../columns'>
+          <section>
+            <Image src={column} alt='me' />
+            <div className='stuffBlock'>
+              <h6>Column Series</h6>
+              <p>The final series of renders from garden code base.</p>
+            </div>
+          </section>
+        </Link>
       </div>
 
       <h3>Sketches & Drawings</h3>

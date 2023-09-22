@@ -14,6 +14,19 @@
   overflow: hidden;
 }
 
+.gallery_buttons {
+  margin: 10px;
+  text-align: right;
+  color: var(--color-text-secondary);
+}
+
+.gallery_buttons button {
+  border: none;
+  background: none;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+
 .gallery_item {
   display: flex;
   flex-direction: row;

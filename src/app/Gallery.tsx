@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import Lightbox from './Lightbox';
 import './gallery.css'
 
@@ -10,6 +10,7 @@ interface PicName {
 export default function Gallery(
   { type, dir, images }: { type: string, dir: string, images: [string] }
 ) {
+  const [galleryType, setGalleryType] = useState('gallery');
 
   const Images: FC<PicName> = ({ name }) => {
     let imgMarkup;
@@ -44,19 +45,26 @@ export default function Gallery(
     return imgMarkup;
   }
 
-  const galleryType = (type === undefined ? 'gallery' : type);
+  /* let galleryType = (type === undefined ? 'gallery' : type); */
 
   /* type Images = { */
   /*   name: string, */
   /* } */
   return (
-    <div className={galleryType}>
-      {images?.map((image) => (
-        <Images
-          key={image}
-          name={image}
-      />))}
-    </div>
+    <>
+      <div className='gallery_buttons'>
+        <button onClick={() => setGalleryType('gallery_row')}>Inline</button>
+        |
+        <button onClick={() =>  setGalleryType('gallery')}>Grid</button>
+      </div>
+      <div className={galleryType}>
+        {images?.map((image) => (
+          <Images
+            key={image}
+            name={image}
+        />))}
+      </div>
+    </>
   )
 }
 
