@@ -53,7 +53,7 @@ export default function Stuff() {
             <Image src={column} alt='me' />
             <div className='stuffBlock'>
               <h6>Column Series</h6>
-              <p>The final series of renders from garden code base.</p>
+              <p>The final series of renders in the garden code base.</p>
             </div>
           </section>
         </Link>
