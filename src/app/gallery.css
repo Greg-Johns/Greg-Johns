@@ -34,12 +34,12 @@
 }
 
 .gallery img {
-  transition: transform 400ms ease-out;
+  transition: transform 200ms ease-out;
   opacity: 1;
 }
 
 .gallery img:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   opacity: 1;
   cursor: pointer;
 }
@@ -76,7 +76,7 @@ figcaption {
 }
 
 .gallery_row img {
-  padding: 40px;
+  padding: 0 40px;
 }
 
 .gallery_row img:hover {

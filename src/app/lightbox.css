@@ -32,3 +32,19 @@
   color: #999;
   font-style: italic;
 }
+
+.lightbox_nav {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1001;
+}
+
+.lightbox_nav button {
+  border: none;
+  background-color: black;
+  color: #444;
+}
+.lightbox_nav button:hover {
+  color: #ccc;
+}
