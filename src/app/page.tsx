@@ -47,7 +47,7 @@ export default function Home() {
       </Link>
       <Link href="stateofplay">
         <section>
-          <h3>The state of play (on Ethereum today)</h3>
+          <h3>Gaming Ethereum</h3>
           <time>17 May 2023</time>
         </section>
       </Link>
