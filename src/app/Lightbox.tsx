@@ -20,7 +20,7 @@ const LightBox: React.FC<Props> = ({ children, src, alt, img_array, dir }) => {
 		setIsOpen(!isOpen);
 	};
 
-  const prev = (e: Event) => {
+  const prev = (e: React.MouseEvent<Element, MouseEvent>) => {
     e.stopPropagation();
     const prevImg = img_array.findIndex((i) => i == curImg) - 1;
     if (prevImg >= 0) {
@@ -31,7 +31,7 @@ const LightBox: React.FC<Props> = ({ children, src, alt, img_array, dir }) => {
     }
   }
 
-  const next = (e: Event) => {
+  const next = (e: React.MouseEvent<Element, MouseEvent>) => {
     e.stopPropagation();
     let nextImg = img_array.findIndex((i) => i == curImg) +1;
     if (nextImg < img_array.length) {
