@@ -46,21 +46,19 @@ const LightBox: React.FC<Props> = ({ children, src, alt, img_array, dir }) => {
 		<div onClick={toggleIsOpen}>
 			{children}
 			{isOpen ?
-        <>
-          <div className='lightbox' onClick={toggleIsOpen}>
-            <div>
-              <Image width='500' height='500' src={`/${dir}/${srcImg}.jpg`} alt={alt} />
-              <figcaption>{curImg}</figcaption>
+        <div className='lightbox' onClick={toggleIsOpen}>
+          <div style={{display: 'block'}}>
+            <Image width='500' height='500' src={`/${dir}/${srcImg}.jpg`} alt={alt} />
+            <figcaption>{curImg}</figcaption>
+            <div className='lightbox_nav'>
+              {
+                prevAvail && <button onClick={(e) => prev(e)}>{'< Prev'}</button>
+              }{
+                nextAvail && <button onClick={(e) => next(e)}>{'Next >'}</button>
+              }
             </div>
           </div>
-          <div className='lightbox_nav'>
-            {
-              prevAvail && <button onClick={(e) => prev(e)}>{'< Prev'}</button>
-            }{
-              nextAvail && <button onClick={(e) => next(e)}>{'Next >'}</button>
-            }
-          </div>
-        </>
+        </div>
 				: null}
 		</div>
 	);

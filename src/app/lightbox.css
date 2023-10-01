@@ -7,7 +7,7 @@
   left: 0;
   z-index: 1001;
   width: 100vw;
-  height: 100vh;
+  height: 108vh;
   background-color: rgba(0, 0, 0, 1);
 }
 
@@ -36,6 +36,7 @@
 .lightbox_nav {
   position: fixed;
   bottom: 20px;
+  display: block;
   right: 20px;
   z-index: 1001;
 }
