@@ -7,8 +7,8 @@ interface PicName {
   name: string,
 }
 
-const cur = '#333';
-const notCur = '#c4c4c4';
+const cur = '#222';
+const notCur = '#999';
 
 export default function Gallery(
   { type, dir, images }: { type: string, dir: string, images: [string] }
@@ -77,7 +77,7 @@ export default function Gallery(
   return (
     <>
       <div className='gallery_buttons'>
-        <button onClick={() => setGallery('gallery_row')}>
+        <button className='inline' onClick={() => setGallery('gallery_row')}>
           <svg width="26" height="6" viewBox="0 0 30 8" fill="none">
             <rect width="6" height="6" fill={inlineColor} />
             <rect x="10" width="6" height="6" fill={inlineColor} />

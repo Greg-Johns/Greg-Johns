@@ -26,6 +26,10 @@
   color: var(--color-text-secondary);
   font-size: 11px;
 }
+.gallery_buttons .inline {
+  position: relative;
+  top: -4px;
+}
 
 .gallery_item {
   display: flex;
