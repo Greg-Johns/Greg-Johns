@@ -1,0 +1,96 @@
+.comic_pg {
+  margin-top: 20px;
+}
+.comic_pg {
+  display: grid;
+  /* justify-content: space-between; */
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  /* grid-template-rows: 100px 1fr max-content; */
+  /* grid-template-rows: 1fr; */
+  grid-template-areas: 
+    'hero    hero  ng2   ng2'
+    'ng1     ng1   skbk1 blkbrd'
+    'ng1     ng1   skbk1 marks'
+    'ng3     ng3   sites toons'
+    'screens skbk2 skbk2 toons';
+  gap: 10px;
+  width: 110%;
+  margin: 20px auto 20px -5%;
+}
+.comic_pg div {
+  display: flex;
+  /* flex-flow: row wrap; */
+  border: 1px solid lightgray;
+  overflow: hidden;
+  border-radius: 4px;
+  height: var(--cb-1-cell);
+  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fclassical-inquiries.chs.harvard.edu%2Fwp-content%2Fuploads%2F2016%2F02%2Farsinoe2-head.jpg&f=1&nofb=1&ipt=c35a3f674dc70734d44c6c9d7b93f77ffd0ae393ad05275b951772694993d1b8&ipo=images');
+  background-position: center;
+}
+.comic_pg div p {
+  color: white;
+  background-color: black;
+}
+
+.hero {
+  grid-area: hero;
+  width: var(--cb-2-cell);
+}
+.ng1 {
+  grid-area: ng1;
+  width: var(--cb-2-cell);
+  height: var(--cb-2-cell) !important;
+}
+.ng2 {
+  grid-area: ng2;
+  width: var(--cb-2-cell);
+}
+.ng3 {
+  grid-area: ng3;
+}
+.blkbrd {
+  grid-area: blkbrd;
+  width: var(--cb-1-cell);
+}
+.marks {
+  grid-area: marks;
+}
+.skbk1 {
+  grid-area: skbk1;
+  width: var(--cb-1-cell);
+  height: var(--cb-2-cell) !important;
+}
+.skbk2 {
+  grid-area: skbk2;
+}
+.sites {
+  grid-area: sites;
+}
+.screens {
+  grid-area: screens;
+  width: var(--cb-1-cell);
+}
+.toons {
+  grid-area: toons;
+  height: var(--cb-2-cell) !important;
+}
+
+@media (max-width: 768px) {
+  .comic_pg {
+    width: 90%;
+  }
+}
+
+
+.comic_pg details {
+  display: none;
+  /* margin-top: -36px; */
+  /* transition: height 1s; */
+}
+/* .comic_pg details:hover { */
+/*   margin-top: -80px; */
+/* } */
+.comic_pg summary {
+  background-color: pink;
+}
+

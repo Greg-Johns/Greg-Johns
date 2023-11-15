@@ -7,6 +7,15 @@
   --color-gold: #bc9531;
   --color-gold-light: #E0D5D5;
   --color-gold-dark: #514C48;
+  --cb-1-cell: 170px;
+  --cb-2-cell: 350px;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body,
@@ -238,21 +247,12 @@ figure {
   text-align: left;
   margin: 0 -22px 0 10px;
 }
-.mdFigure {
-  float: none;
-  display: block;
-  border: 0;
-  width: 100%;
-}
 
 figcaption {
   line-height: 1;
   font-size: 11px;
   color: #777 !important;
   font-style: italic;
-}
-.mdFigure figcaption {
-  margin: 14px 0;
 }
 
 .smImg {

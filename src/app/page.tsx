@@ -21,24 +21,12 @@ export default function Home() {
 
       <h4>Index</h4>
 
-      {/* <Link href="/gardens"> */}
-      {/*   <section> */}
-      {/*     <h3>Crop rotation</h3> */}
-      {/*     <time>06 Feb. 2023</time> */}
-      {/*   </section> */}
-      {/* </Link> */}
       <Link href="daws">
         <section>
           <h3>Dawn of the DAWs</h3>
           <time>31 May 2023</time>
         </section>
       </Link>
-      {/* <Link href="auction_design"> */}
-      {/*   <section> */}
-      {/*     <h3>On auction designs</h3> */}
-      {/*     <time>31 May 2023</time> */}
-      {/*   </section> */}
-      {/* </Link> */}
       <Link href="art_nft">
         <section>
           <h3>On art & NFTs</h3>
@@ -47,7 +35,7 @@ export default function Home() {
       </Link>
       <Link href="stateofplay">
         <section>
-          <h3>Gaming Ethereum</h3>
+          <h3>Gaming on Ethereum</h3>
           <time>17 May 2023</time>
         </section>
       </Link>
