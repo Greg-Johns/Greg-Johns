@@ -36,12 +36,17 @@ export default function Stuff() {
             <p>hero</p>
           </div>
 
+          <div className='ng1'>
+            <p>ng1</p>
+          </div>
+
           <div className='ng2'>
             <p>ng2</p>
           </div>
 
-          <div className='ng1'>
-            <p>ng1</p>
+          <div className='ng3'>
+            {/* <Image src={marks} alt='marks' /> */}
+            <p>ng3</p>
           </div>
 
           <div className='skbk1'>
@@ -56,11 +61,6 @@ export default function Stuff() {
           <div className='marks'>
             {/* <Image src={marks} alt='marks' /> */}
             <p>marks</p>
-          </div>
-
-          <div className='ng3'>
-            {/* <Image src={marks} alt='marks' /> */}
-            <p>ng3</p>
           </div>
 
           <div className='sites'>

@@ -2,23 +2,23 @@
   margin-top: 20px;
 }
 .comic_pg {
-  display: grid;
+  display: block;
   /* justify-content: space-between; */
   /* grid-template-columns: 1fr 1fr 1fr 1fr; */
   /* grid-template-rows: 100px 1fr max-content; */
   /* grid-template-rows: 1fr; */
-  grid-template-areas: 
-    'hero    hero  ng2   ng2'
-    'ng1     ng1   skbk1 blkbrd'
-    'ng1     ng1   skbk1 marks'
-    'ng3     ng3   sites toons'
-    'screens skbk2 skbk2 toons';
+  /* grid-template-areas:  */
+  /*   'hero    hero  ng2   ng2' */
+  /*   'ng1     ng1   skbk1 blkbrd' */
+  /*   'ng1     ng1   skbk1 marks' */
+  /*   'ng3     ng3   sites toons' */
+  /*   'screens skbk2 skbk2 toons'; */
   gap: 10px;
-  width: 110%;
-  margin: 20px auto 20px -5%;
+  /* width: 90%; */
+  margin: 20px;
 }
-.comic_pg div {
-  display: flex;
+.comic_pg * {
+  display: block;
   /* flex-flow: row wrap; */
   border: 1px solid lightgray;
   overflow: hidden;
@@ -34,31 +34,24 @@
 
 .hero {
   grid-area: hero;
-  width: var(--cb-2-cell);
 }
 .ng1 {
   grid-area: ng1;
-  width: var(--cb-2-cell);
-  height: var(--cb-2-cell) !important;
 }
 .ng2 {
   grid-area: ng2;
-  width: var(--cb-2-cell);
 }
 .ng3 {
   grid-area: ng3;
 }
 .blkbrd {
   grid-area: blkbrd;
-  width: var(--cb-1-cell);
 }
 .marks {
   grid-area: marks;
 }
 .skbk1 {
   grid-area: skbk1;
-  width: var(--cb-1-cell);
-  height: var(--cb-2-cell) !important;
 }
 .skbk2 {
   grid-area: skbk2;
@@ -68,17 +61,38 @@
 }
 .screens {
   grid-area: screens;
-  width: var(--cb-1-cell);
 }
 .toons {
   grid-area: toons;
-  height: var(--cb-2-cell) !important;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 600px) {
   .comic_pg {
-    width: 90%;
+    width: 110%;
+    margin: 20px auto 20px -5%;
+    display: grid;
+    border: 1px solid green;
+    grid-template-areas: 
+      'hero    hero  ng2   ng2'
+      'ng1     ng1   skbk1 blkbrd'
+      'ng1     ng1   skbk1 marks'
+      'ng3     ng3   sites toons'
+      'screens skbk2 skbk2 toons';
   }
+  /* .comic_pg * { */
+  /*   width: 100%; */
+  /* } */
+  /* .hero { --gc: 350px: --gr: span 1; } */
+  /* .ng1 { --gc: span 2: --gr: span 2; } */
+  /* .ng2 { --gc: span 2: --gr: span 1; } */
+  /* .ng3 { --gc: span 2: --gr: span 1; } */
+  /* .blkbrd { --gc: span 1: --gr: span 1; } */
+  /* .marks { --gc: span 1: --gr: span 1; } */
+  /* .skbk1 { --gc: span 2: --gr: span 1; } */
+  /* .skbk2 { --gc: span 2: --gr: span 1; } */
+  /* .sites { --gc: span 1: --gr: span 1; } */
+  /* .screens { --gc: span 1: --gr: span 1; } */
+  /* .toons { --gc: span 2: --gr: span 1; } */
 }
 
 

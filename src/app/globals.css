@@ -9,6 +9,8 @@
   --color-gold-dark: #514C48;
   --cb-1-cell: 170px;
   --cb-2-cell: 350px;
+  --gc: auto;
+  --gr: auto;
 }
 
 html {
