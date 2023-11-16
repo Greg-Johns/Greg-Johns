@@ -2,76 +2,50 @@
   margin-top: 20px;
 }
 .comic_pg {
-  display: block;
-  /* justify-content: space-between; */
-  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-  /* grid-template-rows: 100px 1fr max-content; */
-  /* grid-template-rows: 1fr; */
-  /* grid-template-areas:  */
-  /*   'hero    hero  ng2   ng2' */
-  /*   'ng1     ng1   skbk1 blkbrd' */
-  /*   'ng1     ng1   skbk1 marks' */
-  /*   'ng3     ng3   sites toons' */
-  /*   'screens skbk2 skbk2 toons'; */
-  gap: 10px;
-  /* width: 90%; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+
   margin: 20px;
 }
-.comic_pg * {
-  display: block;
+.comic_pg div {
+  display: flex;
+  margin: 8px;
+  min-height: 170px;
   /* flex-flow: row wrap; */
-  border: 1px solid lightgray;
   overflow: hidden;
   border-radius: 4px;
-  height: var(--cb-1-cell);
-  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fclassical-inquiries.chs.harvard.edu%2Fwp-content%2Fuploads%2F2016%2F02%2Farsinoe2-head.jpg&f=1&nofb=1&ipt=c35a3f674dc70734d44c6c9d7b93f77ffd0ae393ad05275b951772694993d1b8&ipo=images');
+  /* height: var(--cb-1-cell); */
   background-position: center;
+}
+.comic_pg div details {
+  align-self: flex-end;
 }
 .comic_pg div p {
   color: white;
   background-color: black;
 }
 
-.hero {
+.hero { 
   grid-area: hero;
 }
-.ng1 {
-  grid-area: ng1;
-}
-.ng2 {
-  grid-area: ng2;
-}
-.ng3 {
-  grid-area: ng3;
-}
-.blkbrd {
-  grid-area: blkbrd;
-}
-.marks {
-  grid-area: marks;
-}
-.skbk1 {
-  grid-area: skbk1;
-}
-.skbk2 {
-  grid-area: skbk2;
-}
-.sites {
-  grid-area: sites;
-}
-.screens {
-  grid-area: screens;
-}
-.toons {
-  grid-area: toons;
-}
+.ng1 { grid-area: ng1; }
+.ng2 { grid-area: ng2; }
+.ng3 { grid-area: ng3; }
+.blkbrd { grid-area: blkbrd; }
+.marks { grid-area: marks; }
+.skbk1 { grid-area: skbk1; }
+.skbk2 { grid-area: skbk2; }
+.sites { grid-area: sites; }
+.screens { grid-area: screens; }
+.toons { grid-area: toons; }
 
 @media (min-width: 600px) {
   .comic_pg {
     width: 110%;
     margin: 20px auto 20px -5%;
     display: grid;
-    border: 1px solid green;
+    gap: 1rem;
     grid-template-areas: 
       'hero    hero  ng2   ng2'
       'ng1     ng1   skbk1 blkbrd'
@@ -79,32 +53,55 @@
       'ng3     ng3   sites toons'
       'screens skbk2 skbk2 toons';
   }
-  /* .comic_pg * { */
-  /*   width: 100%; */
-  /* } */
-  /* .hero { --gc: 350px: --gr: span 1; } */
-  /* .ng1 { --gc: span 2: --gr: span 2; } */
-  /* .ng2 { --gc: span 2: --gr: span 1; } */
-  /* .ng3 { --gc: span 2: --gr: span 1; } */
-  /* .blkbrd { --gc: span 1: --gr: span 1; } */
-  /* .marks { --gc: span 1: --gr: span 1; } */
-  /* .skbk1 { --gc: span 2: --gr: span 1; } */
-  /* .skbk2 { --gc: span 2: --gr: span 1; } */
-  /* .sites { --gc: span 1: --gr: span 1; } */
-  /* .screens { --gc: span 1: --gr: span 1; } */
-  /* .toons { --gc: span 2: --gr: span 1; } */
+  .comic_pg div {
+    margin: 0;
+    padding: 0;
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+  }
+  .comic_pg div details {
+    align-self: stretch;
+  }
 }
 
+.comic_pg a {
+  display: contents;
+}
 
 .comic_pg details {
-  display: none;
-  /* margin-top: -36px; */
-  /* transition: height 1s; */
+  margin: 0;
 }
-/* .comic_pg details:hover { */
-/*   margin-top: -80px; */
-/* } */
 .comic_pg summary {
-  background-color: pink;
+  display: inline-block;
+  background-color: white;
+  border: 4px solid var(--color-bg-primary);
+  padding: 0;
+  margin-left: -4px;
+  margin-bottom: -4px;
+  cursor: pointer;
+}
+.comic_pg details h5 {
+  margin: 4px 10px;
+}
+.comic_pg details p {
+  color: #333;
+  background-color: var(--color-bg-primary);
+  margin: 0;
+  padding: 4px 10px;
 }
 
+.comic_pg div:hover summary {
+  background-color: var(--color-gold);
+}
+details p {
+  /* display: none; */
+  height: 0;
+}
+.comic_pg div details:hover p {
+  display: block;
+  width: 90%;
+  height: 100%;
+}

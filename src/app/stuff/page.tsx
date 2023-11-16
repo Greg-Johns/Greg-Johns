@@ -2,16 +2,24 @@ import Image from 'next/image'
 import Link from 'next/link';
 import '../comics.css'
 
-import hero from '../../../public/stuff/tn_heroes.jpg'
-import sketchbook from '../../../public/stuff/tn_sketches.jpg'
+import hero from '../../../public/stuff/heroes_villians/hv_9.jpg'
+import sketchbook from '../../../public/stuff/sketchbooks/sb_15.jpg'
 import sites from '../../../public/stuff/tn_sites.gif'
 import marks from '../../../public/stuff/tn_mark.jpg'
-import cartoons from '../../../public/stuff/tn_cartoons.jpg'
+import cartoons from '../../../public/stuff/cartoons/spock.jpg'
 import screens from '../../../public/stuff/tn_screens.jpg'
-import wide1 from '../../../public/stuff/230x132.jpg'
-import wide2 from '../../../public/stuff/230x113.jpg'
+import ng1 from '../../../public/genart/ng/ng12.jpg'
+import ng2 from '../../../public/genart/waves/waves_12.jpg'
 
 export default function Stuff() {
+
+  var sectionStyle = {
+    border: "4px solid red",
+    //backgroundImage: `url(${hero})`
+    backgroundImage: `url(${hero})`
+  };
+
+
   return (
     <>
       <nav>
@@ -32,106 +40,160 @@ export default function Stuff() {
         </p>
         <div className='comic_pg'>
 
-          <div className='hero'>
-            <p>hero</p>
-          </div>
+            <Link href='/heroes'>
+              <div
+                className='hero' 
+/* https://davidwalsh.name/multiple-background-css-animations */
+                style={{ backgroundImage:`url(${JSON.stringify(hero.src)})` }}
+              >
+                  <details open>
+                    <summary>
+                      <h5>Hero's & Villians</h5>
+                    </summary>
+                    <p>Here's some H&V's</p>
+                  </details>
+              </div>
+            </Link>
 
-          <div className='ng1'>
-            <p>ng1</p>
-          </div>
+          <Link href='/nodegarden'>
+            <div 
+              className='ng1'
+              style={{ backgroundImage:`url(${JSON.stringify(ng1.src)})` }}
+            >
+              <details open>
+                <summary>
+                  <h5>Node Garden 1</h5>
+                </summary>
+                <p>Here's some stuff about heroes and villians.</p>
+              </details>
+            </div>
+          </Link>
 
-          <div className='ng2'>
-            <p>ng2</p>
-          </div>
+          <Link href='/heroes'>
+            <div
+              className='ng2'
+              style={{ backgroundImage:`url(${JSON.stringify(ng2.src)})` }}
+            >
+              <details open>
+                <summary>
+                  <h5>Node Garden 2</h5>
+                </summary>
+                <p>Here's some ...</p>
+              </details>
+            </div>
+          </Link>
 
-          <div className='ng3'>
-            {/* <Image src={marks} alt='marks' /> */}
-            <p>ng3</p>
-          </div>
+          <Link href='/heroes'>
+            <div
+              className='ng3'
+              style={{ backgroundImage:`url(${JSON.stringify(hero.src)})` }}
+            >
+              <details open>
+                <summary>
+                  <h5>Node Garden 3</h5>
+                </summary>
+                <p>Here's some ...</p>
+              </details>
+            </div>
+          </Link>
 
-          <div className='skbk1'>
-            <p>skbk1</p>
-          </div>
+          <Link href='/heroes'>
+            <div 
+              className='skbk1'
+              style={{ backgroundImage:`url(${JSON.stringify(sketchbook.src)})` }}
+            >
+              <details open>
+                <summary>
+                  <h5>Sketchbook 1</h5>
+                </summary>
+                <p>Here's some ...</p>
+              </details>
+            </div>
+          </Link>
           
-          <div className='blkbrd'>
-            {/* <Image src={marks} alt='marks' /> */}
-            <p>blkbrd</p>
-          </div>
+          <Link href='/heroes'>
+            <div 
+              className='blkbrd'
+              style={{ backgroundImage:`url(${JSON.stringify(hero.src)})` }}
+            >
+              <details open>
+                <summary>
+                  <h5>Blackboard</h5>
+                </summary>
+                <p>Here's some ...</p>
+              </details>
+            </div>
+          </Link>
           
-          <div className='marks'>
-            {/* <Image src={marks} alt='marks' /> */}
-            <p>marks</p>
-          </div>
+          <Link href='/heroes'>
+            <div 
+              className='marks'
+              style={{ backgroundImage:`url(${JSON.stringify(marks.src)})` }}
+            >
+              <details open>
+                <summary>
+                  <h5>Marks</h5>
+                </summary>
+                <p>Here's some ...</p>
+              </details>
+            </div>
+          </Link>
 
-          <div className='sites'>
-            {/* <Image src={marks} alt='marks' /> */}
-            <p>sites</p>
-          </div>
+          <Link href='/heroes'>
+            <div 
+              className='sites'
+              style={{ backgroundImage:`url(${JSON.stringify(sites.src)})` }}
+            >
+              <details open>
+                <summary>
+                  <h5>Old sites</h5>
+                </summary>
+                <p>Here's some ...</p>
+              </details>
+            </div>
+          </Link>
 
-          <div className='toons'>
-            {/* <Image src={marks} alt='marks' /> */}
-            <p>toons</p>
-          </div>
+          <Link href='/heroes'>
+            <div 
+              className='toons'
+              style={{ backgroundImage:`url(${JSON.stringify(cartoons.src)})` }}
+            >
+              <details open>
+                <summary>
+                  <h5>Cartoons</h5>
+                </summary>
+                <p>Here's some ...</p>
+              </details>
+            </div>
+          </Link>
 
-          <div className='skbk2'>
-            {/* <Image src={marks} alt='marks' /> */}
-            <p>skbk2</p>
-          </div>
+          <Link href='/heroes'>
+            <div 
+              className='skbk2'
+              style={{ backgroundImage:`url(${JSON.stringify(hero.src)})` }}
+            >
+              <details open>
+                <summary>
+                  <h5>Sketchbook 2</h5>
+                </summary>
+                <p>Here's some ...</p>
+              </details>
+            </div>
+          </Link>
 
-          <div className='screens'>
-            {/* <Image src={marks} alt='marks' /> */}
-            <p>screens</p>
-          </div>
-
-          {/* <div className='hero'> */}
-          {/*   <Image src={wide1} alt='wide1' /> */}
-          {/*   <details> */}
-          {/*     <summary> */}
-          {/*       <h5>wide 1</h5> */}
-          {/*     </summary> */}
-          {/*     <p>Here's a pic of Batman</p> */}
-          {/*   </details> */}
-          {/* </div> */}
-          {/**/}
-          {/* <div> */}
-          {/*   <Image src={marks} alt='marks' /> */}
-          {/*   <details> */}
-          {/*     <summary> */}
-          {/*       <h5>Marks</h5> */}
-          {/*     </summary> */}
-          {/*     <p>Here's some marks</p> */}
-          {/*   </details> */}
-          {/* </div> */}
-          {/**/}
-          {/* <div> */}
-          {/*   <Image src={cartoons} alt='cartoons' /> */}
-          {/*   <details> */}
-          {/*     <summary> */}
-          {/*       <h5>Cartoons</h5> */}
-          {/*     </summary> */}
-          {/*     <p>Here's a pic of some cartoons</p> */}
-          {/*   </details> */}
-          {/* </div> */}
-          {/**/}
-          {/* <div> */}
-          {/*   <Image src={screens} alt='screens' /> */}
-          {/*   <details> */}
-          {/*     <summary> */}
-          {/*       <h5>Screens</h5> */}
-          {/*     </summary> */}
-          {/*     <p>Here's some screens</p> */}
-          {/*   </details> */}
-          {/* </div> */}
-          {/*  */}
-          {/* <div> */}
-          {/*   <Image src={sites} alt='sites' /> */}
-          {/*   <details> */}
-          {/*     <summary> */}
-          {/*       <h5>Sites</h5> */}
-          {/*     </summary> */}
-          {/*     <p>Here's some old sites</p> */}
-          {/*   </details> */}
-          {/* </div> */}
+          <Link href='/heroes'>
+            <div 
+              className='screens'
+              style={{ backgroundImage:`url(${JSON.stringify(screens.src)})` }}
+            >
+              <details open>
+                <summary>
+                  <h5>Screens</h5>
+                </summary>
+                <p>Here's some ...</p>
+              </details>
+            </div>
+          </Link>
 
         </div>
       </div>
