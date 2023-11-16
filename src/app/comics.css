@@ -17,6 +17,10 @@
   border-radius: 4px;
   /* height: var(--cb-1-cell); */
   background-position: center;
+  filter: grayscale(1);
+}
+.comic_pg * div:hover {
+  filter: grayscale(0);
 }
 .comic_pg div details {
   align-self: flex-end;
@@ -26,9 +30,7 @@
   background-color: black;
 }
 
-.hero { 
-  grid-area: hero;
-}
+.hero { grid-area: hero; }
 .ng1 { grid-area: ng1; }
 .ng2 { grid-area: ng2; }
 .ng3 { grid-area: ng3; }
