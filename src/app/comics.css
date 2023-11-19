@@ -1,36 +1,77 @@
 .comic_pg {
-  margin-top: 20px;
-}
-.comic_pg {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-end; */
-
-  margin: 20px;
 }
-.comic_pg div {
+.comic_pg a {
+  display: contents;
+}
+.comic_pg a div {
   display: flex;
-  margin: 8px;
+  margin: 10px;
   min-height: 170px;
-  /* flex-flow: row wrap; */
   overflow: hidden;
   border-radius: 4px;
-  /* height: var(--cb-1-cell); */
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   filter: grayscale(1);
 }
-.comic_pg * div:hover {
+.comic_pg div:hover {
   filter: grayscale(0);
+  opacity: 1;
+  animation: aniBG 4s linear infinite;
 }
 .comic_pg div details {
   align-self: flex-end;
 }
-.comic_pg div p {
-  color: white;
-  background-color: black;
+.comic_pg details {
+  margin: 0;
+}
+.comic_pg summary {
+  display: inline-block;
+  background-color: #ccc;
+  border: 4px solid var(--color-bg-primary);
+  padding: 0;
+  margin-left: -4px;
+  margin-bottom: -4px;
+  cursor: pointer;
+}
+.comic_pg div:hover summary {
+  background-color: var(--color-gold);
+}
+.comic_pg details h5 {
+  color: #333;
+  margin: 4px 10px;
+}
+.comic_pg details:hover h5 {
+  color: #fff;
+}
+.comic_pg details p {
+  color: var(--color-bg-secndary);
+  background-color: var(--color-bg-primary);
+  height: 0;
+  margin: 0;
+  padding: 4px 10px;
+}
+.comic_pg div:hover details p {
+  display: block;
+  height: 100%;
 }
 
-.hero { grid-area: hero; }
+@keyframes aniBG {
+  from {
+    /* background-position: center; */
+    background-size: cover;
+  }
+  to {
+    background-position: -100px -50px;
+    background-size: 200%;
+  }
+}
+
+.hero { 
+  grid-area: hero;
+}
 .ng1 { grid-area: ng1; }
 .ng2 { grid-area: ng2; }
 .ng3 { grid-area: ng3; }
@@ -64,46 +105,11 @@
     justify-content: flex-end;
     
   }
+  .comic_pg a div {
+    margin: 0;
+  }
   .comic_pg div details {
     align-self: stretch;
   }
 }
 
-.comic_pg a {
-  display: contents;
-}
-
-.comic_pg details {
-  margin: 0;
-}
-.comic_pg summary {
-  display: inline-block;
-  background-color: white;
-  border: 4px solid var(--color-bg-primary);
-  padding: 0;
-  margin-left: -4px;
-  margin-bottom: -4px;
-  cursor: pointer;
-}
-.comic_pg details h5 {
-  margin: 4px 10px;
-}
-.comic_pg details p {
-  color: #333;
-  background-color: var(--color-bg-primary);
-  margin: 0;
-  padding: 4px 10px;
-}
-
-.comic_pg div:hover summary {
-  background-color: var(--color-gold);
-}
-details p {
-  /* display: none; */
-  height: 0;
-}
-.comic_pg div details:hover p {
-  display: block;
-  width: 90%;
-  height: 100%;
-}
