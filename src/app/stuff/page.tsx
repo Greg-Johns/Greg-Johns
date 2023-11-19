@@ -39,10 +39,8 @@ export default function Stuff() {
             <Link href='/heroes'>
               <div
                 className='hero' 
-              /* https://davidwalsh.name/multiple-background-css-animations */
                 style={{ 
                   backgroundImage:`url(${JSON.stringify(hero.src)})`,
-                  /* backgroundPosition: '0 -90px', */
                 }}
               >
                   <details open>
