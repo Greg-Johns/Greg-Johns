@@ -25,6 +25,7 @@
   background: none;
   color: var(--color-text-secondary);
   font-size: 11px;
+  cursor: pointer;
 }
 .gallery_buttons .inline {
   position: relative;

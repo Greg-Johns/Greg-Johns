@@ -10,7 +10,7 @@ interface PicName {
 const cur = '#222';
 const notCur = '#999';
 
-export default function Gallery(
+export default function Gallery2(
   { type, dir, images }: { type: string, dir: string, images: [string] }
 ) {
   const [galleryType, setGalleryType] = useState(type === undefined ? 'gallery' : type);

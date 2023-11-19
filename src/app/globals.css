@@ -7,10 +7,6 @@
   --color-gold: #bc9531;
   --color-gold-light: #E0D5D5;
   --color-gold-dark: #514C48;
-  --cb-1-cell: 170px;
-  --cb-2-cell: 350px;
-  --gc: auto;
-  --gr: auto;
 }
 
 html {
@@ -171,8 +167,7 @@ i img {
 }
 
 .gj svg {
-  padding: 17px;
-  margin-top: -4px;
+  margin: 14px 0 0 16px;
   display: block;
 }
 .gj:hover .gaj {
@@ -318,7 +313,8 @@ nav a:hover {
   scale: .8;
 }
 .homeLink svg {
-  padding: 11px 0 0 14px;
+  /* padding: 11px 0 0 14px; */
+  margin: 11px 0 0 14px;
 }
 .homeLink:hover {
   text-decoration: none;
