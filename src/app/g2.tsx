@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React, { FC, useState, useEffect } from 'react';
 import Lightbox from './Lightbox';
-/* import './gallery.css' */
+import './gallery.css'
 
 interface PicName {
   name: string,
@@ -40,33 +40,31 @@ export default function Gallery2(
   }, [type])
 
   const Images: FC<PicName> = ({ name }) => {
+    console.log(">>>", name) 
     let imgMarkup;
-    console.log(">", name, galleryType)
     if (galleryType === 'gallery') {
       imgMarkup = (
           <div key={name} className='gallery_item'>
-            {/* <Lightbox */}
-            {/*   src={`/${dir}/${name}.jpg`} */}
-            /* src={name} */
-            {/*   alt='foo' */}
-            {/*   img_array={images} */}
-            {/*   dir={dir} */}
-            {/* > */}
-            {/*   <Image */}
-            {/*      src={`/${dir}/${name}.jpg`} */}
-            {/*      alt={name} */}
-            {/*      width='250' */}
-            {/*      height='250' */}
-            {/*   /> */}
-            {/* </Lightbox> */}
-            'foo'
+            <Lightbox
+              src={`/${dir}/${name}.gif`}
+              alt='foo'
+              img_array={images}
+              dir={dir}
+             >
+               <Image
+                  src={`/${dir}/${name}.gif`}
+                  alt={name}
+                  width='250'
+                  height='250'
+               />
+             </Lightbox>
           </div>
       )
     } else {
       imgMarkup = (
           <div key={name}>
             <Image
-              src={`/${dir}/${name}.jpg`}
+              src={`/${dir}/${name}.gif`}
               alt={name}
               width='415'
               height='500'

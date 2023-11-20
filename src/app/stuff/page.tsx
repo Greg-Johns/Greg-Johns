@@ -5,7 +5,7 @@ import '../comics.css'
 import hero from '../../../public/stuff/heroes_villians/hv_9.jpg'
 import ng1 from '../../../public/stuff/genart/ng/ng12.jpg'
 import ng2 from '../../../public/stuff/genart/spirals/spiral_17.jpg'
-import ng3 from '../../../public/stuff/genart/waves/waves_12.jpg'
+import ng3 from '../../../public/stuff/genart/columns/col_22.jpg'
 import sketchbook1 from '../../../public/stuff/sketchbook1/sb_15.jpg'
 import sketchbook2 from '../../../public/stuff/sketchbook1/sb_19.jpg'
 import sketchbook3 from '../../../public/stuff/sketchbook1/sb_1.jpg'
@@ -70,7 +70,7 @@ export default function Stuff() {
         <Link href='/ng2'>
           <div
             className='ng2'
-            style={{ backgroundImage: `url(${JSON.stringify(ng2.src)})` }}
+            style={{ backgroundImage: `url(${JSON.stringify(ng2.src)})`, backgroundColor: 'black' }}
           >
             <details open>
               <summary>
@@ -84,7 +84,7 @@ export default function Stuff() {
         <Link href='/ng3'>
           <div
             className='ng3'
-            style={{ backgroundImage: `url(${JSON.stringify(ng3.src)})` }}
+            style={{ backgroundImage: `url(${JSON.stringify(ng3.src)})`, backgroundColor: 'black' }}
           >
             <details open>
               <summary>
@@ -165,19 +165,19 @@ export default function Stuff() {
         {/*   </div> */}
         {/* </Link> */}
 
-        <Link href='/sites'>
-          <div
-            className='sites'
-            style={{ backgroundImage: `url(${JSON.stringify(sites.src)})` }}
-          >
-            <details open>
-              <summary>
-                <h5>Old sites</h5>
-              </summary>
-              <p>Some (very) old sites I've built.</p>
-            </details>
-          </div>
-        </Link>
+        {/* <Link href='/sites'> */}
+        {/*   <div */}
+        {/*     className='sites' */}
+        {/*     style={{ backgroundImage: `url(${JSON.stringify(sites.src)})` }} */}
+        {/*   > */}
+        {/*     <details open> */}
+        {/*       <summary> */}
+        {/*         <h5>Old sites</h5> */}
+        {/*       </summary> */}
+        {/*       <p>Some (very) old sites I&apos;ve participated in making.</p> */}
+        {/*     </details> */}
+        {/*   </div> */}
+        {/* </Link> */}
 
         {/* <Link href='/cartoons'> */}
         {/*   <div */}
@@ -194,19 +194,19 @@ export default function Stuff() {
         {/* </Link> */}
         {/**/}
 
-        <Link href='/heroes'>
-          <div
-            className='screens'
-            style={{ backgroundImage: `url(${JSON.stringify(screens.src)})` }}
-          >
-            <details open>
-              <summary>
-                <h5>Screens</h5>
-              </summary>
-              <p>Various screen and interaction design work.</p>
-            </details>
-          </div>
-        </Link>
+        {/* <Link href='/screens'> */}
+        {/*   <div */}
+        {/*     className='screens' */}
+        {/*     style={{ backgroundImage: `url(${JSON.stringify(screens.src)})` }} */}
+        {/*   > */}
+        {/*     <details open> */}
+        {/*       <summary> */}
+        {/*         <h5>Screens</h5> */}
+        {/*       </summary> */}
+        {/*       <p>Various screen and interaction design work.</p> */}
+        {/*     </details> */}
+        {/*   </div> */}
+        {/* </Link> */}
 
       </div>
     </>

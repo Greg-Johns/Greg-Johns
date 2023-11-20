@@ -1,0 +1,21 @@
+import GalleryLayout from '../app/GalleryLayout'
+import Gallery from '../app/Gallery'
+
+## Sites
+<time>Nov 16th, 2023</time>
+
+A collection of old sites I've worked on somewhere in the distant past.
+
+<Gallery dir='stuff/screens_ux' images={
+  [
+    'vz_fios_fb1',
+    'vz_fios_fb2',
+    'vz_fios_fb3',
+  ]
+} />
+
+export const meta = {
+  author: 'Greg Johns'
+}
+
+export default ({ children }) => <GalleryLayout meta={meta}>{children}</GalleryLayout>

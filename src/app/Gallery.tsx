@@ -41,7 +41,6 @@ export default function Gallery(
 
   const Images: FC<PicName> = ({ name }) => {
     let imgMarkup;
-    console.log(">", name)
     if (galleryType === 'gallery') {
       imgMarkup = (
           <div key={name} className='gallery_item'>

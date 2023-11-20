@@ -1,0 +1,36 @@
+import GalleryLayout from '../app/GalleryLayout'
+import Gallery2 from '../app/g2'
+
+## Sites
+<time>Nov 16th, 2023</time>
+
+A collection of old sites I've worked on somewhere in the distant past.
+
+<Gallery2 dir='stuff/sites' images={
+  [
+    'ey1',
+    'ey2',
+    'ey3',
+    'ey4',
+    'ey5',
+    's1',
+    's2',
+    's3',
+    's4',
+    's5',
+    'te1',
+    'te2',
+    'te3',
+    'vz_cx1',
+    'vz_cx2',
+    'vz_cx3',
+    'zix1',
+    'zix2',
+  ]
+} />
+
+export const meta = {
+  author: 'Greg Johns'
+}
+
+export default ({ children }) => <GalleryLayout meta={meta}>{children}</GalleryLayout>
