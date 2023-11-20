@@ -165,19 +165,19 @@ export default function Stuff() {
         {/*   </div> */}
         {/* </Link> */}
 
-        {/* <Link href='/sites'> */}
-        {/*   <div */}
-        {/*     className='sites' */}
-        {/*     style={{ backgroundImage: `url(${JSON.stringify(sites.src)})` }} */}
-        {/*   > */}
-        {/*     <details open> */}
-        {/*       <summary> */}
-        {/*         <h5>Old sites</h5> */}
-        {/*       </summary> */}
-        {/*       <p>Some (very) old sites I&apos;ve participated in making.</p> */}
-        {/*     </details> */}
-        {/*   </div> */}
-        {/* </Link> */}
+        <Link href='/sites'>
+          <div
+            className='sites'
+            style={{ backgroundImage: `url(${JSON.stringify(sites.src)})` }}
+          >
+            <details open>
+              <summary>
+                <h5>Old sites</h5>
+              </summary>
+              <p>Some (very) old sites I&apos;ve participated in making.</p>
+            </details>
+          </div>
+        </Link>
 
         {/* <Link href='/cartoons'> */}
         {/*   <div */}
@@ -194,19 +194,19 @@ export default function Stuff() {
         {/* </Link> */}
         {/**/}
 
-        {/* <Link href='/screens'> */}
-        {/*   <div */}
-        {/*     className='screens' */}
-        {/*     style={{ backgroundImage: `url(${JSON.stringify(screens.src)})` }} */}
-        {/*   > */}
-        {/*     <details open> */}
-        {/*       <summary> */}
-        {/*         <h5>Screens</h5> */}
-        {/*       </summary> */}
-        {/*       <p>Various screen and interaction design work.</p> */}
-        {/*     </details> */}
-        {/*   </div> */}
-        {/* </Link> */}
+        <Link href='/screens'>
+          <div
+            className='screens'
+            style={{ backgroundImage: `url(${JSON.stringify(screens.src)})` }}
+          >
+            <details open>
+              <summary>
+                <h5>Screens</h5>
+              </summary>
+              <p>Various screen and interaction design work.</p>
+            </details>
+          </div>
+        </Link>
 
       </div>
     </>
