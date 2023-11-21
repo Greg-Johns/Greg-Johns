@@ -1,18 +1,20 @@
 import GalleryLayout from '../app/GalleryLayout'
-import Gallery from '../app/Gallery'
+import SideScroller from '../app/SideScroller'
 
 ## Sites
 <time>Nov 16th, 2023</time>
 
 A collection of old sites I've worked on somewhere in the distant past.
 
-<Gallery dir='stuff/screens_ux' images={
-  [
-    'vz_fios_fb1',
-    'vz_fios_fb2',
-    'vz_fios_fb3',
-  ]
-} />
+<SideScroller 
+  dir='/api/getScreens'
+  infos={[
+    'site one',
+    'site two',
+    '',
+    'site tree'
+  ]}
+/>
 
 export const meta = {
   author: 'Greg Johns'

@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 import Image from 'next/image';
 import React, { FC, useState, useEffect } from 'react';
-import './sliders.css';
+import './sliders.css'
 
 interface PicName {
   name: string,
@@ -17,11 +17,7 @@ export default function SideScroller(
   const [gridColor, setGridColor] = useState(notCur);
   const fetcher = (url: any) => fetch(url).then((res) => res.json());
   const { data } = useSWR(dir, fetcher);
-  const justTheName = /[^/]*$/;
-  const getName = (str: string) => {
-    const nameExt = str.match(/[^/]*$/)?.toString();
-    return nameExt?.substr(0, nameExt.lastIndexOf('.'));
-  };
+  const justTheName = /[^/]*$/; 
 
   return (
     <>
@@ -38,8 +34,7 @@ export default function SideScroller(
                     /* width='415' */
                     /* height='500' */
                   />
-                  <h5>{getName(imgPath)}</h5>
-                  {/* <h5>{imgPath.match(justTheName)}</h5> */}
+                  <h5>{imgPath.match(justTheName)}</h5>
                   {/* <h5>{imgPath}</h5> */}
                   <p>
                     {infos[i - 1]}
