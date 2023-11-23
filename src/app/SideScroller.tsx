@@ -30,7 +30,7 @@ export default function SideScroller(
         {
           data && data.map((
             imgPath: string, i: number) => (
-              <div key={imgPath}>
+              <div className='slider_img' key={imgPath}>
                 <span>
                   <img
                     src={imgPath}
@@ -38,12 +38,14 @@ export default function SideScroller(
                     /* width='415' */
                     /* height='500' */
                   />
-                  <h5>{getName(imgPath)}</h5>
-                  {/* <h5>{imgPath.match(justTheName)}</h5> */}
-                  {/* <h5>{imgPath}</h5> */}
-                  <p>
-                    {infos[i - 1]}
-                  </p>
+                  <div className='slider_info'>
+                    <h5>{getName(imgPath)}</h5>
+                    {/* <h5>{imgPath.match(justTheName)}</h5> */}
+                    {/* <h5>{imgPath}</h5> */}
+                    <p>
+                      {infos[i]}
+                    </p>
+                  </div>
                 </span>
               </div>
             )

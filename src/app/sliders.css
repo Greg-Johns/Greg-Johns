@@ -3,25 +3,45 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  align-items: flex-end;
   overflow: scroll;
   padding: 0 10px;
-  margin: 40px 0;
+  margin: 20px 0;
+  margin-right: -40px;
   border-bottom: 1px dashed #ccc;
   --thumbBG: var(--color-gold);
 }
 
 .slider::-webkit-scrollbar-track {
   background: none;
+  margin: 0 50px;
 }
 .slider::-webkit-scrollbar-thumb {
   background-color: var(--thumbBG);
   border-radius: 6px;
   border: 3px solid none;
+  margin: 0 48px;
 }
 .slider::-webkit-scrollbar {
   height: 1px;
+  margin: 0 40px;
 }
 
-.slider div {
+.slider_img {
   margin: 0 40px;
+}
+.slider div h5 {
+  padding: 2px 12px;
+  margin: 24px 0 14px 0;
+  border-left: 4px solid var(--color-gold)
+}
+.slider div p {
+  padding: 0 0 0 18px;
+  margin: 0;
+  min-height: 40px;
+}
+.slider_info {
+  height: 100%;
+  border-left: 1px solid var(--color-gold);
+  padding-bottom: 18px;
 }

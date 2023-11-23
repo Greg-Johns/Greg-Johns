@@ -45,8 +45,8 @@ export default function Gallery(
       imgMarkup = (
           <div key={name} className='gallery_item'>
             <Lightbox
-              src={`/${dir}/${name}.jpg`}
-              /* src={name} */
+              /* src={`/${dir}/${name}.jpg`} */
+              src={name}
               alt='foo'
               img_array={images}
               dir={dir}
