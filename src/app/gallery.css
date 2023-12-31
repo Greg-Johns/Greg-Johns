@@ -71,18 +71,16 @@ figcaption {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 40px;
   overflow: scroll;
-  padding: 0 40px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   --thumbBG: var(--color-gold);
 }
-.gallery_row img {
-  opacity: 0.6;
-}
 
-.gallery_row img {
-  padding: 0 40px;
-}
+/* .gallery_row img { */
+/*   padding: 0 40px; */
+/*   opacity: 0.6; */
+/* } */
 
 .gallery_row img:hover {
   opacity: 1;

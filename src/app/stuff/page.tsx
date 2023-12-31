@@ -6,8 +6,8 @@ import hero from '../../../public/stuff/heroes_villians/hv_9.jpg'
 import ng1 from '../../../public/stuff/genart/ng/ng12.jpg'
 import ng2 from '../../../public/stuff/genart/spirals/spiral_17.jpg'
 import ng3 from '../../../public/stuff/genart/columns/col_22.jpg'
-import sketchbook1 from '../../../public/stuff/sketchbook1/sb_15.jpg'
-import sketchbook2 from '../../../public/stuff/sketchbook1/sb_19.jpg'
+import sketchbook1 from '../../../public/stuff/sketchbook2/sb_15.jpg'
+import sketchbook2 from '../../../public/stuff/sketchbook2/sb_19.jpg'
 import sketchbook3 from '../../../public/stuff/sketchbook1/sb_1.jpg'
 import sites from '../../../public/stuff/tn_sites.gif'
 import marks from '../../../public/stuff/tn_mark.jpg'
@@ -95,47 +95,47 @@ export default function Stuff() {
           </div>
         </Link>
 
-        {/* <Link href='/skbk1'> */}
-        {/*   <div */}
-        {/*     className='skbk1' */}
-        {/*     style={{ backgroundImage: `url(${JSON.stringify(sketchbook1.src)})` }} */}
-        {/*   > */}
-        {/*     <details open> */}
-        {/*       <summary> */}
-        {/*         <h5>Sketchbook 1</h5> */}
-        {/*       </summary> */}
-        {/*       <p>Sketchbook figure drawings.</p> */}
-        {/*     </details> */}
-        {/*   </div> */}
-        {/* </Link> */}
+        <Link href='/skbk1'>
+          <div
+            className='skbk1'
+            style={{ backgroundImage: `url(${JSON.stringify(sketchbook1.src)})` }}
+          >
+            <details open>
+              <summary>
+                <h5>Sketchbook 1</h5>
+              </summary>
+              <p>Sketchbook figure drawings.</p>
+            </details>
+          </div>
+        </Link>
 
-        {/* <Link href='/sk2'> */}
-        {/*   <div */}
-        {/*     className='skbk2' */}
-        {/*     style={{ backgroundImage: `url(${JSON.stringify(sketchbook2.src)})` }} */}
-        {/*   > */}
-        {/*     <details open> */}
-        {/*       <summary> */}
-        {/*         <h5>Sketchbook 2</h5> */}
-        {/*       </summary> */}
-        {/*       <p>Sketchy stuff.</p> */}
-        {/*     </details> */}
-        {/*   </div> */}
-        {/* </Link> */}
+        <Link href='/sk2'>
+          <div
+            className='skbk2'
+            style={{ backgroundImage: `url(${JSON.stringify(sketchbook2.src)})` }}
+          >
+            <details open>
+              <summary>
+                <h5>Sketchbook 2</h5>
+              </summary>
+              <p>Sketchy stuff.</p>
+            </details>
+          </div>
+        </Link>
 
-        {/* <Link href='/skbk3'> */}
-        {/*   <div */}
-        {/*     className='skbk3' */}
-        {/*     style={{ backgroundImage: `url(${JSON.stringify(sketchbook3.src)})` }} */}
-        {/*   > */}
-        {/*     <details open> */}
-        {/*       <summary> */}
-        {/*         <h5>Sketchbook 3</h5> */}
-        {/*       </summary> */}
-        {/*       <p>More sketchy stuff.</p> */}
-        {/*     </details> */}
-        {/*   </div> */}
-        {/* </Link> */}
+        <Link href='/skbk3'>
+          <div
+            className='skbk3'
+            style={{ backgroundImage: `url(${JSON.stringify(sketchbook3.src)})` }}
+          >
+            <details open>
+              <summary>
+                <h5>Sketchbook 3</h5>
+              </summary>
+              <p>More sketchy stuff.</p>
+            </details>
+          </div>
+        </Link>
 
         {/* <Link href='/blkboard'> */}
         {/*   <div */}

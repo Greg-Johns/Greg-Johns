@@ -95,6 +95,10 @@
       'ng1   ng1     ng2   ng2'
       'ng1   ng1     ng3   ng3'
       'sites screens blank blank';
+    grid-template-areas: 
+      'ng1   ng1     ng2   ng2'
+      'ng1   ng1     ng3   skbk1'
+      'skbk2 skbk3   sites screens';
 
     /* grid-template-areas:  */
     /*   'hero    hero  ng2   ng2' */
