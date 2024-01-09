@@ -30,25 +30,27 @@ export default function FlipBook(
         data && data.map((
           imgPath: string, i: number) => (
             <div key={imgPath}>
-              <input type="checkbox" className="chk-flip" id="page-1" name="page-1"/>
+              <input type="checkbox" className="chk-flip" id={`page-${i}`} name={`page-${i}`}/>
               <section className="page">
-                <label className="lbl-flip" htmlFor="page-1"></label>
+                <label className="lbl-flip" htmlFor={`page-${i}`}></label>
                 <article className="front-page">					
                   <figure>
-                    <figcaption>Foo</figcaption>
-                  </figure>					
-                  <span>
                     <img
                       src={imgPath}
                       alt='name'
                       width='330px'
                       height='500px'
                     />
-                  </span>
+                  </figure>					
                 </article>
                 <article className="back-page">				
                   <figure>
-                    <figcaption>bar</figcaption>
+                    <img
+                      src={`${imgPath.substring(0, imgPath.length - 5) + (i + 2)}.jpg`} 
+                      alt='name'
+                      width='330px'
+                      height='500px'
+                    />
                   </figure>					
                 </article>
               </section>
