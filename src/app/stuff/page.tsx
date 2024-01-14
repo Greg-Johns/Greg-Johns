@@ -81,7 +81,7 @@ export default function Stuff() {
           </div>
         </Link>
 
-        <Link href='/ng3'>
+       <Link href='/ng3'>
           <div
             className='ng3'
             style={{ backgroundImage: `url(${JSON.stringify(ng3.src)})`, backgroundColor: 'black' }}
