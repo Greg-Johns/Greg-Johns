@@ -4,6 +4,7 @@ const width = 640;
 const height = 640;
 
 const sketch: Sketch = (p5) => {
+
   // Boid class
   // From Daniel Shiffman's 'The Nature of Code'
   // http://natureofcode.com
@@ -15,8 +16,10 @@ const sketch: Sketch = (p5) => {
     y: number;
     boids: Boid[];
     position: any;
+    p5: any;
 
     constructor(x: number, y: number) {
+      this.p5 = p5;
       this.acceleration = this.acceleration;
       this.velocity = this.velocity;
       this.x = x;
@@ -47,9 +50,9 @@ const sketch: Sketch = (p5) => {
       let ali = this.align(boids);      // Alignment
       let coh = this.cohesion(boids);   // Cohesion
       // Arbitrarily weight these forces
-      sep.mult(1.4);
-      ali.mult(1.2);
-      coh.mult(6);
+      sep.mult(2.4);
+      ali.mult(1.4);
+      coh.mult(1);
       // Add the force vectors to acceleration
       this.applyForce(sep);
       this.applyForce(ali);
@@ -70,9 +73,9 @@ const sketch: Sketch = (p5) => {
     // A method that calculates and applies a steering force towards a target
     // STEER = DESIRED MINUS VELOCITY
     seek(target: any) {
-      //let desired = p5.Vector.sub(target,this.position);  // A vector pointing from the location to the target
-      // let desired = p5.createVector((this.position.x - target.x), (this.position.y - target.y));  // A vector pointing from the location to the target
-      let desired = p5.createVector((target.x - this.position.x), (target.y - this.position.y));  // A vector pointing from the location to the target
+      // let desired = p5.Vector.sub(target,this.position);  // A vector pointing from the location to the target
+      let desired = p5.createVector((this.position.x - target.x), (this.position.y - target.y));  // A vector pointing from the location to the target
+      // let desired = p5.createVector((target.x - this.position.x), (target.y - this.position.y));  // A vector pointing from the location to the target
       // Normalize desired and scale to maximum speed
       desired.normalize();
       desired.mult(this.maxspeed);
@@ -100,15 +103,15 @@ const sketch: Sketch = (p5) => {
       p5.stroke(int * 40);
       p5.strokeWeight(int);
       p5.point(this.position.x, this.position.y);
-      // p5.push();
-      // p5.translate(this.position.x, this.position.y);
-      // p5.rotate(theta);
-      // p5.beginShape();
-      // p5.vertex(0, -this.r);
-      // p5.vertex(-this.r, this.r);
-      // p5.vertex(this.r, this.r);
-      // p5.endShape();
-      // p5.pop();
+      /* p5.push(); */
+      /* p5.translate(this.position.x, this.position.y); */
+      /* p5.rotate(theta); */
+      /* p5.beginShape(); */
+      /* p5.vertex(0, -this.r); */
+      /* p5.vertex(-this.r, this.r); */
+      /* p5.vertex(this.r, this.r); */
+      /* p5.endShape(); */
+      /* p5.pop(); */
     }
   
     // Separation
@@ -123,7 +126,7 @@ const sketch: Sketch = (p5) => {
         // If the distance is greater than 0 and less than an arbitrary amount (0 when you are yourself)
         if ((d > 0) && (d < desiredseparation)) {
           // Calculate vector pointing away from neighbor
-          // let diff = p5.Vector.sub(this.position, boids[i].position);
+          // let diff = this.p5.Vector.sub(this.position, boids[i].position);
           let diff = p5.createVector((boids[i].position.x - this.position.x), (this.position.y - boids[i].position.y));
           diff.normalize();
           diff.div(d);        // Weight by distance
@@ -164,7 +167,7 @@ const sketch: Sketch = (p5) => {
         sum.div(count);
         sum.normalize();
         sum.mult(this.maxspeed);
-        // let steer = p5.Vector.sub(sum, this.velocity);
+        // let steer = this.p5.Vector.sub(sum, this.velocity);
         let steer = sum.sub(sum.x, this.velocity.x);
         steer.limit(this.maxforce);
         return steer;
@@ -211,13 +214,13 @@ const sketch: Sketch = (p5) => {
       this.boids.push(b);
     }
   }
-
+  
   let flock: Flock;
   flock = new Flock();
 
   p5.setup = () => {
     p5.createCanvas(width, height);
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 200; i++) {
       let b: Boid;
       b = new Boid(width / 2, height / 2);
       flock.addBoid(b);

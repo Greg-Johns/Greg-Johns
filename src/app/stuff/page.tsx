@@ -208,7 +208,7 @@ export default function Stuff() {
           </div>
         </Link>
         
-        <Link href='/sketches'>sketches</Link>
+        <Link href='/sketches'>Generative Suprise</Link>
 
       </div>
     </>
