@@ -207,6 +207,8 @@ export default function Stuff() {
             </details>
           </div>
         </Link>
+        
+        <Link href='/sketches'>sketches</Link>
 
       </div>
     </>
