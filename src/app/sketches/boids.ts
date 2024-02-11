@@ -28,8 +28,8 @@ const sketch: Sketch = (p5) => {
       this.boids = []; // Initialize the array
     }
 
-    r = 9.0;
-    maxspeed = 4;    // Maximum speed
+    r = 1.0;
+    maxspeed = 7;    // Maximum speed
     maxforce = 0.5; // Maximum steering force 
 
     run(boids: Boid[]) {
@@ -98,17 +98,17 @@ const sketch: Sketch = (p5) => {
     render() {
       // Draw a triangle rotated in the direction of velocity
       let theta = this.velocity.heading() + p5.radians(90);
-      const int = theta * 2;
-      p5.fill(int * 40);
-      p5.stroke(int * 40);
-      p5.strokeWeight(int);
+      const int = theta * 100;
+      p5.fill(int);
+      p5.stroke(int);
+      p5.strokeWeight(theta * 4);
       p5.point(this.position.x, this.position.y);
       /* p5.push(); */
       /* p5.translate(this.position.x, this.position.y); */
       /* p5.rotate(theta); */
       /* p5.beginShape(); */
-      /* p5.vertex(0, -this.r); */
-      /* p5.vertex(-this.r, this.r); */
+      /* p5.vertex(0, -this.r * 2); */
+      /* p5.vertex(-this.r, this.r * 2); */
       /* p5.vertex(this.r, this.r); */
       /* p5.endShape(); */
       /* p5.pop(); */
@@ -117,7 +117,7 @@ const sketch: Sketch = (p5) => {
     // Separation
     // Method checks for nearby boids and steers away
     separate(boids: any) {
-      let desiredseparation = 25.0;
+      let desiredseparation = 30;
       let steer = p5.createVector(0, 0);
       let count = 0;
       // For every boid in the system, check if it's too close
@@ -153,7 +153,7 @@ const sketch: Sketch = (p5) => {
     // Alignment
     // For every nearby boid in the system, calculate the average velocity
     align(boids: any) {
-      let neighbordist = 50;
+      let neighbordist = 70;
       let sum = p5.createVector(0,0);
       let count = 0;
       for (let i = 0; i < boids.length; i++) {
@@ -220,7 +220,7 @@ const sketch: Sketch = (p5) => {
 
   p5.setup = () => {
     p5.createCanvas(width, height);
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 40; i++) {
       let b: Boid;
       b = new Boid(width / 2, height / 2);
       flock.addBoid(b);

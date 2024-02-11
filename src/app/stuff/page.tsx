@@ -208,7 +208,21 @@ export default function Stuff() {
           </div>
         </Link>
         
-        <Link href='/sketches'>Generative Suprise</Link>
+        <Link href='/sketches'>
+          <div
+            className='sketch'
+            style={{ backgroundImage: `url(${JSON.stringify(screens.src)})` }}
+          >
+            <details open>
+              <summary>
+                <h5>Boid Droids</h5>
+              </summary>
+              <p>
+                P5 is Alive!!!
+              </p>
+            </details>
+          </div>
+        </Link>
 
       </div>
     </>
