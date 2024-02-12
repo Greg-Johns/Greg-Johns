@@ -14,6 +14,7 @@ import marks from '../../../public/stuff/tn_mark.jpg'
 import blkbrd from '../../../public/stuff/blackboard/flyball.jpeg'
 import cartoons from '../../../public/stuff/cartoons/spock.jpg'
 import screens from '../../../public/stuff/tn_screens.jpg'
+import boids from '../../../public/stuff/tn_boids.jpg'
 
 export default function Stuff() {
 
@@ -207,11 +208,11 @@ export default function Stuff() {
             </details>
           </div>
         </Link>
-        
+
         <Link href='/sketches'>
           <div
             className='sketch'
-            style={{ backgroundImage: `url(${JSON.stringify(screens.src)})` }}
+            style={{ backgroundImage: `url(${JSON.stringify(boids.src)})` }}
           >
             <details open>
               <summary>

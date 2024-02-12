@@ -7,7 +7,6 @@ interface PicName {
   name: string,
 }
 
-
 const cur = '#222';
 const notCur = '#999';
 
