@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React, { FC, useState, useEffect } from 'react';
 import Lightbox from './Lightbox';
-import './gallery.css'
+import './gallery.css';
 
 interface PicName {
   name: string,

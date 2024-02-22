@@ -1,5 +1,5 @@
-import React, {useState, FC} from 'react';
 import Image from 'next/image';
+import React, { useState } from 'react';
 import './lightbox.css'
 
 interface Props {
@@ -10,15 +10,15 @@ interface Props {
   dir: string
 }
 const LightBox: React.FC<Props> = ({ children, src, alt, img_array, dir }) => {
-	const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [srcImg, setSrcImg] = useState(src);
   const [prevAvail, setPrevAvail] = useState(true);
   const [nextAvail, setNextAvail] = useState(true);
   let curImg = srcImg.substring(srcImg.lastIndexOf('/')).split('.')[0];
 
-	const toggleIsOpen = () => {
-		setIsOpen(!isOpen);
-	};
+  const toggleIsOpen = () => {
+    setIsOpen(!isOpen);
+  };
 
   const prev = (e: React.MouseEvent<Element, MouseEvent>) => {
     e.stopPropagation();
@@ -33,7 +33,7 @@ const LightBox: React.FC<Props> = ({ children, src, alt, img_array, dir }) => {
 
   const next = (e: React.MouseEvent<Element, MouseEvent>) => {
     e.stopPropagation();
-    let nextImg = img_array.findIndex((i) => i == curImg) +1;
+    let nextImg = img_array.findIndex((i) => i == curImg) + 1;
     if (nextImg < img_array.length) {
       setSrcImg(img_array[nextImg]);
       setPrevAvail(true);
@@ -42,12 +42,12 @@ const LightBox: React.FC<Props> = ({ children, src, alt, img_array, dir }) => {
     }
   }
 
-	return (
-		<div onClick={toggleIsOpen}>
-			{children}
-			{isOpen ?
+  return (
+    <div onClick={toggleIsOpen}>
+      {children}
+      {isOpen ?
         <div className='lightbox' onClick={toggleIsOpen}>
-          <div style={{display: 'block'}}>
+          <div style={{ display: 'block' }}>
             <Image width='500' height='500' src={`/${dir}/${srcImg}.jpg`} alt={alt} />
             <figcaption>{curImg}</figcaption>
             <div className='lightbox_nav'>
@@ -59,9 +59,9 @@ const LightBox: React.FC<Props> = ({ children, src, alt, img_array, dir }) => {
             </div>
           </div>
         </div>
-				: null}
-		</div>
-	);
+        : null}
+    </div>
+  );
 };
 
 export default LightBox;
