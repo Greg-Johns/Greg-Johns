@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer>
       <p>
-        An online journal of finily crafted, digital stuff by Greg Johns
+        An online journal of finally crafted, digital stuff by Greg Johns
         <br />
         A technical tinkerer from Texas ya&apos;ll
         <b>

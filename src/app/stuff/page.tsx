@@ -219,7 +219,23 @@ export default function Stuff() {
                 <h5>Boid Droids</h5>
               </summary>
               <p>
-                P5 is Alive!!!
+                Fun with P5
+              </p>
+            </details>
+          </div>
+        </Link>
+
+        <Link href='/sandbox'>
+          <div
+            className='sketch'
+            style={{ backgroundImage: `url(${JSON.stringify(boids.src)})` }}
+          >
+            <details open>
+              <summary>
+                <h5>Tiangles</h5>
+              </summary>
+              <p>
+                Experiment
               </p>
             </details>
           </div>
