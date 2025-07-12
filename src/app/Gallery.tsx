@@ -1,17 +1,17 @@
 import Image from 'next/image';
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect, useCallback } from 'react';
 import Lightbox from './Lightbox';
 import './gallery.css';
 
 interface PicName {
-  name: string,
+  name: string;
 }
 
 const cur = '#222';
 const notCur = '#999';
 
 export default function Gallery(
-  { type, dir, images }: { type: string, dir: string, images: [string] }
+  { type, dir, images }: { type: string; dir: string; images: string[] }
 ) {
   const [galleryType, setGalleryType] = useState(type === undefined ? 'gallery' : type);
   const [inlineColor, setInlineColor] = useState(notCur);

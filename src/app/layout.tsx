@@ -1,10 +1,7 @@
-import type { AppProps } from 'next/app';
 import { AnalyticsWrapper } from './Analytics';
-import './globals.css'
-import Header from './Header'
-import Footer from './Footer'
-//import error from './error'
-//import ErrorBoundary from 'react'
+import './globals.css';
+import Header from './Header';
+import Footer from './Footer';
 
 export default function RootLayout({ children }: {
   children: React.ReactNode

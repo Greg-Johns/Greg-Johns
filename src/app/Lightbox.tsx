@@ -1,46 +1,50 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
-import './lightbox.css'
+import React, { useState, useCallback } from 'react';
+import './lightbox.css';
 
 interface Props {
-  children: any,
-  src: string,
-  alt: string,
-  img_array: string[],
-  dir: string
+  children: React.ReactNode;
+  src: string;
+  alt: string;
+  img_array: string[];
+  dir: string;
 }
 const LightBox: React.FC<Props> = ({ children, src, alt, img_array, dir }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [srcImg, setSrcImg] = useState(src);
   const [prevAvail, setPrevAvail] = useState(true);
   const [nextAvail, setNextAvail] = useState(true);
-  let curImg = srcImg.substring(srcImg.lastIndexOf('/')).split('.')[0];
+  
+  const curImg = srcImg.substring(srcImg.lastIndexOf('/')).split('.')[0];
+  const currentIndex = img_array.findIndex((i) => i === curImg);
 
-  const toggleIsOpen = () => {
+  const toggleIsOpen = useCallback(() => {
     setIsOpen(!isOpen);
-  };
+  }, [isOpen]);
 
-  const prev = (e: React.MouseEvent<Element, MouseEvent>) => {
+  const prev = useCallback((e: React.MouseEvent<Element, MouseEvent>) => {
     e.stopPropagation();
-    const prevImg = img_array.findIndex((i) => i == curImg) - 1;
-    if (prevImg >= 0) {
-      setSrcImg(img_array[prevImg]);
+    const prevIndex = currentIndex - 1;
+    if (prevIndex >= 0) {
+      setSrcImg(img_array[prevIndex]);
       setNextAvail(true);
+      setPrevAvail(prevIndex > 0);
     } else {
       setPrevAvail(false);
     }
-  }
+  }, [currentIndex, img_array]);
 
-  const next = (e: React.MouseEvent<Element, MouseEvent>) => {
+  const next = useCallback((e: React.MouseEvent<Element, MouseEvent>) => {
     e.stopPropagation();
-    let nextImg = img_array.findIndex((i) => i == curImg) + 1;
-    if (nextImg < img_array.length) {
-      setSrcImg(img_array[nextImg]);
+    const nextIndex = currentIndex + 1;
+    if (nextIndex < img_array.length) {
+      setSrcImg(img_array[nextIndex]);
       setPrevAvail(true);
+      setNextAvail(nextIndex < img_array.length - 1);
     } else {
       setNextAvail(false);
     }
-  }
+  }, [currentIndex, img_array]);
 
   return (
     <div onClick={toggleIsOpen}>
