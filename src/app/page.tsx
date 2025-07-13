@@ -21,6 +21,12 @@ export default function Home() {
 
       <h4>Index</h4>
 
+      <Link href="eip1559">
+        <section>
+          <h3>Visualizing Ethereum Block Building</h3>
+          <time>Sometime</time>
+        </section>
+      </Link>
       <Link href="daws">
         <section>
           <h3>Dawn of the DAWs</h3>
