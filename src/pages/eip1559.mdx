@@ -1,6 +1,7 @@
 import EthereumGasMachine from '../components/EthereumGasMachine'
 import Link from 'next/link'
 import MarkdownLayout from '../app/MarkdownLayout'
+import ThemeAwareBlockFlow from '../components/ThemeAwareBlockFlow'
 
 ## Visualizing [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559)
 <time>May 16st, 2024</time>
@@ -17,10 +18,13 @@ EIP-1559 introduced two key changes:
 
 ### How It Works
 
-Instead of a fixed block size, EIP-1559 introduced a **target block size** of 15 million gas units, with a maximum cap of 30 million gas units. When blocks consistently exceed the target:
+Instead of a fixed block size, EIP-1559 introduced a **target block size** of 15 million gas units, with a maximum cap of 30 million gas units.
+
+When blocks consistently exceed the target:
 - Base fee increases by up to 12.5% per block
 - Higher fees discourage new transactions
 - Block sizes naturally decrease back toward the target
+
 
 When blocks are below target:
 - Base fee decreases
@@ -63,9 +67,7 @@ When you submit a transaction on Ethereum, the total fee consists of:
 
 Validators pick transactions from the mempool and include them in blocks. The visualization above shows how these fees are distributed and how block utilization affects the base fee for future blocks.
 
-The component fetches the latest 20 blocks, processes hex values, calculates percentages, and animates through real network activity.
-
-![BlockFlow](../../block_flow.png)
+<ThemeAwareBlockFlow />
 
 export const meta = {
   author: 'Greg Johns'
