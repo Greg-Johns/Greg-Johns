@@ -23,8 +23,8 @@ export default function Home() {
 
       <Link href="eip1559">
         <section>
-          <h3>Visualizing Ethereum Block Building</h3>
-          <time>Sometime</time>
+          <h3>Visualizing Ethereum's EIP-1559</h3>
+          <time>16 May 2024</time>
         </section>
       </Link>
       <Link href="daws">
