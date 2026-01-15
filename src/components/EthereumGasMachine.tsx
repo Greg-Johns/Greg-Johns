@@ -1,10 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import block_flow from "../../../public/block_flow.png";
 import styled from "@emotion/styled";
-// @ts-ignore
-// import gj from "../../../public/gj.svg";
 
 // Types
 interface BlockData {
@@ -20,114 +15,23 @@ interface BlockData {
   feeRecipientNametag: string;
 }
 
-interface EtherscanBlock {
-  number: string;
-  gasUsed: string;
-  gasLimit: string;
-  baseFeePerGas: string;
-  transactions: string[];
-}
 
-// API Functions with rate limiting
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-const fetchBlockData = async (blockNumber: number): Promise<BlockData | null> => {
-  try {
-    const API_KEY = process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY;
-    
-    const response = await fetch(
-      `https://api.etherscan.io/api?module=proxy&action=eth_getBlockByNumber&tag=0x${blockNumber.toString(16)}&boolean=true&apikey=${API_KEY}`
-    );
-    
-    if (!response.ok) {
-      throw new Error('Failed to fetch block data');
-    }
-    
-    const data = await response.json();
-    
-    // Check for rate limit error
-    if (data.result === 'Max calls per sec rate limit reached') {
-      throw new Error('Rate limit reached');
-    }
-    
-    const block = data.result;
-    
-    if (!block) {
-      throw new Error('No block data received');
-    }
-    
-    // Convert hex values to decimal
-    const gasUsedDecimal = parseInt(block.gasUsed, 16);
-    const gasLimitDecimal = parseInt(block.gasLimit, 16);
-    const baseFeeDecimal = parseInt(block.baseFeePerGas || '0x0', 16);
-    
-    // Calculate percentages
-    const gasUsedPercentage = ((gasUsedDecimal / gasLimitDecimal) * 100).toFixed(2) + '%';
-    const gasTarget = 15000000; // 15M gas target
-    const percentOfTarget = (((gasUsedDecimal - gasTarget) / gasTarget) * 100).toFixed(0) + '%';
-    
-    // Mock some values for demonstration (in a real app, you'd calculate these from transaction data)
-    const mockBurntFees = (gasUsedDecimal * baseFeeDecimal) / 1e18; // Rough calculation
-    const mockReward = Math.random() * 2; // Mock validator reward
-    
-    return {
-      block: parseInt(block.number, 16),
-      gasUsed: gasUsedDecimal.toLocaleString(),
-      gasUsedPercentage,
-      percentOfGasTarget: percentOfTarget,
-      baseFee: (baseFeeDecimal / 1e9).toFixed(2) + ' gwei', // Convert to gwei
-      burntFeesEth: parseFloat(mockBurntFees.toFixed(4)),
-      burntFeesPercentage: 85 + Math.random() * 10, // Mock percentage
-      reward: parseFloat(mockReward.toFixed(4)),
-      txn: block.transactions.length,
-      feeRecipientNametag: block.miner || 'Unknown'
-    };
-  } catch (error) {
-    console.error('Error fetching block data:', error);
-    return null;
-  }
+const DEFAULT_BLOCK: BlockData = {
+  block: 0,
+  gasUsed: "0",
+  gasUsedPercentage: "0%",
+  percentOfGasTarget: "0%",
+  baseFee: "0 gwei",
+  burntFeesEth: 0,
+  burntFeesPercentage: 0,
+  reward: 0,
+  txn: 0,
+  feeRecipientNametag: "Loading"
 };
 
-const fetchLatestBlocks = async (count: number = 10): Promise<BlockData[]> => {
-  try {
-    // Get latest block number first
-    const API_KEY = process.env.NEXT_PUBLIC_ETHERSCAN_API_KEY || 'YourApiKeyHere';
-    const latestResponse = await fetch(
-      `https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=${API_KEY}`
-    );
-    
-    if (!latestResponse.ok) {
-      throw new Error('Failed to fetch latest block number');
-    }
-    
-    const latestData = await latestResponse.json();
-    
-    // Check for rate limit error
-    if (latestData.result === 'Max calls per sec rate limit reached') {
-      throw new Error('Rate limit reached');
-    }
-    
-    const latestBlockNumber = parseInt(latestData.result, 16);
-    
-    // Fetch blocks sequentially with rate limiting (600ms delay = ~1.5 calls/sec)
-    const results: BlockData[] = [];
-    for (let i = 0; i < count; i++) {
-      if (i > 0) {
-        await delay(600); // Rate limiting: wait 600ms between calls
-      }
-      
-      const blockData = await fetchBlockData(latestBlockNumber - i);
-      if (blockData) {
-        results.push(blockData);
-      }
-    }
-    
-    return results.reverse(); // Return in chronological order
-  } catch (error) {
-    console.error('Error fetching latest blocks:', error);
-    return [];
-  }
-};
+// API Functions: removed
+
 
 // Constants
 const BLOCK_BG_IMG = `"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500' fill-opacity='.4' style='enable-background:new 0 0 500 500'%3E%3Cstyle%3E .st2{fill:rgb(109, 104, 104)} %3C/style%3E%3Cg style='display:none'%3E%3Cpath style='display:inline;fill:%23414042' d='M-8.3-5.7h520.7V511H-8.3z' id='Layer_2'/%3E%3C/g%3E%3Cg id='Layer_1'%3E%3Cpath transform='rotate(-45.001 0 .055)' class='st2' d='M-453.7-3.7h907.5v7.5h-907.5z'/%3E%3Cpath transform='rotate(-45.001 31.25 31.306)' class='st2' d='M-422.5 27.6H485v7.5h-907.5z'/%3E%3Cpath transform='rotate(-45.001 62.5 62.556)' class='st2' d='M-391.2 58.8h907.5v7.5h-907.5z'/%3E%3Cpath transform='rotate(-45.001 93.75 93.807)' class='st2' d='M-360 90.1h907.5v7.5H-360z'/%3E%3Cpath transform='rotate(-45.001 125 125.057)' class='st2' d='M-328.7 121.3h907.5v7.5h-907.5z'/%3E%3Cpath transform='rotate(-45.001 156.249 156.308)' class='st2' d='M-297.5 152.6H610v7.5h-907.5z'/%3E%3Cpath transform='rotate(-45.001 187.499 187.558)' class='st2' d='M-266.2 183.8h907.5v7.5h-907.5z'/%3E%3Cpath transform='rotate(-45.001 218.749 218.809)' class='st2' d='M-235 215.1h907.5v7.5H-235z'/%3E%3Cpath transform='rotate(-45.001 249.998 250.06)' class='st2' d='M-203.7 246.3h907.5v7.5h-907.5z'/%3E%3Cpath transform='rotate(-45.001 281.248 281.31)' class='st2' d='M-172.5 277.6H735v7.5h-907.5z'/%3E%3Cpath transform='rotate(-45.001 312.498 312.56)' class='st2' d='M-141.2 308.8h907.5v7.5h-907.5z'/%3E%3Cpath transform='rotate(-45.001 343.748 343.81)' class='st2' d='M-110 340.1h907.5v7.5H-110z'/%3E%3Cpath transform='rotate(-45.001 374.997 375.061)' class='st2' d='M-78.7 371.3h907.5v7.5H-78.7z'/%3E%3Cpath transform='rotate(-45.001 406.247 406.312)' class='st2' d='M-47.5 402.6H860v7.5H-47.5z'/%3E%3Cpath transform='rotate(-45.001 437.497 437.562)' class='st2' d='M-16.2 433.8h907.5v7.5H-16.2z'/%3E%3Cpath transform='rotate(-45.001 468.747 468.813)' class='st2' d='M15 465.1h907.5v7.5H15z'/%3E%3Cpath transform='rotate(-45.001 499.997 500.064)' class='st2' d='M46.3 496.3h907.5v7.5H46.3z'/%3E%3C/g%3E%3C/svg%3E"`;
@@ -135,138 +39,37 @@ const BLOCK_BG_IMG = `"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 export default function EthereumGasMachine() {
   // State management
   const [blockCount, setBlockCount] = useState<number>(0);
-  const [blockSpeed] = useState<number>(12000); // Fixed 12 second interval
+  const [blockSpeed] = useState<number>(12000);
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
   const [blockData, setBlockData] = useState<BlockData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-  const [useRealData, setUseRealData] = useState<boolean>(false);
-  const [loadingProgress, setLoadingProgress] = useState<number>(0);
 
-  // Extended fallback data for better demo
-  const fallbackData: BlockData[] = [
-    {
-      block: 19874197,
-      gasUsed: "17,593,159",
-      gasUsedPercentage: "58.64%",
-      percentOfGasTarget: "17%",
-      baseFee: "12.5 gwei",
-      burntFeesEth: 2.456,
-      burntFeesPercentage: 87.3,
-      reward: 0.125,
-      txn: 231,
-      feeRecipientNametag: "beaverbuild"
-    },
-    {
-      block: 19874198,
-      gasUsed: "22,150,000",
-      gasUsedPercentage: "73.83%",
-      percentOfGasTarget: "47%",
-      baseFee: "14.2 gwei",
-      burntFeesEth: 3.123,
-      burntFeesPercentage: 89.1,
-      reward: 0.234,
-      txn: 189,
-      feeRecipientNametag: "Titan Builder"
-    },
-    {
-      block: 19874199,
-      gasUsed: "28,450,000",
-      gasUsedPercentage: "94.83%",
-      percentOfGasTarget: "89%",
-      baseFee: "16.8 gwei",
-      burntFeesEth: 4.567,
-      burntFeesPercentage: 91.2,
-      reward: 0.189,
-      txn: 324,
-      feeRecipientNametag: "Flashbots"
-    },
-    {
-      block: 19874200,
-      gasUsed: "11,200,000",
-      gasUsedPercentage: "37.33%",
-      percentOfGasTarget: "-25%",
-      baseFee: "10.1 gwei",
-      burntFeesEth: 1.234,
-      burntFeesPercentage: 82.5,
-      reward: 0.067,
-      txn: 156,
-      feeRecipientNametag: "Unknown"
-    },
-    {
-      block: 19874201,
-      gasUsed: "19,800,000",
-      gasUsedPercentage: "66.00%",
-      percentOfGasTarget: "32%",
-      baseFee: "13.7 gwei",
-      burntFeesEth: 2.890,
-      burntFeesPercentage: 88.7,
-      reward: 0.156,
-      txn: 278,
-      feeRecipientNametag: "beaverbuild"
-    },
-    {
-      block: 19874202,
-      gasUsed: "25,600,000",
-      gasUsedPercentage: "85.33%",
-      percentOfGasTarget: "70%",
-      baseFee: "15.9 gwei",
-      burntFeesEth: 3.745,
-      burntFeesPercentage: 90.4,
-      reward: 0.201,
-      txn: 298,
-      feeRecipientNametag: "Titan Builder"
-    }
-  ];
+
+
 
   // Load block data on component mount
   useEffect(() => {
     const loadBlockData = async () => {
       setLoading(true);
-      setError(null);
-      setLoadingProgress(0);
-      
-      if (useRealData) {
-        try {
-          setLoadingProgress(10);
-          const data = await fetchLatestBlocks(10); // Reduced from 20 to 10 blocks
-          setLoadingProgress(90);
-          
-          if (data.length > 0) {
-            setBlockData(data);
-            setLoadingProgress(100);
-          } else {
-            throw new Error('No block data received from API');
-          }
-        } catch (err) {
-          console.error('Failed to fetch real block data:', err);
-          const errorMessage = err instanceof Error ? err.message : 'Unknown error';
-          
-          if (errorMessage.includes('Rate limit')) {
-            setError('Rate limit reached. Please wait a moment and try again, or use sample data.');
-          } else {
-            setError('Failed to fetch real-time data. Using fallback data.');
-          }
-          
-          setBlockData(fallbackData);
-          setLoadingProgress(100);
-        }
-      } else {
-        // Use fallback data
-        setBlockData(fallbackData);
-        setLoadingProgress(100);
+      try {
+        const response = await fetch('/block-19874196-19874237.json');
+        if (!response.ok) throw new Error('Failed to load data');
+        const data = await response.json();
+        const validData = data.filter((b: any) => b.block !== 0);
+        setBlockData(validData);
+      } catch (err) {
+        console.error('Error loading data:', err);
       }
-      
       setLoading(false);
     };
 
     loadBlockData();
-  }, [useRealData]);
+  }, []);
 
   // Current block data
   const currentBlockData = useMemo(() => {
-    if (blockData.length === 0) return fallbackData[0];
-    return blockData[blockCount] || blockData[0];
+    if (blockData.length === 0) return DEFAULT_BLOCK;
+    return blockData[blockCount] || blockData[0] || DEFAULT_BLOCK;
   }, [blockCount, blockData]);
 
   const {
@@ -303,7 +106,7 @@ export default function EthereumGasMachine() {
   const startChain = useCallback(() => {
     resetChain();
     if (blockData.length === 0) return;
-    
+
     const newIntervalId = setInterval(() => {
       setBlockCount(prev => {
         const nextCount = prev + 1;
@@ -334,7 +137,7 @@ export default function EthereumGasMachine() {
   // Start animation on page load
   useEffect(() => {
     if (blockData.length === 0 || loading) return;
-    
+
     const newIntervalId = setInterval(() => {
       setBlockCount(prev => {
         const nextCount = prev + 1;
@@ -351,30 +154,7 @@ export default function EthereumGasMachine() {
 
   return (
     <Container>
-      {/* Data Source Controls */}
-      <DataControls>
-        <label>
-          <input
-            type="checkbox"
-            checked={useRealData}
-            onChange={(e) => setUseRealData(e.target.checked)}
-            disabled={loading}
-          />
-          Use Real-time Ethereum Data (Rate Limited)
-        </label>
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-        {loading && (
-          <LoadingMessage>
-            Loading block data... {loadingProgress > 0 && `${loadingProgress}%`}
-            {useRealData && <div style={{fontSize: '12px', marginTop: '4px'}}>Fetching blocks sequentially to avoid rate limits...</div>}
-          </LoadingMessage>
-        )}
-        {useRealData && !loading && (
-          <div style={{fontSize: '12px', color: '#666', marginTop: '8px'}}>
-            ⚠️ API calls are rate limited to ~1.5/sec to comply with Etherscan limits
-          </div>
-        )}
-      </DataControls>
+      {loading && <div style={{ textAlign: 'center', padding: '20px', color: '#666' }}>Loading block data...</div>}
 
       {!loading && (
         <>
@@ -403,16 +183,12 @@ export default function EthereumGasMachine() {
           <h3>Ethereum Block # {blockNum}</h3>
           <Tcount>Base fee: {baseFee}</Tcount>
 
-          <button onClick={playPause} disabled={blockData.length === 0}>
+          {/* <button onClick={playPause} disabled={blockData.length === 0}>
             {intervalId ? "Stop chain" : "Start chain"}
-          </button>
+          </button> */}
 
           <DataInfo>
-            {useRealData ? (
-              <p>📡 Showing real-time Ethereum block data from the last 10 blocks</p>
-            ) : (
-              <p>📊 Showing sample data from blocks 19,874,197 to 19,874,202 (May 15th 2024)</p>
-            )}
+            <p>Showing data from blocks 19,874,197 to 19,874,237 (May 15th 2024)</p>
           </DataInfo>
         </>
       )}
