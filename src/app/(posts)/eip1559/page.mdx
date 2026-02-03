@@ -1,0 +1,71 @@
+import EthereumGasMachine from '../../../components/EthereumGasMachine'
+import Link from 'next/link'
+import ThemeAwareBlockFlow from '../../../components/ThemeAwareBlockFlow'
+
+## Visualizing [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559)
+<time>May 16st, 2024</time>
+
+<EthereumGasMachine />
+
+### What is EIP-1559?
+
+Ethereum's EIP-1559 is a fee pricing mechanism designed to smooth out gas price volatility. Before EIP-1559, users had to bid in an auction-style system, leading to unpredictable and often excessive fees during network congestion.
+
+EIP-1559 introduced two key changes:
+1. **Base Fee**: A algorithmically determined fee that gets burned (removed from circulation)
+2. **Priority Fee (Tips)**: An optional tip to incentivize miners/validators to include your transaction
+
+### How It Works
+
+Instead of a fixed block size, EIP-1559 introduced a **target block size** of 15 million gas units, with a maximum cap of 30 million gas units.
+
+When blocks consistently exceed the target:
+- Base fee increases by up to 12.5% per block
+- Higher fees discourage new transactions
+- Block sizes naturally decrease back toward the target
+
+
+When blocks are below target:
+- Base fee decreases
+- Lower fees encourage more transactions
+- Network utilization increases
+
+As Vitalik Buterin explained:
+
+> Instead of all of the short-term volatility in demand for transaction space within a block translating into volatility in transaction fees, some of the volatility instead translates into volatility in block size.
+> 
+> [- V. Buterin](https://notes.ethereum.org/@vbuterin/eip-1559-faq)
+
+### Understanding the Visualization
+
+The animation above shows real Ethereum blocks, displaying:
+- **Block height**: How much of the 30M gas limit is used (purple area)
+- **Gas target line**: The 15M gas target that EIP-1559 aims for (green line)
+- **Base fees**: Fees that get burned (blue section)
+- **Priority fees**: Tips that go to validators (brown section)
+
+Toggle "Use Real-time Ethereum Data" to see live blockchain activity instead of historical data from May 15th, 2024 (blocks 19,874,197 to 19,874,237).
+
+### Why This Matters
+
+EIP-1559 provides several benefits:
+- **Predictable fees**: Base fee gives users a clearer estimate of transaction costs
+- **Reduced ETH supply**: Burning base fees makes ETH [deflationary](https://ultrasound.money/) during high usage
+- **Better UX**: Users no longer need to guess appropriate gas prices
+- **Sybil resistance**: Higher cost of attack due to fee burning
+
+### Real-World Impact
+
+You can see EIP-1559's effectiveness by checking Etherscan's [network utilization](https://etherscan.io/chart/gaslimit) and [average gas usage](https://etherscan.io/chart/networkutilization) charts. The mechanism successfully stabilizes both fees and block sizes compared to the pre-EIP-1559 auction system.
+
+### How Transactions Work
+
+When you submit a transaction on Ethereum, the total fee consists of:
+- **Base Fee × Gas Used**: Goes to the burn address (removed from circulation)
+- **Priority Fee × Gas Used**: Goes to the validator as a tip
+
+Validators pick transactions from the mempool and include them in blocks. The visualization above shows how these fees are distributed and how block utilization affects the base fee for future blocks.
+
+<ThemeAwareBlockFlow />
+
+

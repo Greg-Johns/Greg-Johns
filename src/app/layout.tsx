@@ -1,7 +1,6 @@
-import { AnalyticsWrapper } from './Analytics';
-import './globals.css';
-import Header from './Header';
-import Footer from './Footer';
+
+import { AnalyticsWrapper } from '../components/Analytics';
+import '../components/globals.css';
 
 export default function RootLayout({ children }: {
   children: React.ReactNode
@@ -10,13 +9,7 @@ export default function RootLayout({ children }: {
     <html lang="en">
       <head />
       <body>
-        <main className='mainGrid'>
-          <Header />
-            <div className='scroll-shadows'>
-            {children}
-            </div>
-          <Footer />
-        </main>
+        {children}
         <AnalyticsWrapper />
       </body>
     </html>
