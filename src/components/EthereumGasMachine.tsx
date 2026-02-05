@@ -326,7 +326,6 @@ const GeneralEqualibrium = styled.p`
 const TipBaseContainer = styled.div`
   height: 300px;
 `
-
 interface BaseFeeProps {
   burnt_fees_percent: number;
 }
@@ -348,6 +347,7 @@ const BaseFees = styled.div<BaseFeeProps>`
 interface TipsProps {
   tip_fees_percent: number;
 };
+
 const Tips = styled.div<TipsProps>`
   width: 100%;
   transition-property: height;
@@ -363,22 +363,7 @@ const Tips = styled.div<TipsProps>`
   justify-content: center;
   color: #eee;
 `;
-const FlowImg = styled.div`
-  margin: 40px 0;
-  text-align: center;
-  border-bottom: 2px dashed #bc9531;
-`
-const Logo = styled.div`
-  background-color: #514c48;
-  border-radius: 50%;
-  padding: 8px;
-  width: 48px;
-  height: 48px;
-`
-const EthLogo = styled.div`
-  margin: 40px;
-  margin-left: -24px;
-`
+
 const Tcount = styled.div`
   margin-top: 10px;
   padding: 0;
@@ -386,52 +371,13 @@ const Tcount = styled.div`
   text-align: center;
 `
 
-const DataControls = styled.div`
-  margin: 20px 0;
-  padding: 15px;
-  background-color: rgba(81, 76, 72, 0.1);
-  border-radius: 8px;
-  border: 1px solid rgba(81, 76, 72, 0.3);
-  
-  label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    
-    input[type="checkbox"] {
-      transform: scale(1.2);
-    }
-  }
-`
-
-const ErrorMessage = styled.div`
-  color: #ff6b6b;
-  font-size: 14px;
-  margin-top: 8px;
-  padding: 8px;
-  background-color: rgba(255, 107, 107, 0.1);
-  border-radius: 4px;
-`
-
-const LoadingMessage = styled.div`
-  color: #4ecdc4;
-  font-size: 14px;
-  margin-top: 8px;
-  padding: 8px;
-  background-color: rgba(78, 205, 196, 0.1);
-  border-radius: 4px;
-`
-
 const DataInfo = styled.div`
-  margin: 20px 0;
-  padding: 10px;
-  font-size: 14px;
-  color: #666;
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 6px;
-  border-left: 4px solid #4ecdc4;
-  
+  margin-top: 20px;
+  padding: 14px 18px;
+  color: var(--color-text-primary);
+  border-radius: 0 4px 4px 0;
+  background: var(--color-bg-secondary);
+  border-left: 4px solid var(--color-gold);
   p {
     margin: 0;
   }

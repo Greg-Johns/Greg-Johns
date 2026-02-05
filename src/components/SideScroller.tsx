@@ -42,8 +42,8 @@ export default function SideScroller(
             <Image
               src={imgPath}
               alt={getName(imgPath) || 'Image'}
-              width={415}
-              height={500}
+              width={300}
+              height={300}
               style={{ objectFit: 'cover' }}
             />
             <div className='slider_info'>

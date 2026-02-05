@@ -1,4 +1,3 @@
-
 import Footer from '../../components/Footer';
 import HmLink from '../../components/HmLink';
 
@@ -8,9 +7,7 @@ export default function PostsLayout({ children }: {
     return (
         <main className='mainGrid'>
             <HmLink />
-            <article>
-                {children}
-            </article>
+            {children}
             <Footer />
         </main>
     )
