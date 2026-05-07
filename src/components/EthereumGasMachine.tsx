@@ -106,12 +106,19 @@ export default function EthereumGasMachine() {
     resetChain();
     if (blockData.length === 0) return;
 
+    setCountdown(Math.floor(blockSpeed / 1000));
     const newIntervalId = setInterval(() => {
-      setBlockCount(prev => {
-        const nextCount = prev + 1;
-        return nextCount >= blockData.length ? 0 : nextCount;
+      setCountdown(prev => {
+        if (prev <= 0) {
+          setBlockCount(bc => {
+            const next = bc + 1;
+            return next >= blockData.length ? 0 : next;
+          });
+          return Math.floor(blockSpeed / 1000);
+        }
+        return prev - 1;
       });
-    }, blockSpeed);
+    }, 1000);
     setIntervalId(newIntervalId);
   }, [blockSpeed, resetChain, blockData.length]);
 
@@ -137,33 +144,25 @@ export default function EthereumGasMachine() {
   useEffect(() => {
     if (blockData.length === 0 || loading) return;
 
+    setCountdown(Math.floor(blockSpeed / 1000));
     const newIntervalId = setInterval(() => {
-      setBlockCount(prev => {
-        const nextCount = prev + 1;
-        return nextCount >= blockData.length ? 0 : nextCount;
+      setCountdown(prev => {
+        if (prev <= 0) {
+          setBlockCount(bc => {
+            const next = bc + 1;
+            return next >= blockData.length ? 0 : next;
+          });
+          return Math.floor(blockSpeed / 1000);
+        }
+        return prev - 1;
       });
-    }, blockSpeed);
+    }, 1000);
     setIntervalId(newIntervalId);
 
-    // Cleanup function
     return () => {
       clearInterval(newIntervalId);
     };
   }, [blockData.length, loading]); // Only run when data is loaded
-
-  // Reset countdown when block changes
-  useEffect(() => {
-    setCountdown(Math.floor(blockSpeed / 1000));
-  }, [blockCount, blockSpeed]);
-
-  // Tick countdown every second while animation is running
-  useEffect(() => {
-    if (!intervalId) return;
-    const timerId = setInterval(() => {
-      setCountdown(prev => (prev <= 1 ? Math.floor(blockSpeed / 1000) : prev - 1));
-    }, 1000);
-    return () => clearInterval(timerId);
-  }, [intervalId, blockSpeed]);
 
   return (
     <Container>
