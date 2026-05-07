@@ -44,9 +44,7 @@ export default function EthereumGasMachine() {
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
   const [blockData, setBlockData] = useState<BlockData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-
-
-
+  const [countdown, setCountdown] = useState<number>(12);
 
   // Load block data on component mount
   useEffect(() => {
@@ -153,6 +151,20 @@ export default function EthereumGasMachine() {
     };
   }, [blockData.length, loading]); // Only run when data is loaded
 
+  // Reset countdown when block changes
+  useEffect(() => {
+    setCountdown(Math.floor(blockSpeed / 1000));
+  }, [blockCount, blockSpeed]);
+
+  // Tick countdown every second while animation is running
+  useEffect(() => {
+    if (!intervalId) return;
+    const timerId = setInterval(() => {
+      setCountdown(prev => (prev <= 1 ? Math.floor(blockSpeed / 1000) : prev - 1));
+    }, 1000);
+    return () => clearInterval(timerId);
+  }, [intervalId, blockSpeed]);
+
   return (
     <Container>
       {loading && <div style={{ textAlign: 'center', padding: '20px', color: '#666' }}>Loading block data...</div>}
@@ -189,8 +201,21 @@ export default function EthereumGasMachine() {
           </button> */}
 
           <DataInfo>
-            <p>Showing data from blocks 19,874,197 to 19,874,237 (May 15th 2024)</p>
+            Showing data from blocks 19,874,197 to 19,874,237 - May 15 2024
           </DataInfo>
+          <BlockIndicator>
+            {blockData.map((_, i) => (
+              <BlockDot
+                key={i}
+                active={i === blockCount}
+                onClick={() => {
+                  setBlockCount(i);
+                  setCountdown(Math.floor(blockSpeed / 1000));
+                }}
+              />
+            ))}
+          </BlockIndicator>
+          <NextBlock>Next block: {countdown} seconds</NextBlock>
         </>
       )}
 
@@ -373,12 +398,37 @@ const Tcount = styled.div`
 
 const DataInfo = styled.div`
   margin-top: 20px;
-  padding: 14px 18px;
-  color: var(--color-text-primary);
-  border-radius: 0 4px 4px 0;
-  background: var(--color-bg-secondary);
-  border-left: 4px solid var(--color-gold);
-  p {
-    margin: 0;
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+`
+
+const BlockIndicator = styled.div`
+  display: flex;
+  gap: 4px;
+  margin-top: 12px;
+  min-width: 300px;
+  max-width: 100vw;
+`
+
+interface BlockDotProps {
+  active: boolean;
+}
+const BlockDot = styled.span<BlockDotProps>`
+  flex: 1;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #888;
+  background-color: ${props => props.active ? '#fff' : 'transparent'};
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: ${props => props.active ? '#fff' : '#555'};
   }
+`
+
+const NextBlock = styled.div`
+  margin-top: 12px;
+  font-size: 16px;
+  text-align: center;
+  color: var(--color-text-primary);
 `
