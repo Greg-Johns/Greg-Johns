@@ -419,7 +419,7 @@ const BlockDot = styled.span<BlockDotProps>`
   width: 10px;
   height: 10px;
   border: 1px solid #888;
-  background-color: ${props => props.active ? '#fff' : 'transparent'};
+  background-color: ${props => props.active ? 'var(--color-text-primary)' : 'transparent'};
   transition: background-color 0.3s;
   &:hover {
     background-color: ${props => props.active ? '#fff' : '#555'};
