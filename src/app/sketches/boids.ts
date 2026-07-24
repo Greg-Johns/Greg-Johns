@@ -1,3 +1,4 @@
+import type P5 from 'p5';
 import { type Sketch } from "@p5-wrapper/react";
 
 const width = 640;
@@ -15,11 +16,9 @@ const sketch: Sketch = (p5) => {
     x: number;
     y: number;
     boids: Boid[];
-    position: any;
-    p5: any;
+    position: P5.Vector;
 
     constructor(x: number, y: number) {
-      this.p5 = p5;
       this.acceleration = this.acceleration;
       this.velocity = this.velocity;
       this.x = x;
@@ -39,13 +38,13 @@ const sketch: Sketch = (p5) => {
       this.render();
     }
 
-    applyForce(force: any) {
+    applyForce(force: P5.Vector) {
       // We could add mass here if we want A = F / M
       this.acceleration.add(force);
     }
   
     // We accumulate a new acceleration each time based on three rules
-    flock(boids: any) {
+    flock(boids: Boid[]) {
       let sep = this.separate(boids);   // Separation
       let ali = this.align(boids);      // Alignment
       let coh = this.cohesion(boids);   // Cohesion
@@ -72,7 +71,7 @@ const sketch: Sketch = (p5) => {
   
     // A method that calculates and applies a steering force towards a target
     // STEER = DESIRED MINUS VELOCITY
-    seek(target: any) {
+    seek(target: P5.Vector) {
       // let desired = p5.Vector.sub(target,this.position);  // A vector pointing from the location to the target
       let desired = p5.createVector((this.position.x - target.x), (this.position.y - target.y));  // A vector pointing from the location to the target
       // let desired = p5.createVector((target.x - this.position.x), (target.y - this.position.y));  // A vector pointing from the location to the target
@@ -116,7 +115,7 @@ const sketch: Sketch = (p5) => {
   
     // Separation
     // Method checks for nearby boids and steers away
-    separate(boids: any) {
+    separate(boids: Boid[]) {
       let desiredseparation = 30;
       let steer = p5.createVector(0, 0);
       let count = 0;
@@ -152,7 +151,7 @@ const sketch: Sketch = (p5) => {
   
     // Alignment
     // For every nearby boid in the system, calculate the average velocity
-    align(boids: any) {
+    align(boids: Boid[]) {
       let neighbordist = 70;
       let sum = p5.createVector(0,0);
       let count = 0;
@@ -178,7 +177,7 @@ const sketch: Sketch = (p5) => {
   
     // Cohesion
     // For the average location (i.e. center) of all nearby boids, calculate steering vector towards that location
-    cohesion(boids: any) {
+    cohesion(boids: Boid[]) {
       let neighbordist = 50;
       let sum = p5.createVector(0, 0);   // Start with empty vector to accumulate all locations
       let count = 0;

@@ -13,7 +13,7 @@
     "@emotion/styled": "^11.14.1",
     "@mdx-js/loader": "^2.2.1",
     "@mdx-js/react": "^2.2.1",
-    "@next/mdx": "^13.1.6",
+    "@next/mdx": "^16.1.6",
     "@p5-wrapper/next": "^3.0.1",
     "@p5-wrapper/react": "^5.0.2",
     "@types/p5": "^1.6.2",

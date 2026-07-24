@@ -1,9 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,900;1,900&display=swap');
-
-/* @font-face { */
-/*   font-family: 'Nunito'; */
-/*   src: local('Nunitio'), url(../public/Nunito_Sans/NunitoSans-ExtraBold.ttf) format('truetype'); */
-/* } */
 :root {
   --color-gold: #bc9531;
   --color-gold-light: #E0D5D5;
@@ -46,7 +40,6 @@ body {
   color: var(--color-text-primary);
   margin: 0;
   padding: 0;
-  font-family: "Lorea";
 }
 
 /* Layout stuff */
@@ -118,8 +111,7 @@ hr {
 header {
   grid-column: full;
   text-align: center;
-  font-family: 'Nunito Sans', sans-serif;
-  color: var(--color-text-secondary);
+  font-family: var(--font-nunito-sans), sans-serif;
   line-height: 1;
   font-size: 80px;
   transition-property: font-size;
@@ -322,7 +314,6 @@ nav a:hover {
   position: sticky;
   display: inline-block;
   top: 10px;
-  top: 10px;
   width: 3.4rem;
   height: 3.4rem;
   color: var(--color-bg-primary);
@@ -400,7 +391,7 @@ li {
 
 .listLinks li a {
   color: #96741D;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: var(--font-nunito-sans), sans-serif;
   font-size: 22px;
   letter-spacing: 1px;
   padding: 12px 0;
@@ -676,13 +667,13 @@ blockquote ul li::before {
 
 @keyframes shine {
   from {
-    transform: rotateZ(0def);
-    transform: opacity(1);
+    transform: rotateZ(0deg);
+    opacity: 1;
   }
 
   to {
     transform: rotateZ(60deg);
-    transform: opacity(0);
+    opacity: 0;
   }
 }
 

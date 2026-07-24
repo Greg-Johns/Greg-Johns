@@ -1,21 +1,16 @@
 "use client";
 import useSWR from 'swr';
 import Image from 'next/image';
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import './sliders.css';
 
 interface PicName {
   name: string;
 }
 
-const cur = '#222';
-const notCur = '#999';
-
 export default function SideScroller(
   { dir, infos }: { dir: string; infos: string[] }
 ) {
-  const [inlineColor, setInlineColor] = useState(notCur);
-  const [gridColor, setGridColor] = useState(notCur);
 
   const fetcher = useCallback((url: string) =>
     fetch(url).then((res) => {

@@ -48,7 +48,7 @@
   color: #fff;
 }
 .comic_pg details p {
-  color: var(--color-bg-secndary);
+  color: var(--color-bg-secondary);
   background-color: var(--color-bg-primary);
   height: 0;
   margin: 0;

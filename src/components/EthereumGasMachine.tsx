@@ -40,8 +40,7 @@ const BLOCK_BG_IMG = `"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 export default function EthereumGasMachine() {
   // State management
   const [blockCount, setBlockCount] = useState<number>(0);
-  const [blockSpeed] = useState<number>(12000);
-  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+  const blockSpeed = 12000;
   const [blockData, setBlockData] = useState<BlockData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [countdown, setCountdown] = useState<number>(12);
@@ -54,7 +53,7 @@ export default function EthereumGasMachine() {
         const response = await fetch('/block-19874196-19874237.json');
         if (!response.ok) throw new Error('Failed to load data');
         const data = await response.json();
-        const validData = data.filter((b: any) => b.block !== 0);
+        const validData = data.filter((b: BlockData) => b.block !== 0);
         setBlockData(validData);
       } catch (err) {
         console.error('Error loading data:', err);
@@ -93,53 +92,6 @@ export default function EthereumGasMachine() {
 
   const tipFeesPercent = useMemo(() => calcTipsPercentage(), [calcTipsPercentage]);
 
-  // Cleanup interval
-  const resetChain = useCallback(() => {
-    if (intervalId) {
-      clearInterval(intervalId);
-      setIntervalId(null);
-    }
-  }, [intervalId]);
-
-  // Start chain animation
-  const startChain = useCallback(() => {
-    resetChain();
-    if (blockData.length === 0) return;
-
-    setCountdown(Math.floor(blockSpeed / 1000));
-    const newIntervalId = setInterval(() => {
-      setCountdown(prev => {
-        if (prev <= 0) {
-          setBlockCount(bc => {
-            const next = bc + 1;
-            return next >= blockData.length ? 0 : next;
-          });
-          return Math.floor(blockSpeed / 1000);
-        }
-        return prev - 1;
-      });
-    }, 1000);
-    setIntervalId(newIntervalId);
-  }, [blockSpeed, resetChain, blockData.length]);
-
-  // Toggle play/pause
-  const playPause = useCallback(() => {
-    if (intervalId) {
-      resetChain();
-    } else {
-      startChain();
-    }
-  }, [intervalId, resetChain, startChain]);
-
-  // Cleanup on unmount
-  useEffect(() => {
-    return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    };
-  }, [intervalId]);
-
   // Start animation on page load
   useEffect(() => {
     if (blockData.length === 0 || loading) return;
@@ -157,7 +109,6 @@ export default function EthereumGasMachine() {
         return prev - 1;
       });
     }, 1000);
-    setIntervalId(newIntervalId);
 
     return () => {
       clearInterval(newIntervalId);
@@ -194,10 +145,6 @@ export default function EthereumGasMachine() {
 
           <h3>Ethereum Block # {blockNum}</h3>
           <Tcount>Base fee: {baseFee}</Tcount>
-
-          {/* <button onClick={playPause} disabled={blockData.length === 0}>
-            {intervalId ? "Stop chain" : "Start chain"}
-          </button> */}
 
           <DataInfo>
             Showing data from blocks 19,874,197 to 19,874,237 - May 15 2024

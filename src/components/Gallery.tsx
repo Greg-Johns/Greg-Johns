@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import React, { FC, useState, useEffect, useCallback } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import Lightbox from './Lightbox';
 import './gallery.css';
 
@@ -31,12 +31,10 @@ export default function Gallery(
 
 
   useEffect(() => {
-    return () => {
-      if (type === 'gallery_row') {
-        setInlineColor(cur)
-      } else {
-        setGridColor(cur)
-      }
+    if (type === 'gallery_row') {
+      setInlineColor(cur)
+    } else {
+      setGridColor(cur)
     }
   }, [type])
 

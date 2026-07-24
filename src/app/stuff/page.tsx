@@ -2,17 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link';
 import '../comics.css'
 
-import hero from '../../../public/stuff/heroes_villians/hv_9.jpg'
 import ng1 from '../../../public/stuff/genart/ng/ng12.jpg'
 import ng2 from '../../../public/stuff/genart/spirals/spiral_17.jpg'
 import ng3 from '../../../public/stuff/genart/columns/col_22.jpg'
-import sketchbook1 from '../../../public/stuff/sketchbook1/sb_15.jpg'
-import sketchbook2 from '../../../public/stuff/sketchbook1/sb_19.jpg'
-import sketchbook3 from '../../../public/stuff/sketchbook1/sb_1.jpg'
 import sites from '../../../public/stuff/tn_sites.gif'
-import marks from '../../../public/stuff/tn_mark.jpg'
-import blkbrd from '../../../public/stuff/blackboard/flyball.jpeg'
-import cartoons from '../../../public/stuff/cartoons/spock.jpg'
 import screens from '../../../public/stuff/tn_screens.jpg'
 import boids from '../../../public/stuff/tn_boids.jpg'
 
@@ -82,7 +75,7 @@ export default function Stuff() {
           </div>
         </Link>
 
-       <Link href='/ng3'>
+        <Link href='/ng3'>
           <div
             className='ng3'
             style={{ backgroundImage: `url(${JSON.stringify(ng3.src)})`, backgroundColor: 'black' }}
@@ -220,22 +213,6 @@ export default function Stuff() {
               </summary>
               <p>
                 Fun with P5
-              </p>
-            </details>
-          </div>
-        </Link>
-
-        <Link href='/sandbox'>
-          <div
-            className='sketch'
-            style={{ backgroundImage: `url(${JSON.stringify(boids.src)})` }}
-          >
-            <details open>
-              <summary>
-                <h5>Tiangles</h5>
-              </summary>
-              <p>
-                Experiment
               </p>
             </details>
           </div>

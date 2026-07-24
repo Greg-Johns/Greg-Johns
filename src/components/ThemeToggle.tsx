@@ -3,6 +3,46 @@ import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { keyframes } from '@emotion/react'
 
+// Defined at module scope to prevent new class generation on every render
+const shine = keyframes`
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+`;
+
+const Span = styled.span`
+  margin: .8px;
+`;
+
+interface SvgProps {
+  stat: number;
+}
+
+const Svg = styled.svg<SvgProps>`
+  border-radius: 100%;
+  &:hover {
+    animation: ${shine} 2s linear infinite;
+  }
+  opacity: ${(props) => props.stat};
+`;
+
+const Moon = styled.span`
+  transform: translateZ(0);
+  position: absolute;
+  border-radius: 100%;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 12px;
+  margin-left: 1px;
+  background: var(--color-gold);
+  box-shadow: 0 0 10px #ccc, inset 4px 0 0 var( --color-bg-primary);
+  outline: 4px solid khaki;
+  outline: 2px solid var(--color-gold);
+`;
+
 const ThemeToggle = () => {
   const [stat, setStat] = useState(0);
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
@@ -37,46 +77,11 @@ const ThemeToggle = () => {
     return <span style={{ width: '40px', height: '40px', display: 'inline-block' }} />;
   }
 
-  const shine = keyframes`
-    from {
-      transform: rotateZ(0deg);
-    }
-    to {
-      transform: rotateZ(360deg);
-    }
-  `;
-
-  const Span = styled.span`
-    margin: .8px;
-  `;
-
-  const Svg = styled.svg`
-    border-radius: 100%;
-    &:hover {
-      animation: shine 2s linear infinite;
-    }
-    opacity: ${stat};
-  `;
-
-    // opacity: ${stat};
-  const Moon = styled.span`
-    transform: translateZ(0);
-    position: absolute;
-    border-radius: 100%;
-    width: 1rem;
-    height: 1rem;
-    margin-top: 12px;
-    margin-left: 1px;
-    background: var(--color-gold);
-    box-shadow: 0 0 10px #ccc, inset 4px 0 0 var( --color-bg-primary);
-    outline: 4px solid khaki;
-    outline: 2px solid var(--color-gold);
-  `;
-
   return (
     <Span onClick={toggleTheme}>
       <Moon />
       <Svg
+        stat={stat}
         role="button"
         aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
         tabIndex={0}

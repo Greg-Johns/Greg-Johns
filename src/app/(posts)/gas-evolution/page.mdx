@@ -1,0 +1,98 @@
+import Link from 'next/link'
+
+## Beyond EIP-1559: The Evolution of Ethereum Gas Pricing
+<time>June 3rd, 2026</time>
+
+### Building on the Foundation
+
+After <Link href="/eip1559">EIP-1559</Link> revolutionized Ethereum's fee market in August 2021, the network has continued to evolve its gas pricing mechanisms. Two significant upgrades—EIP-4844 and EIP-3860—have further refined how Ethereum handles transaction costs and network efficiency.
+
+### EIP-4844: Proto-Danksharding (March 2024)
+
+[EIP-4844](https://eips.ethereum.org/EIPS/eip-4844), also known as Proto-Danksharding or "blobs," represents the most significant gas pricing innovation since EIP-1559. Activated with the Dencun upgrade in March 2024, it introduced a new transaction type specifically designed for Layer 2 rollups.
+
+#### The Problem It Solves
+
+Before EIP-4844, Layer 2 rollups like Arbitrum, Optimism, and zkSync had to post their transaction data to Ethereum mainnet as expensive `CALLDATA`. This made L2s cheaper than L1, but still costly during network congestion. The rollup data doesn't need to be available forever—it just needs to stick around long enough for validators to verify the rollup's state.
+
+#### How Blob Transactions Work
+
+EIP-4844 introduces **blob-carrying transactions**:
+- Each blob holds ~125 KB of data
+- Blobs are **not stored in Ethereum's execution layer**
+- They're stored in the consensus layer and pruned after ~18 days
+- Blobs have their own **separate gas market** with independent pricing
+
+Instead of competing with regular transactions for block space, blob transactions have their own fee mechanism:
+- **Target**: 3 blobs per block
+- **Maximum**: 6 blobs per block
+- **Pricing**: Similar to EIP-1559, with a base fee that adjusts based on usage
+
+#### The Impact
+
+EIP-4844 dramatically reduced L2 transaction costs:
+- Base, Optimism, and Arbitrum saw 5-10x fee reductions
+- Gas fees on popular L2s dropped from $0.50-$2.00 to $0.01-$0.10
+- Enabled new use cases: high-frequency trading, gaming, social media
+- Paved the way for full Danksharding in the future
+
+The separate blob gas market means that L2 data availability doesn't compete with L1 execution—a crucial design decision that benefits both ecosystems.
+
+### EIP-3860: Limiting Initcode (Shanghai, April 2023)
+
+While less publicized than EIP-4844, [EIP-3860](https://eips.ethereum.org/EIPS/eip-3860) addressed a critical security and pricing issue with contract deployment.
+
+#### The Problem
+
+Before EIP-3860, Ethereum didn't charge gas for the **size** of contract initialization code (`initcode`), only for executing it. This created potential DoS vectors where attackers could spam the network with massive initcode that was expensive to process but cheap to submit.
+
+#### The Solution
+
+EIP-3860 introduced two key changes:
+1. **Maximum initcode size**: 49,152 bytes (twice the max contract size)
+2. **Gas cost for initcode**: 2 gas per 32-byte chunk
+
+This aligns with how Ethereum charges for `CALLDATA` (16 gas per non-zero byte) and provides better DDoS protection. The limit also prevents edge cases where enormous initcode could cause client crashes or validation delays.
+
+#### Real-World Effect
+
+EIP-3860's impact is subtle but important:
+- Prevents theoretical DoS attacks through initcode spam
+- Makes contract deployment costs more predictable
+- Encourages efficient contract factories and deployment patterns
+- Creates consistency: all data posted to Ethereum now has proportional costs
+
+### The Bigger Picture
+
+These upgrades represent Ethereum's ongoing commitment to gas pricing efficiency:
+
+**EIP-1559 (2021)**: Smoothed out transaction fee volatility, introduced fee burning  
+**EIP-3860 (2023)**: Secured contract deployment and improved gas metering  
+**EIP-4844 (2024)**: Created a separate data availability layer for L2s
+
+Together, they form a cohesive strategy:
+1. Make base layer fees predictable (EIP-1559)
+2. Properly price all network resources (EIP-3860)
+3. Scale through L2s without congesting L1 (EIP-4844)
+
+### Looking Forward
+
+The next evolution is already in development:
+
+**Full Danksharding (EIP-4844+)**: Will increase blobs from 6 to 64+ per block, providing even more L2 scaling capacity. This multi-phase rollout shows Ethereum's cautious but progressive approach to scaling.
+
+**Multidimensional Gas Pricing**: Future EIPs may separate gas pricing for different resource types (computation, storage, bandwidth), allowing even more granular optimization.
+
+The journey from the simple auction model to today's sophisticated multi-market gas pricing system demonstrates Ethereum's evolution from a "world computer" to a scalable settlement and data availability layer.
+
+### Learn More
+
+- [EIP-4844 Technical Specification](https://eips.ethereum.org/EIPS/eip-4844)
+- [EIP-3860 Technical Specification](https://eips.ethereum.org/EIPS/eip-3860)
+- [Danksharding Roadmap](https://notes.ethereum.org/@vbuterin/proto_danksharding_faq)
+- [Blobscan.com](https://blobscan.com/) - Live blob transaction explorer
+- [Ethereum Roadmap](https://ethereum.org/en/roadmap/) - The Surge, Scourge, Verge, Purge, and Splurge
+
+---
+
+*This post builds on the concepts introduced in <Link href="/eip1559">Visualizing EIP-1559</Link>. For a deeper dive into the base fee mechanism, check out that post first.*
