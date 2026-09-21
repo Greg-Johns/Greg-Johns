@@ -17,7 +17,6 @@ interface BlockData {
 }
 
 
-
 const DEFAULT_BLOCK: BlockData = {
   block: 0,
   gasUsed: "0",
@@ -31,7 +30,7 @@ const DEFAULT_BLOCK: BlockData = {
   feeRecipientNametag: "Loading"
 };
 
-// API Functions: removed
+//API Functions: removed
 
 
 // Constants
