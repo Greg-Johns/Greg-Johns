@@ -1,6 +1,7 @@
 "use client";
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import styled from "@emotion/styled";
+
 
 // Types
 interface BlockData {
@@ -15,7 +16,6 @@ interface BlockData {
   txn: number;
   feeRecipientNametag: string;
 }
-
 
 const DEFAULT_BLOCK: BlockData = {
   block: 0,
@@ -83,13 +83,11 @@ export default function EthereumGasMachine() {
   } = currentBlockData;
 
   // Calculate tips percentage
-  const calcTipsPercentage = useCallback(() => {
+  const tipFeesPercent = useMemo(() => {
     if (!burntFeesPercent || burntFeesPercent === 0) return 0;
-    const totalFees = burntFeesValue * 100 / burntFeesPercent;
+    const totalFees = (burntFeesValue * 100) / burntFeesPercent;
     return (tipsValue / totalFees) * 100;
   }, [burntFeesValue, burntFeesPercent, tipsValue]);
-
-  const tipFeesPercent = useMemo(() => calcTipsPercentage(), [calcTipsPercentage]);
 
   // Start animation on page load
   useEffect(() => {
