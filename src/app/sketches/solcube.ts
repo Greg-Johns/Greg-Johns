@@ -1,5 +1,5 @@
 import type P5 from 'p5';
-import { type Sketch } from "@p5-wrapper/react";
+import { type Sketch, CanvasContainerClassName } from "@p5-wrapper/react";
 
 
 const COLORS: [number, number, number][] = [
@@ -40,6 +40,14 @@ const STRETCH_SPEED_X = 0.14;
 const STRETCH_SPEED_Y = 0.16;
 const STRETCH_SPEED_Z = 0.12;
 
+// The canvas is sized from its container (the 640px main column, blown up
+// to 110% by .sketchFrame) instead of the window, so it lives inside the
+// page layout rather than covering it.
+const FALLBACK_FRAME_WIDTH = 704;
+const CANVAS_ASPECT = 1;
+
+const DEFAULT_BACKGROUND = '#514C48';
+
 const clamp = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n));
 
 const pickDistinctColors = (
@@ -54,6 +62,22 @@ const pickDistinctColors = (
   }
 
   return paletteCopy.slice(0, count);
+};
+
+const getCanvasContainer = (): HTMLElement | null =>
+  document.querySelector<HTMLElement>(`.${CanvasContainerClassName}`);
+
+const getFrameWidth = (): number => {
+  const width = getCanvasContainer()?.clientWidth ?? 0;
+  return width > 0 ? width : FALLBACK_FRAME_WIDTH;
+};
+
+const readThemeBackground = (): string => {
+  const value = getComputedStyle(document.body)
+    .getPropertyValue('--color-bg-secondary')
+    .trim();
+
+  return value || DEFAULT_BACKGROUND;
 };
 
 
@@ -120,13 +144,18 @@ const sketch: Sketch = (p) => {
   let rotVZ = IDLE_ROT_VZ;
   let isDragging = false;
   let faceColors: [number, number, number][] = [];
+  let backgroundColor = readThemeBackground();
 
   p.setup = () => {
+    const container = getCanvasContainer();
+
     // ensure only one canvas exists (prevents duplicates on remount/navigation)
-    const existing = document.querySelector('canvas');
+    const existing = container?.querySelector('canvas');
     if (existing) existing.remove();
 
-    p.createCanvas(window.innerWidth - 2, window.innerHeight - 8, p.WEBGL);
+    const width = getFrameWidth();
+
+    p.createCanvas(width, Math.round(width * CANVAS_ASPECT), p.WEBGL);
     p.pixelDensity(1);
 
     const baseSize = Math.min(p.width, p.height);
@@ -137,11 +166,28 @@ const sketch: Sketch = (p) => {
     rotZ = p.random(p.TWO_PI);
 
     faceColors = pickDistinctColors(COLORS, 6);
+
+    // follow the site theme (dark/light toggle lives in the footer)
+    const themeObserver = new MutationObserver(() => {
+      backgroundColor = readThemeBackground();
+    });
+
+    themeObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+
+    const p5Remove = p.remove.bind(p);
+
+    p.remove = () => {
+      themeObserver.disconnect();
+      p5Remove();
+    };
   };
 
   p.draw = () => {
     // p.background('#E3E3E3');
-    p.background('#514C48');
+    p.background(backgroundColor);
 
     const t = p.millis() * 0.001;
 
@@ -202,7 +248,17 @@ const sketch: Sketch = (p) => {
   };
 
   p.windowResized = () => {
-    p.resizeCanvas(window.innerWidth - 2, window.innerHeight - 8);
+    const width = getFrameWidth();
+    const previousBase = Math.min(p.width, p.height);
+
+    p.resizeCanvas(width, Math.round(width * CANVAS_ASPECT));
+
+    const nextBase = Math.min(p.width, p.height);
+
+    // keep the cube proportional to the canvas
+    if (previousBase > 0 && nextBase > 0) {
+      cubeSize = (cubeSize * nextBase) / previousBase;
+    }
   };
 
 

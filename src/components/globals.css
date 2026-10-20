@@ -688,7 +688,8 @@ blockquote ul li::before {
 }
 
 #defaultCanvas0 {
-  margin-bottom: -32px;
+  display: block;
+  margin: 0;
 }
 
 #defaultCanvas1 {
