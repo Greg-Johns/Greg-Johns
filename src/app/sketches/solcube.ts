@@ -14,8 +14,8 @@ const COLORS: [number, number, number][] = [
   [255, 255, 255],
 ];
 
-const MIN_CUBE_RATIO = 0.14;
-const MAX_CUBE_RATIO = 0.26;
+const MIN_CUBE_RATIO = 0.24;
+const MAX_CUBE_RATIO = 0.42;
 
 const STRIPE_WEIGHT = 1.2;
 const BASE_STRIPE_GAP_IN_STROKES = 3;
