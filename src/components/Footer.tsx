@@ -6,8 +6,6 @@ export default function Footer() {
     <footer>
       <p>
         An online journal of finally crafted, digital stuff by Greg Johns
-        <br />
-        A technical tinkerer from Texas ya&apos;ll
         <b>
           <Link href="https://twitter.com/greg_johns">@Greg_Johns</Link>
         </b>
