@@ -1,15 +1,15 @@
 # AGENTS.md
 
-Personal website for Greg Johns. Single Next.js 16 app (App Router) — not a monorepo despite `pnpm-workspace.yaml`.
+Personal website for Greg Johns. Single Next.js 16 app (App Router) — not a monorepo despite `npm-workspace.yaml`.
 
 ## Commands
 
-Package manager is **pnpm@11.17.0** (see `packageManager` in `package.json`). A stale `package-lock.json` is committed alongside `pnpm-lock.yaml`; ignore npm and use pnpm.
+Package manager is **npm@11.17.0** (see `packageManager` in `package.json`). A stale `package-lock.json` is committed alongside `npm-lock.yaml`; ignore npm and use npm.
 
-- `pnpm dev` — dev server (uses `--webpack`, opting out of Next 16's default Turbopack)
-- `pnpm build` — also pinned to `--webpack`. Do not remove that flag without testing; MDX / p5 setup was validated on webpack.
-- `pnpm lint` — `next lint` (ESLint 9, `next/core-web-vitals`)
-- No `test` or `typecheck` scripts exist. For type checking run `pnpm exec tsc --noEmit`.
+- `npm dev` — dev server (uses `--webpack`, opting out of Next 16's default Turbopack)
+- `npm build` — also pinned to `--webpack`. Do not remove that flag without testing; MDX / p5 setup was validated on webpack.
+- `npm lint` — `next lint` (ESLint 9, `next/core-web-vitals`)
+- No `test` or `typecheck` scripts exist. For type checking run `npm exec tsc --noEmit`.
 
 ## Architecture
 
