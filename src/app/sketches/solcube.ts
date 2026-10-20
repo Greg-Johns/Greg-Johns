@@ -3,15 +3,12 @@ import { type Sketch, CanvasContainerClassName } from "@p5-wrapper/react";
 
 
 const COLORS: [number, number, number][] = [
-  [255, 0, 0],
-  [255, 165, 0],
-  [255, 255, 0],
-  [0, 200, 0],
-  [0, 100, 255],
-  [90, 0, 220],
-  [255, 0, 150],
-  [0, 220, 220],
-  [255, 255, 255],
+  [274, 22, 52],
+  [255, 217, 86],
+  [196, 254, 153],
+  [73, 254, 254],
+  [42, 88, 252],
+  [233, 80, 252],
 ];
 
 const MIN_CUBE_RATIO = 0.24;
@@ -23,6 +20,7 @@ const STRIPE_GAP_ANIM_AMPLITUDE = 10;
 const STRIPE_GAP_ANIM_SPEED = 0.1;
 const MIN_STRIPE_GAP_IN_STROKES = 2;
 const MAX_STRIPE_GAP_IN_STROKES = 10;
+const STRIPE_DENSITY_SCALE = 1.12;
 
 const DRAG_ROTATION_SPEED = 0.01;
 const IDLE_ROT_VX = 0.0003;
@@ -31,6 +29,12 @@ const IDLE_ROT_VZ = 0.0002;
 const ROTATION_RETURN_EASE = 0.03;
 const DRAG_THROW_BLEND = 0.35;
 const MAX_THROW_SPEED = 0.09;
+const IDLE_ACTIVITY_DECAY = 0.985;
+const MIN_ACTIVITY = 0.01;
+const MOTION_EPSILON = 0.00025;
+const RELEASE_ANIM_EASE = 0.1;
+
+const TARGET_FPS = 30;
 
 const BASE_STRETCH = 1;
 const STRETCH_AMPLITUDE_X = 0.6;
@@ -91,7 +95,7 @@ const sketch: Sketch = (p) => {
     stripeGapInStrokes: number,
   ) => {
     const h = size / 2;
-    const stripeStep = STRIPE_WEIGHT * (stripeGapInStrokes + 1);
+    const stripeStep = STRIPE_WEIGHT * (stripeGapInStrokes + 1) * STRIPE_DENSITY_SCALE;
 
     p.noFill();
     p.strokeWeight(STRIPE_WEIGHT);
@@ -145,6 +149,20 @@ const sketch: Sketch = (p) => {
   let isDragging = false;
   let faceColors: [number, number, number][] = [];
   let backgroundColor = readThemeBackground();
+  let animationActivity = 1;
+  let frozenStripeGapInStrokes = BASE_STRIPE_GAP_IN_STROKES;
+  let frozenStretchX = BASE_STRETCH;
+  let frozenStretchY = BASE_STRETCH;
+  let frozenStretchZ = BASE_STRETCH;
+  let displayedStripeGapInStrokes = BASE_STRIPE_GAP_IN_STROKES;
+  let displayedStretchX = BASE_STRETCH;
+  let displayedStretchY = BASE_STRETCH;
+  let displayedStretchZ = BASE_STRETCH;
+  let releaseBlend = 1;
+
+  const ensureLooping = () => {
+    if (!p.isLooping()) p.loop();
+  };
 
   p.setup = () => {
     const container = getCanvasContainer();
@@ -157,6 +175,7 @@ const sketch: Sketch = (p) => {
 
     p.createCanvas(width, Math.round(width * CANVAS_ASPECT), p.WEBGL);
     p.pixelDensity(1);
+    p.frameRate(TARGET_FPS);
 
     const baseSize = Math.min(p.width, p.height);
     cubeSize = p.random(baseSize * MIN_CUBE_RATIO, baseSize * MAX_CUBE_RATIO);
@@ -170,6 +189,12 @@ const sketch: Sketch = (p) => {
     // follow the site theme (dark/light toggle lives in the footer)
     const themeObserver = new MutationObserver(() => {
       backgroundColor = readThemeBackground();
+
+      if (p.isLooping()) {
+        return;
+      }
+
+      p.redraw();
     });
 
     themeObserver.observe(document.body, {
@@ -186,30 +211,65 @@ const sketch: Sketch = (p) => {
   };
 
   p.draw = () => {
-    // p.background('#E3E3E3');
+    // p.background(220, 220, 100);
     p.background(backgroundColor);
 
     const t = p.millis() * 0.001;
+    const activeAmplitude = animationActivity;
 
-    const stripeGapInStrokes = clamp(
+    const animatedStripeGapInStrokes = clamp(
       BASE_STRIPE_GAP_IN_STROKES
-      + Math.sin(t * STRIPE_GAP_ANIM_SPEED) * STRIPE_GAP_ANIM_AMPLITUDE,
+      + Math.sin(t * STRIPE_GAP_ANIM_SPEED) * STRIPE_GAP_ANIM_AMPLITUDE * activeAmplitude,
       MIN_STRIPE_GAP_IN_STROKES,
       MAX_STRIPE_GAP_IN_STROKES,
     );
 
-    const stretchX = BASE_STRETCH + Math.sin(t * STRETCH_SPEED_X) * STRETCH_AMPLITUDE_X;
-    const stretchY = BASE_STRETCH + Math.sin(t * STRETCH_SPEED_Y + 1.2) * STRETCH_AMPLITUDE_Y;
-    const stretchZ = BASE_STRETCH + Math.sin(t * STRETCH_SPEED_Z + 2.4) * STRETCH_AMPLITUDE_Z;
+    const animatedStretchX = BASE_STRETCH + Math.sin(t * STRETCH_SPEED_X) * STRETCH_AMPLITUDE_X * activeAmplitude;
+    const animatedStretchY = BASE_STRETCH + Math.sin(t * STRETCH_SPEED_Y + 1.2) * STRETCH_AMPLITUDE_Y * activeAmplitude;
+    const animatedStretchZ = BASE_STRETCH + Math.sin(t * STRETCH_SPEED_Z + 2.4) * STRETCH_AMPLITUDE_Z * activeAmplitude;
+
+    if (!isDragging && releaseBlend < 1) {
+      releaseBlend += (1 - releaseBlend) * RELEASE_ANIM_EASE;
+      if (releaseBlend > 0.999) releaseBlend = 1;
+    }
+
+    const stripeGapInStrokes = isDragging
+      ? frozenStripeGapInStrokes
+      : p.lerp(frozenStripeGapInStrokes, animatedStripeGapInStrokes, releaseBlend);
+    const stretchX = isDragging
+      ? frozenStretchX
+      : p.lerp(frozenStretchX, animatedStretchX, releaseBlend);
+    const stretchY = isDragging
+      ? frozenStretchY
+      : p.lerp(frozenStretchY, animatedStretchY, releaseBlend);
+    const stretchZ = isDragging
+      ? frozenStretchZ
+      : p.lerp(frozenStretchZ, animatedStretchZ, releaseBlend);
+
+    displayedStripeGapInStrokes = stripeGapInStrokes;
+    displayedStretchX = stretchX;
+    displayedStretchY = stretchY;
+    displayedStretchZ = stretchZ;
 
     if (!isDragging) {
-      rotVX += (IDLE_ROT_VX - rotVX) * ROTATION_RETURN_EASE;
-      rotVY += (IDLE_ROT_VY - rotVY) * ROTATION_RETURN_EASE;
-      rotVZ += (IDLE_ROT_VZ - rotVZ) * ROTATION_RETURN_EASE;
+      animationActivity *= IDLE_ACTIVITY_DECAY;
+      if (animationActivity < MIN_ACTIVITY) animationActivity = 0;
+
+      rotVX += (IDLE_ROT_VX * animationActivity - rotVX) * ROTATION_RETURN_EASE;
+      rotVY += (IDLE_ROT_VY * animationActivity - rotVY) * ROTATION_RETURN_EASE;
+      rotVZ += (IDLE_ROT_VZ * animationActivity - rotVZ) * ROTATION_RETURN_EASE;
 
       rotX += rotVX;
       rotY += rotVY;
       rotZ += rotVZ;
+    }
+
+    const rotationalMotion = Math.abs(rotVX) + Math.abs(rotVY) + Math.abs(rotVZ);
+    if (!isDragging && animationActivity === 0 && rotationalMotion < MOTION_EPSILON) {
+      rotVX = 0;
+      rotVY = 0;
+      rotVZ = 0;
+      p.noLoop();
     }
 
     p.push();
@@ -222,11 +282,22 @@ const sketch: Sketch = (p) => {
   };
 
   p.mousePressed = () => {
+    frozenStripeGapInStrokes = displayedStripeGapInStrokes;
+    frozenStretchX = displayedStretchX;
+    frozenStretchY = displayedStretchY;
+    frozenStretchZ = displayedStretchZ;
+    releaseBlend = 0;
+
     isDragging = true;
+    animationActivity = 1;
+    ensureLooping();
     return false;
   };
 
   p.mouseDragged = () => {
+    animationActivity = 1;
+    ensureLooping();
+
     const dx = p.movedX * DRAG_ROTATION_SPEED;
     const dy = p.movedY * DRAG_ROTATION_SPEED;
 
@@ -244,21 +315,9 @@ const sketch: Sketch = (p) => {
 
   p.mouseReleased = () => {
     isDragging = false;
+    animationActivity = 1;
+    releaseBlend = 0;
     return false;
-  };
-
-  p.windowResized = () => {
-    const width = getFrameWidth();
-    const previousBase = Math.min(p.width, p.height);
-
-    p.resizeCanvas(width, Math.round(width * CANVAS_ASPECT));
-
-    const nextBase = Math.min(p.width, p.height);
-
-    // keep the cube proportional to the canvas
-    if (previousBase > 0 && nextBase > 0) {
-      cubeSize = (cubeSize * nextBase) / previousBase;
-    }
   };
 
 
