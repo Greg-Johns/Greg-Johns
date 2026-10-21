@@ -18,15 +18,15 @@ body,
 body[data-theme="dark"] {
   --color-text-primary: #e3e3e3;
   --color-text-secondary: #EAE9E9;
-  --color-bg-primary: #333;
-  --color-bg-toggle: #999;
+  --color-bg-primary: #282828;
+  --color-bg-toggle: #F4F4F4;
   --color-bg-secondary: var(--color-gold-dark);
 }
 
 body[data-theme="light"] {
   --color-text-primary: #27201a;
   --color-text-secondary: #444;
-  --color-bg-primary: #EAE9E9;
+  --color-bg-primary: #F4F4F4;
   --color-bg-toggle: var(--color-gold);
   --color-bg-secondary: var(--color-gold-light);
 }
