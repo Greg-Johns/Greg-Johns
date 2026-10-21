@@ -1,15 +1,16 @@
 
-import { Nunito_Sans } from 'next/font/google';
+import { DM_Serif_Display } from 'next/font/google';
 import { AnalyticsWrapper } from '../components/Analytics';
 import '../components/globals.css';
 
-const nunitoSans = Nunito_Sans({
+const nunitoSans = DM_Serif_Display({
   subsets: ['latin'],
-  weight: ['900'],
+  weight: ['400'],
   style: ['normal', 'italic'],
-  variable: '--font-nunito-sans',
+  variable: '--font-DM-Display',
   display: 'swap',
 });
+
 
 export default function RootLayout({ children }: {
   children: React.ReactNode
