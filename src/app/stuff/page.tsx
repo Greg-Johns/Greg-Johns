@@ -7,7 +7,7 @@ import ng2 from '../../../public/stuff/genart/spirals/spiral_17.jpg'
 import ng3 from '../../../public/stuff/genart/columns/col_22.jpg'
 import sites from '../../../public/stuff/tn_sites.gif'
 import screens from '../../../public/stuff/tn_screens.jpg'
-import boids from '../../../public/stuff/tn_boids.jpg'
+import solcube from '../../../public/stuff/solcube.png'
 
 export default function Stuff() {
 
@@ -56,7 +56,6 @@ export default function Stuff() {
               <summary>
                 <h5>Node Garden 1</h5>
               </summary>
-              <p>First in a series of generative art works based off an old code base now long gone.</p>
             </details>
           </div>
         </Link>
@@ -70,7 +69,6 @@ export default function Stuff() {
               <summary>
                 <h5>Node Garden 2</h5>
               </summary>
-              <p>More sketches from  the Node Gardening gen art series.</p>
             </details>
           </div>
         </Link>
@@ -84,7 +82,6 @@ export default function Stuff() {
               <summary>
                 <h5>Node Garden 3</h5>
               </summary>
-              <p>The last set of sketches from the Node Gardening gen art series.</p>
             </details>
           </div>
         </Link>
@@ -168,7 +165,6 @@ export default function Stuff() {
               <summary>
                 <h5>Old sites</h5>
               </summary>
-              <p>Some (very) old sites I&apos;ve participated in making.</p>
             </details>
           </div>
         </Link>
@@ -197,7 +193,6 @@ export default function Stuff() {
               <summary>
                 <h5>Screens</h5>
               </summary>
-              <p>Various screen and interaction design work.</p>
             </details>
           </div>
         </Link>
@@ -205,15 +200,12 @@ export default function Stuff() {
         <Link href='/sketches'>
           <div
             className='sketch'
-            style={{ backgroundImage: `url(${JSON.stringify(boids.src)})` }}
+            style={{ backgroundImage: `url(${JSON.stringify(solcube.src)})` }}
           >
             <details open>
               <summary>
-                <h5>Boid Droids</h5>
+                <h5>Sol Cube</h5>
               </summary>
-              <p>
-                Fun with P5
-              </p>
             </details>
           </div>
         </Link>
