@@ -49,7 +49,7 @@ export default function Sketches() {
         </span>
         <p>Thinking about how viewer interaction would work while making it easy on the processors out there, the only calculations and paint changes are when the cube is moving. Also the gap space between the parallel lines change when moving. This is a slow change but let's you take time with the sketch. Let it breath.
         </p>
-        <p>ahhh, that's it.</p>
+        <p>Ahhh, that's it.</p>
       </div >
     </>
   )

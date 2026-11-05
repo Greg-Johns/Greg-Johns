@@ -16,7 +16,7 @@ html {
 
 body,
 body[data-theme="dark"] {
-  --color-text-primary: #e3e3e3;
+  --color-text-primary: #cdcdcd;
   --color-text-secondary: #EAE9E9;
   --color-bg-primary: #282828;
   --color-bg-toggle: #F4F4F4;
@@ -111,7 +111,6 @@ hr {
 }
 
 /* End layout */
-
 header {
   grid-column: full;
   text-align: center;
@@ -120,7 +119,7 @@ header {
   font-size: 80px;
   transition-property: font-size;
   transition-duration: .4s;
-  letter-spacing: .08em;
+  letter-spacing: .04em;
   padding-top: 20px;
 }
 
@@ -193,9 +192,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-style: italic;
+  /* font-style: italic; */
   font-weight: normal;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.2px;
   color: var(--color-text-secondary);
 }
 
@@ -236,7 +235,7 @@ h4::after {
 
 h4 {
   text-align: center;
-  color: #777;
+  /* color: #777; */
   margin: 42px 0 8px 0;
 }
 
@@ -384,8 +383,8 @@ li {
 p {
   font-size: 14px;
   font-weight: normal;
-  line-height: 1.32;
-  color: var(--color-text-primary);
+  /* color: var(--color-text-primary); */
+  color: var(--color-text-secondary);
   letter-spacing: 0.8px;
   margin: 0;
   margin-bottom: 12px;
@@ -422,7 +421,7 @@ time {
 section time {
   float: right;
   display: block;
-  margin-top: -33px;
+  margin-top: -44px;
 }
 
 time::before {
@@ -466,8 +465,7 @@ section:hover p {
 
 section:hover h3,
 section:hover time {
-  /* color: var(--color-gold); */
-  border-bottom: 1px solid #96741D;
+  color: var(--color-gold);
 }
 
 p a {
@@ -512,6 +510,7 @@ blockquote {
   padding: 14px;
   color: var(--color-text-primary);
   border-radius: 0 4px 4px 0;
+  line-height: 1.32;
   background: var(--color-bg-secondary);
   border-left: 4px solid var(--color-gold);
 }

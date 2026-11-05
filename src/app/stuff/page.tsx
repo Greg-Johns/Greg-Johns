@@ -26,7 +26,7 @@ export default function Stuff() {
       </nav>
 
       <p style={{ marginTop: '30px' }}>
-        A selection of designs, drawings, sketches, paintings, concept art, cartoons and whatever else I’ve put some creative energy into that makes me feel good.
+        A bento box of designs, drawings, sketches, paintings, concept art, cartoons and whatever else I’ve put some creative energy into that makes me feel good.
       </p>
 
       <div className='comic_pg'>
@@ -54,7 +54,7 @@ export default function Stuff() {
           >
             <details open>
               <summary>
-                <h5>Node Garden 1</h5>
+                <h5>Node Garden #1</h5>
               </summary>
             </details>
           </div>
@@ -67,7 +67,7 @@ export default function Stuff() {
           >
             <details open>
               <summary>
-                <h5>Node Garden 2</h5>
+                <h5>Node Garden #2</h5>
               </summary>
             </details>
           </div>
@@ -80,7 +80,7 @@ export default function Stuff() {
           >
             <details open>
               <summary>
-                <h5>Node Garden 3</h5>
+                <h5>Node Garden #3</h5>
               </summary>
             </details>
           </div>

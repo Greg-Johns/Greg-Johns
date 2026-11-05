@@ -1,9 +1,10 @@
 
-import { DM_Serif_Display } from 'next/font/google';
+// import { DM_Serif_Display } from 'next/font/google';
+import { Spectral } from 'next/font/google'
 import { AnalyticsWrapper } from '../components/Analytics';
 import '../components/globals.css';
 
-const nunitoSans = DM_Serif_Display({
+const spectral = Spectral({
   subsets: ['latin'],
   weight: ['400'],
   style: ['normal', 'italic'],
@@ -11,14 +12,12 @@ const nunitoSans = DM_Serif_Display({
   display: 'swap',
 });
 
-
 export default function RootLayout({ children }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={nunitoSans.variable}>
-      <head />
-      <body>
+    <html lang="en">
+      <body className={spectral.className}>
         {children}
         <AnalyticsWrapper />
       </body>
