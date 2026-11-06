@@ -40,6 +40,7 @@ body {
   color: var(--color-text-primary);
   margin: 0;
   padding: 0;
+  overflow-x: clip;
 }
 
 /* Layout stuff */
@@ -65,8 +66,9 @@ main>* {
 }
 
 p img {
-  width: 110%;
-  margin: 20px auto 20px -5%;
+  width: calc(100% + 2em);
+  max-width: none;
+  margin: 20px -1em;
 }
 
 .meImg {
@@ -105,7 +107,8 @@ p img {
 
 hr {
   clear: both;
-  border: 1px dashed 'black';
+  border: 0;
+  border-top: 1px dashed var(--color-text-primary);
   display: block;
   height: 4px;
 }
@@ -214,9 +217,7 @@ h3 {
   /* font-style: normal; */
   color: var(--color-text-secondary);
   letter-spacing: -0.01em;
-  width: 110%;
   padding: 20px 0;
-  margin-left: -5%;
   margin-top: -100px;
   margin-bottom: 100px;
   z-index: 1000;

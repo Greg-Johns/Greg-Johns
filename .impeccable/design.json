@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-05T00:00:00Z",
+  "title": "Design System: Greg Johns",
+  "extensions": {
+    "colorMeta": {
+      "gold": { "role": "primary", "displayName": "Notebook Gold", "canonical": "#bc9531", "tonalRamp": ["#2e2509", "#4d3d0f", "#6e5614", "#8f7020", "#bc9531", "#d1b05c", "#e3cf98", "#f3ead0"] },
+      "gold-deep": { "role": "primary", "displayName": "Deep Gold", "canonical": "#96741D", "tonalRamp": ["#241b06", "#3d2e0b", "#5a4410", "#785a17", "#96741D", "#b59447", "#d3b97f", "#eadfc2"] },
+      "charcoal": { "role": "neutral", "displayName": "Charcoal Page", "canonical": "#282828", "tonalRamp": ["#0e0e0e", "#181818", "#282828", "#3a3a3a", "#585858", "#7c7c7c", "#a8a8a8", "#d4d4d4"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#F4F4F4", "tonalRamp": ["#4a4a4a", "#6a6a6a", "#8c8c8c", "#adadad", "#c8c8c8", "#dcdcdc", "#eaeaea", "#F4F4F4"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Site Header", "purpose": "Centered 80px masthead." },
+      "headline": { "displayName": "Section Title", "purpose": "Sticky tilde-wrapped h2." },
+      "body": { "displayName": "Prose", "purpose": "14px reading text in the 40em column." }
+    },
+    "shadows": [
+      { "name": "image-offset", "value": "4px 8px 8px #999", "purpose": "Only shadow in the system; used on illustrative images." }
+    ],
+    "motion": [
+      { "name": "color-fade", "value": "color 0.25s ease", "purpose": "Index title hover." },
+      { "name": "bg-fade", "value": "background 0.5s ease", "purpose": "Home link hover." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "600px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Right-aligned letter-spaced links with a hairline below; active link has a gold underline.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-a ds-active\" href=\"#\">Wrote</a><a class=\"ds-nav-a\" href=\"#\">About</a><a class=\"ds-nav-a\" href=\"#\">Stuff</a></nav>",
+      "css": ".ds-nav{text-align:right;border-bottom:1px solid #999;font-family:Spectral,serif}.ds-nav-a{display:inline-block;padding:10px;color:#999;font-weight:bold;letter-spacing:1px;text-decoration:none}.ds-nav-a:hover,.ds-nav-a:focus-visible{color:#bc9531}.ds-active{color:#cdcdcd;border-bottom:2px solid #bc9531}"
+    },
+    {
+      "name": "Index Entry",
+      "kind": "card",
+      "description": "Post title over a dashed rule with a right-aligned date; gold on hover.",
+      "html": "<a class=\"ds-entry\" href=\"#\"><h3>Visualizing Ethereum's EIP-1559</h3><time>16 May 2024</time></a>",
+      "css": ".ds-entry{display:block;font-family:Spectral,serif;text-decoration:none;color:#EAE9E9;margin:0 1.2em}.ds-entry h3{font-weight:normal;font-size:1.17em;margin:0;padding:4px;border-bottom:1px dashed #999;transition:color .25s ease}.ds-entry time{display:block;text-align:right;font-size:11px;color:#999}.ds-entry:hover h3,.ds-entry:focus-visible h3{color:#bc9531;border-bottom:1px solid #96741D}.ds-entry:hover time{color:#bc9531}"
+    },
+    {
+      "name": "Prose Link",
+      "kind": "custom",
+      "description": "Bold link with a gold wavy underline.",
+      "html": "<p class=\"ds-p\">Read the <a class=\"ds-link\" href=\"#\">full essay</a> here.</p>",
+      "css": ".ds-p{font-family:Spectral,serif;font-size:14px;letter-spacing:.8px;color:#EAE9E9}.ds-link{font-weight:600;color:#EAE9E9;text-decoration:#bc9531 wavy underline}.ds-link:hover,.ds-link:focus-visible{text-decoration:#96741D solid underline}"
+    },
+    {
+      "name": "Blockquote",
+      "kind": "custom",
+      "refersTo": "blockquote",
+      "description": "Umber wash with a 4px gold bar.",
+      "html": "<blockquote class=\"ds-bq\"><p>Ideas are better when they run.</p></blockquote>",
+      "css": ".ds-bq{margin:0;padding:14px;color:#cdcdcd;font-family:Spectral,serif;line-height:1.32;background:#514C48;border-left:4px solid #bc9531;border-radius:0 4px 4px 0}.ds-bq p{margin:0}"
+    },
+    {
+      "name": "Inline Code",
+      "kind": "custom",
+      "refersTo": "code-inline",
+      "description": "Green-on-black monospace chip.",
+      "html": "<code class=\"ds-code\">npm run dev</code>",
+      "css": ".ds-code{padding:4px 8px;border-radius:4px;background:#222;color:#05d805}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lab Notebook",
+    "overview": "A single narrow column of serif text on a flat field, annotated by hand: dashed rules under titles, tildes flanking headings, wavy gold underlines on links, small italic captions. It reads like a bound notebook where essays and experiments share the same page. The interface stays out of the way; interactive pieces and prose carry the weight.",
+    "keyCharacteristics": [
+      "One serif family (Spectral) for everything; hierarchy comes from size, tracking and rules, not weight.",
+      "One gold accent, used for hover, rules and small markers.",
+      "Flat surfaces, dashed and hairline dividers, no elevation system.",
+      "Centered 40em reading column with a full-bleed escape for sketches and splash areas."
+    ],
+    "rules": [
+      { "name": "The One Gold Rule", "body": "Gold is the only accent. It marks interaction and annotation, never fills large areas.", "section": "colors" },
+      { "name": "The Two Themes Rule", "body": "Color goes through the --color-* theme variables on body[data-theme]; avoid new hard-coded hexes for text or backgrounds.", "section": "colors" },
+      { "name": "The Tilde Rule", "body": "h2 and h4 headings are wrapped in \"~ ~\" via pseudo-elements. Don't add the glyphs in markup.", "section": "typography" },
+      { "name": "The No Bold Rule", "body": "Headings stay regular weight; emphasis comes from color, size or italic.", "section": "typography" },
+      { "name": "The Flat Page Rule", "body": "No cards with drop shadows. Separate things with rules and spacing.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep text in the 40em column and let sketches or splash content span `full`.",
+      "Do use theme variables for text and background colors.",
+      "Do use dashed gold or grey rules for list and heading dividers.",
+      "Do keep gold small and meaningful."
+    ],
+    "donts": [
+      "Don't introduce a second typeface or bold display headings.",
+      "Don't add drop-shadowed cards, gradients or large gold fills.",
+      "Don't hard-code light-only or dark-only colors in new components.",
+      "Don't add new mobile breakpoints without a reason; the system uses a single 600px break."
+    ]
+  }
+}
