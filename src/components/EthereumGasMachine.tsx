@@ -266,6 +266,7 @@ const BaseValue = styled.p`
     right: 190px;
     color: #777;
     font-size: 11px;
+    margin-right: 14px;
     content: 'Base fees';
   }
 `;

@@ -11,40 +11,40 @@ import solcube from '../../../public/stuff/solcube.png'
 
 const entries = [
   {
+    href: '/sketches',
+    title: 'SolCube Sketche',
+    caption: 'Interactive p5.js sketche that rifs on the works of Sol Lewitt.',
+    image: solcube,
+  },
+  {
     href: '/nodegardens',
     title: 'Node Garden #1',
-    caption: 'Generative drawings grown from nodes and the lines between them.',
+    caption: 'Generative drawings grown from nodes and the space between them.',
     image: ng1,
   },
   {
     href: '/ng2',
     title: 'Node Garden #2',
-    caption: 'The same system pushed into spirals.',
+    caption: 'From the same system node based system but pushed into crystals, waves and spirals.',
     image: ng2,
   },
   {
     href: '/ng3',
     title: 'Node Garden #3',
-    caption: 'The same system arranged in columns.',
+    caption: 'The same node system with columns arrangments.',
     image: ng3,
   },
   {
     href: '/sites',
     title: 'Old sites',
-    caption: 'Websites I designed and built over the years.',
+    caption: 'Some old websites I designed and built over the years.',
     image: sites,
   },
   {
     href: '/screens',
     title: 'Screens',
-    caption: 'Interface and UX designs from past projects.',
+    caption: 'Interface and UX designs from long ago projects.',
     image: screens,
-  },
-  {
-    href: '/sketches',
-    title: 'Sketches (Sol Cube)',
-    caption: 'Interactive p5.js sketches, starting with the Sol Cube.',
-    image: solcube,
   },
 ]
 
@@ -71,7 +71,7 @@ export default function Stuff() {
         {entries.map(({ href, title, caption, image }) => (
           <li key={href}>
             <Link href={href}>
-              <Image src={image} alt='' width={112} height={84} />
+              <Image src={image} alt='' />
               <span>
                 <h3>{title}</h3>
                 <p>{caption}</p>
