@@ -679,3 +679,17 @@ blockquote ul li::before {
 #defaultCanvas1 {
   display: none;
 }
+
+.theme-img-light,
+body[data-theme="light"] .theme-img-dark {
+  display: none;
+}
+
+body[data-theme="light"] .theme-img-light {
+  display: block;
+  margin: 0 auto;
+}
+
+.theme-img-dark {
+  margin: 0 auto;
+}

@@ -13,54 +13,39 @@ interface Props {
 const LightBox: React.FC<Props> = ({ children, src, alt, img_array, dir }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [srcImg, setSrcImg] = useState(src);
-  const [prevAvail, setPrevAvail] = useState(true);
-  const [nextAvail, setNextAvail] = useState(true);
-  
+
   const curImg = srcImg.substring(srcImg.lastIndexOf('/')).split('.')[0];
-  const currentIndex = img_array.findIndex((i) => i === curImg);
+  const currentIndex = img_array.findIndex((i) => i === srcImg);
+  const prevAvail = currentIndex > 0;
+  const nextAvail = currentIndex < img_array.length - 1;
 
-  const toggleIsOpen = useCallback(() => {
-    setIsOpen(!isOpen);
-  }, [isOpen]);
-
-  const prev = useCallback((e: React.MouseEvent<Element, MouseEvent>) => {
+  const open = useCallback(() => setIsOpen(true), []);
+  const close = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
-    const prevIndex = currentIndex - 1;
-    if (prevIndex >= 0) {
-      setSrcImg(img_array[prevIndex]);
-      setNextAvail(true);
-      setPrevAvail(prevIndex > 0);
-    } else {
-      setPrevAvail(false);
-    }
-  }, [currentIndex, img_array]);
+    setIsOpen(false);
+  }, []);
 
-  const next = useCallback((e: React.MouseEvent<Element, MouseEvent>) => {
+  const prev = (e: React.MouseEvent<Element, MouseEvent>) => {
     e.stopPropagation();
-    const nextIndex = currentIndex + 1;
-    if (nextIndex < img_array.length) {
-      setSrcImg(img_array[nextIndex]);
-      setPrevAvail(true);
-      setNextAvail(nextIndex < img_array.length - 1);
-    } else {
-      setNextAvail(false);
-    }
-  }, [currentIndex, img_array]);
+    if (prevAvail) setSrcImg(img_array[currentIndex - 1]);
+  };
+
+  const next = (e: React.MouseEvent<Element, MouseEvent>) => {
+    e.stopPropagation();
+    if (nextAvail) setSrcImg(img_array[currentIndex + 1]);
+  };
 
   return (
-    <div onClick={toggleIsOpen}>
+    <div onClick={open}>
       {children}
       {isOpen ?
-        <div className='lightbox' onClick={toggleIsOpen}>
+        <div className='lightbox' onClick={close}>
           <div style={{ display: 'block' }}>
-            <Image width='500' height='500' src={`/${dir}/${srcImg}.jpg`} alt={alt} />
+            <Image width={500} height={500} src={`/${dir}/${srcImg}.jpg`} alt={alt} />
             <figcaption>{curImg}</figcaption>
             <div className='lightbox_nav'>
-              {
-                prevAvail && <button onClick={(e) => prev(e)}>{'< Prev'}</button>
-              }{
-                nextAvail && <button onClick={(e) => next(e)}>{'Next >'}</button>
-              }
+              {prevAvail && <button onClick={prev}>{'< Prev'}</button>}
+              {nextAvail && <button onClick={next}>{'Next >'}</button>}
             </div>
           </div>
         </div>

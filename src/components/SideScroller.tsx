@@ -1,37 +1,22 @@
-"use client";
-import useSWR from 'swr';
+import fs from 'fs/promises';
+import path from 'path';
 import Image from 'next/image';
-import React, { useCallback } from 'react';
 import './sliders.css';
 
-interface PicName {
-  name: string;
+function getName(str: string) {
+  const nameExt = str.match(/[^/]*$/)?.toString();
+  return nameExt?.substring(0, nameExt.lastIndexOf('.')) || '';
 }
 
-export default function SideScroller(
+export default async function SideScroller(
   { dir, infos }: { dir: string; infos: string[] }
 ) {
-
-  const fetcher = useCallback((url: string) =>
-    fetch(url).then((res) => {
-      if (!res.ok) throw new Error('Failed to fetch');
-      return res.json();
-    }), []
-  );
-
-  const { data, error, isLoading } = useSWR(dir, fetcher);
-
-  const getName = useCallback((str: string) => {
-    const nameExt = str.match(/[^/]*$/)?.toString();
-    return nameExt?.substring(0, nameExt.lastIndexOf('.')) || '';
-  }, []);
-
-  if (error) return <div>Failed to load images</div>;
-  if (isLoading) return <div>Loading...</div>;
+  const filenames = (await fs.readdir(path.join(process.cwd(), 'public', dir))).sort();
+  const images = filenames.map((name) => path.posix.join('/', dir, name));
 
   return (
     <div className='slider'>
-      {data?.map((imgPath: string, i: number) => (
+      {images.map((imgPath, i) => (
         <div className='slider_img' key={imgPath}>
           <span>
             <Image

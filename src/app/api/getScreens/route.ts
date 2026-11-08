@@ -1,13 +1,14 @@
-
 import { NextResponse } from 'next/server';
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 
-export async function GET() {
-    const dirRelativeToPublicFolder = 'stuff/screens_ux';
-    const dir = path.resolve('./public', dirRelativeToPublicFolder);
-    const filenames = fs.readdirSync(dir);
-    const images = filenames.map(name => path.join('/', dirRelativeToPublicFolder, name));
+export const dynamic = 'force-static';
 
-    return NextResponse.json(images);
+export async function GET() {
+  const dirRelativeToPublicFolder = 'stuff/screens_ux';
+  const dir = path.resolve('./public', dirRelativeToPublicFolder);
+  const filenames = await fs.readdir(dir);
+  const images = filenames.map((name) => path.join('/', dirRelativeToPublicFolder, name));
+
+  return NextResponse.json(images);
 }

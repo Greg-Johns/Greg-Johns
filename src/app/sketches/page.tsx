@@ -1,8 +1,7 @@
 'use client'
 
 import React from "react";
-import { NextReactP5Wrapper } from "@p5-wrapper/next";
-import sketch from "./solcube";
+import SolCubeSketch from "./SolCubeSketch";
 import Link from 'next/link';
 import Image from 'next/image';
 import sol2 from '../../../public/sol2.jpeg'
@@ -29,7 +28,7 @@ export default function Sketches() {
 
       <h6> </h6>
       <div className='sketchFrame'>
-        <NextReactP5Wrapper sketch={sketch} />
+        <SolCubeSketch />
       </div>
 
       <h4>Sol Cube</h4>
